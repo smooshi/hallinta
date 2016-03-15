@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hallinta</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <ul>
+    <li><%= link_to "Companies", companies_path %></li>
+    <li><%= link_to "Restaurants", restaurants_path %></li>
+    <li><%= link_to "Roles", roles_path%></li>
+    <li><%= link_to "Company Type", company_types_path%></li>
+    <li><%= link_to "Restaurant Type", restaurant_types_path%></li>
+  </ul>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
