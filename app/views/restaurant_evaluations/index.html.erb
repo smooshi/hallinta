@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Restaurant Evaluations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Company</th>
+      <th>Restaurant evaluation type</th>
+      <th>Value</th>
+      <th>Evaluation by user</th>
+      <th>Evaluation time</th>
+      <th>Evaluation comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant_evaluations.each do |restaurant_evaluation| %>
+      <tr>
+        <td><%= restaurant_evaluation.restaurant_id %></td>
+        <td><%= restaurant_evaluation.company_id %></td>
+        <td><%= restaurant_evaluation.restaurant_evaluation_type_id %></td>
+        <td><%= restaurant_evaluation.value %></td>
+        <td><%= restaurant_evaluation.evaluation_by_user %></td>
+        <td><%= restaurant_evaluation.evaluation_time %></td>
+        <td><%= restaurant_evaluation.evaluation_comment %></td>
+        <td><%= link_to 'Show', restaurant_evaluation %></td>
+        <td><%= link_to 'Edit', edit_restaurant_evaluation_path(restaurant_evaluation) %></td>
+        <td><%= link_to 'Destroy', restaurant_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant evaluation', new_restaurant_evaluation_path %>

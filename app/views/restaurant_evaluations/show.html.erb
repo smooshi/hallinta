@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @restaurant_evaluation.restaurant_id %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @restaurant_evaluation.company_id %>
+</p>
+
+<p>
+  <strong>Restaurant evaluation type:</strong>
+  <%= @restaurant_evaluation.restaurant_evaluation_type_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @restaurant_evaluation.value %>
+</p>
+
+<p>
+  <strong>Evaluation by user:</strong>
+  <%= @restaurant_evaluation.evaluation_by_user %>
+</p>
+
+<p>
+  <strong>Evaluation time:</strong>
+  <%= @restaurant_evaluation.evaluation_time %>
+</p>
+
+<p>
+  <strong>Evaluation comment:</strong>
+  <%= @restaurant_evaluation.evaluation_comment %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_evaluation_path(@restaurant_evaluation) %> |
+<%= link_to 'Back', restaurant_evaluations_path %>

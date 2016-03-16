@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315183330) do
+ActiveRecord::Schema.define(version: 20160316094207) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,36 @@ ActiveRecord::Schema.define(version: 20160315183330) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "contact_people", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "company_id"
+    t.string   "name"
+    t.string   "role"
+    t.string   "phone_number"
+    t.string   "email"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "restaurant_evaluation_types", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "restaurant_evaluations", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "company_id"
+    t.integer  "restaurant_evaluation_type_id"
+    t.integer  "value"
+    t.integer  "evaluation_by_user"
+    t.datetime "evaluation_time"
+    t.text     "evaluation_comment"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "restaurant_types", force: :cascade do |t|
@@ -62,6 +92,22 @@ ActiveRecord::Schema.define(version: 20160315183330) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.integer  "role_id"
+    t.boolean  "currently_employed"
+    t.boolean  "true"
+    t.boolean  "admin"
+    t.boolean  "false"
+    t.string   "encrypted_password"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "salt"
   end
 
 end

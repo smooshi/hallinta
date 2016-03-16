@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :restaurant_evaluations
+  resources :restaurant_evaluation_types
+  resources :contact_people
+  get 'sessions/new'
+
+  resources :users
   resources :restaurants
   resources :companies
   resources :restaurant_types
@@ -6,6 +12,13 @@ Rails.application.routes.draw do
   resources :roles
 
   root 'companies#index'
+
+  #USER LOGIN
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  resources :sessions
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

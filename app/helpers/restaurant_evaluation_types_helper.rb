@@ -1,0 +1,2 @@
+module RestaurantEvaluationTypesHelper
+end

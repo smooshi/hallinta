@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant_evaluation_type.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @restaurant_evaluation_type.description %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_evaluation_type_path(@restaurant_evaluation_type) %> |
+<%= link_to 'Back', restaurant_evaluation_types_path %>
