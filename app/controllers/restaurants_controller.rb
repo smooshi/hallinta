@@ -14,6 +14,8 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/new
   def new
+    @companies = Company.all
+    @restaurant_types = RestaurantType.all
     @restaurant = Restaurant.new
   end
 

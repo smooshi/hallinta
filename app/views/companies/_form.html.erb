@@ -15,10 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :company_type_id %><br>
-    <%= f.number_field :company_type_id %>
-  </div>
+    <div class="field">
+      <%= f.select :company_type_id, options_from_collection_for_select(@company_types, :id, :name) %>
+    </div>
   <div class="field">
     <%= f.label :street_address %><br>
     <%= f.text_field :street_address %>
@@ -38,22 +37,6 @@
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :added_by_user %><br>
-    <%= f.number_field :added_by_user %>
-  </div>
-  <div class="field">
-    <%= f.label :edited_by_user %><br>
-    <%= f.number_field :edited_by_user %>
-  </div>
-  <div class="field">
-    <%= f.label :added_time %><br>
-    <%= f.datetime_select :added_time %>
-  </div>
-  <div class="field">
-    <%= f.label :edit_time %><br>
-    <%= f.datetime_select :edit_time %>
   </div>
   <div class="actions">
     <%= f.submit %>

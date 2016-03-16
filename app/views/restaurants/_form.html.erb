@@ -15,10 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :company_id %><br>
-    <%= f.number_field :company_id %>
-  </div>
+    <div class="field">
+      <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name) %>
+    </div>
   <div class="field">
     <%= f.label :street_address %><br>
     <%= f.text_field :street_address %>
@@ -43,10 +42,9 @@
     <%= f.label :server_ip %><br>
     <%= f.text_field :server_ip %>
   </div>
-  <div class="field">
-    <%= f.label :restaurant_type_id %><br>
-    <%= f.number_field :restaurant_type_id %>
-  </div>
+    <div class="field">
+      <%= f.select :restaurant_type_id, options_from_collection_for_select(@restaurant_types, :id, :name) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

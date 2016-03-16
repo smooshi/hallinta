@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
+    @company_types = CompanyType.all
     @company = Company.new
   end
 
@@ -25,7 +26,8 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-
+    @company.added_by_user = current_user.id
+    @company.edited_by_user = current_user.id
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
@@ -42,6 +44,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
+        @company.edited_by_user = current_user.id
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { render :show, status: :ok, location: @company }
       else
@@ -69,6 +72,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:name, :company_type_id, :street_address, :city, :country, :phone_number, :email, :added_by_user, :edited_by_user, :added_time, :edit_time)
+      params.require(:company).permit(:name, :company_type_id, :street_address, :city, :country, :phone_number, :email, :added_by_user, :edited_by_user)
     end
 end

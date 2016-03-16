@@ -45,15 +45,5 @@
   <%= @company.edited_by_user %>
 </p>
 
-<p>
-  <strong>Added time:</strong>
-  <%= @company.added_time %>
-</p>
-
-<p>
-  <strong>Edit time:</strong>
-  <%= @company.edit_time %>
-</p>
-
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
