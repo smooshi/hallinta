@@ -1,0 +1,2 @@
+module DeviceInAgreementsHelper
+end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Software:</strong>
+  <%= @software_in_agreement.software_id %>
+</p>
+
+<p>
+  <strong>Agreement:</strong>
+  <%= @software_in_agreement.agreement_id %>
+</p>
+
+<p>
+  <strong>Monthly price:</strong>
+  <%= @software_in_agreement.monthly_price %>
+</p>
+
+<%= link_to 'Edit', edit_software_in_agreement_path(@software_in_agreement) %> |
+<%= link_to 'Back', software_in_agreements_path %>

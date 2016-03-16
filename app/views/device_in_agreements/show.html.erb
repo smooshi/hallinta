@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agreement:</strong>
+  <%= @device_in_agreement.agreement_id %>
+</p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @device_in_agreement.device_id %>
+</p>
+
+<p>
+  <strong>Price is leasing:</strong>
+  <%= @device_in_agreement.price_is_leasing %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @device_in_agreement.total_price %>
+</p>
+
+<p>
+  <strong>Monthly price:</strong>
+  <%= @device_in_agreement.monthly_price %>
+</p>
+
+<%= link_to 'Edit', edit_device_in_agreement_path(@device_in_agreement) %> |
+<%= link_to 'Back', device_in_agreements_path %>

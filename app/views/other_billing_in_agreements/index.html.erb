@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Other Billing In Agreements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Agreement</th>
+      <th>Description</th>
+      <th>Total price</th>
+      <th>Monthly price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @other_billing_in_agreements.each do |other_billing_in_agreement| %>
+      <tr>
+        <td><%= other_billing_in_agreement.agreement_id %></td>
+        <td><%= other_billing_in_agreement.description %></td>
+        <td><%= other_billing_in_agreement.total_price %></td>
+        <td><%= other_billing_in_agreement.monthly_price %></td>
+        <td><%= link_to 'Show', other_billing_in_agreement %></td>
+        <td><%= link_to 'Edit', edit_other_billing_in_agreement_path(other_billing_in_agreement) %></td>
+        <td><%= link_to 'Destroy', other_billing_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Other billing in agreement', new_other_billing_in_agreement_path %>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :other_billing_in_agreements
+  resources :software_in_agreements
+  resources :device_in_agreements
+  resources :agreements
   resources :softwares
   resources :devices
   resources :device_types

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @agreement.restaurant_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @agreement.user_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @agreement.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @agreement.end_date %>
+</p>
+
+<p>
+  <strong>Agreement length:</strong>
+  <%= @agreement.agreement_length %>
+</p>
+
+<p>
+  <strong>Term of notice in months:</strong>
+  <%= @agreement.term_of_notice_in_months %>
+</p>
+
+<p>
+  <strong>Responsible user:</strong>
+  <%= @agreement.responsible_user_id %>
+</p>
+
+<p>
+  <strong>Invoicing period length:</strong>
+  <%= @agreement.invoicing_period_length %>
+</p>
+
+<p>
+  <strong>Invoicing payment time:</strong>
+  <%= @agreement.invoicing_payment_time %>
+</p>
+
+<p>
+  <strong>Invoicing date:</strong>
+  <%= @agreement.invoicing_date %>
+</p>
+
+<p>
+  <strong>Signed by customer:</strong>
+  <%= @agreement.signed_by_customer %>
+</p>
+
+<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
+<%= link_to 'Back', agreements_path %>

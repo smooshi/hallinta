@@ -1,0 +1,37 @@
+<%= form_for(@device_in_agreement) do |f| %>
+  <% if @device_in_agreement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device_in_agreement.errors.count, "error") %> prohibited this device_in_agreement from being saved:</h2>
+
+      <ul>
+      <% @device_in_agreement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :agreement_id %><br>
+    <%= f.number_field :agreement_id %>
+  </div>
+  <div class="field">
+    <%= f.label :device_id %><br>
+    <%= f.number_field :device_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price_is_leasing %><br>
+    <%= f.check_box :price_is_leasing %>
+  </div>
+  <div class="field">
+    <%= f.label :total_price %><br>
+    <%= f.number_field :total_price %>
+  </div>
+  <div class="field">
+    <%= f.label :monthly_price %><br>
+    <%= f.number_field :monthly_price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

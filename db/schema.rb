@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316103413) do
+ActiveRecord::Schema.define(version: 20160316161223) do
+
+  create_table "agreements", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "user_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "agreement_length"
+    t.integer  "term_of_notice_in_months"
+    t.integer  "responsible_user_id"
+    t.integer  "invoicing_period_length"
+    t.integer  "invoicing_payment_time"
+    t.integer  "invoicing_date"
+    t.boolean  "signed_by_customer"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -53,6 +69,16 @@ ActiveRecord::Schema.define(version: 20160316103413) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "device_in_agreements", force: :cascade do |t|
+    t.integer  "agreement_id"
+    t.integer  "device_id"
+    t.boolean  "price_is_leasing"
+    t.integer  "total_price"
+    t.integer  "monthly_price"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "device_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "warranty_length"
@@ -73,6 +99,15 @@ ActiveRecord::Schema.define(version: 20160316103413) do
     t.boolean  "rental_device"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "other_billing_in_agreements", force: :cascade do |t|
+    t.integer  "agreement_id"
+    t.text     "description"
+    t.integer  "total_price"
+    t.integer  "monthly_price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "restaurant_evaluation_types", force: :cascade do |t|
@@ -119,6 +154,14 @@ ActiveRecord::Schema.define(version: 20160316103413) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "software_in_agreements", force: :cascade do |t|
+    t.integer  "software_id"
+    t.integer  "agreement_id"
+    t.integer  "monthly_price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "softwares", force: :cascade do |t|

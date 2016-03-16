@@ -1,0 +1,61 @@
+<%= form_for(@agreement) do |f| %>
+  <% if @agreement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agreement.errors.count, "error") %> prohibited this agreement from being saved:</h2>
+
+      <ul>
+      <% @agreement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= f.number_field :restaurant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.datetime_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :agreement_length %><br>
+    <%= f.number_field :agreement_length %>
+  </div>
+  <div class="field">
+    <%= f.label :term_of_notice_in_months %><br>
+    <%= f.text_field :term_of_notice_in_months %>
+  </div>
+  <div class="field">
+    <%= f.label :responsible_user_id %><br>
+    <%= f.number_field :responsible_user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :invoicing_period_length %><br>
+    <%= f.number_field :invoicing_period_length %>
+  </div>
+  <div class="field">
+    <%= f.label :invoicing_payment_time %><br>
+    <%= f.number_field :invoicing_payment_time %>
+  </div>
+  <div class="field">
+    <%= f.label :invoicing_date %><br>
+    <%= f.number_field :invoicing_date %>
+  </div>
+  <div class="field">
+    <%= f.label :signed_by_customer %><br>
+    <%= f.check_box :signed_by_customer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

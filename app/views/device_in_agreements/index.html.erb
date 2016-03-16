@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Device In Agreements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Agreement</th>
+      <th>Device</th>
+      <th>Price is leasing</th>
+      <th>Total price</th>
+      <th>Monthly price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @device_in_agreements.each do |device_in_agreement| %>
+      <tr>
+        <td><%= device_in_agreement.agreement_id %></td>
+        <td><%= device_in_agreement.device_id %></td>
+        <td><%= device_in_agreement.price_is_leasing %></td>
+        <td><%= device_in_agreement.total_price %></td>
+        <td><%= device_in_agreement.monthly_price %></td>
+        <td><%= link_to 'Show', device_in_agreement %></td>
+        <td><%= link_to 'Edit', edit_device_in_agreement_path(device_in_agreement) %></td>
+        <td><%= link_to 'Destroy', device_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Device in agreement', new_device_in_agreement_path %>

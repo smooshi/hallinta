@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agreement:</strong>
+  <%= @other_billing_in_agreement.agreement_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @other_billing_in_agreement.description %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @other_billing_in_agreement.total_price %>
+</p>
+
+<p>
+  <strong>Monthly price:</strong>
+  <%= @other_billing_in_agreement.monthly_price %>
+</p>
+
+<%= link_to 'Edit', edit_other_billing_in_agreement_path(@other_billing_in_agreement) %> |
+<%= link_to 'Back', other_billing_in_agreements_path %>
