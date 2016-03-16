@@ -30,8 +30,17 @@
         <%= link_to "log in", log_in_path %>
     <% end %>
   </div>
+  <li>
+    <%= link_to t('menu.languages.en'), change_locale_path(:en) %>
+  </li>
+  <li>
+    <%= link_to t('menu.languages.fi'), change_locale_path(:fi) %>
+  </li>
 </head>
 <body>
+<div class="page-header">
+  <h1><%= yield :page_header %></h1>
+</div>
 
 <%= yield %>
 

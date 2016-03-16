@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_companies_and_types, only: [:edit, :update, :new, :create]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -14,8 +15,6 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/new
   def new
-    @companies = Company.all
-    @restaurant_types = RestaurantType.all
     @restaurant = Restaurant.new
   end
 
@@ -68,6 +67,11 @@ class RestaurantsController < ApplicationController
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
     end
+
+  def set_companies_and_types
+    @companies = Company.all
+    @restaurant_types = RestaurantType.all
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params

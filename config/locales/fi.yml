@@ -19,38 +19,39 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fi:
   activerecord:
     attributes:
       restaurant:
-        name: "Name"
-        street_adress: "Street Adress"
-        city: "City"
-        country: "Country"
-        phone_number: "Phone number"
-        email: "Email"
-        restaurant_type: "Restaurant Type"
-        company: "Company"
+        name: "Nimi"
+        street_address: "Katuosoite"
+        city: "Kaupunki"
+        country: "Maa"
+        phone_number: "Puhelinnumero"
+        email: "Sähköposti"
+        restaurant_type: "Ravintolatyyppi"
+        company: "Yhtiö"
   forms:
     messages:
-      success: "Operation succeeded!"
+      success: "Onnistui!"
     buttons:
-      edit: "Edit"
-      submit: "Submit"
+      edit: "Muokkaa"
+      submit: "Lähetä"
   menu:
-    restaurants: "Restaurants"
-    new_restaurant: "Add a restaurant"
+    restaurants: "Ravintolat"
+    new_restaurant: "Lisää ravintola"
     languages:
-      lang: "Language"
-      fi: "Finnish"
-      en: "English"
+      lang: "Kieli"
+      fi: "Suomi"
+      en: "Englanti"
   restaurants:
     index:
-      title: "List of restaurants"
+      title: "Lista ravintoloista"
       count:
-        one: "%{count} restaurant"
-        other: "%{count} restaurants"
+        zero: "%{count} ravintolaa"
+        one: "%{count} ravintola"
+        other: "%{count} ravintolaa"
     edit:
-      title: "Edit restaurant"
+      title: "Lisää ravintola"
     new:
-      title: "New restaurant"
+      title: "Uusi ravintola"
