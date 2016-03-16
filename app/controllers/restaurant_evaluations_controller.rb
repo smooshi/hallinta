@@ -14,6 +14,8 @@ class RestaurantEvaluationsController < ApplicationController
 
   # GET /restaurant_evaluations/new
   def new
+    @restaurants = Restaurant.all
+    @restaurant_evaluation_types = RestaurantEvaluationType.all
     @restaurant_evaluation = RestaurantEvaluation.new
   end
 
@@ -24,8 +26,12 @@ class RestaurantEvaluationsController < ApplicationController
   # POST /restaurant_evaluations
   # POST /restaurant_evaluations.json
   def create
-    @restaurant_evaluation = RestaurantEvaluation.new(restaurant_evaluation_params)
+    @restaurants = Restaurant.all
+    @restaurant_evaluation_types = RestaurantEvaluationType.all
 
+    @restaurant_evaluation = RestaurantEvaluation.new(restaurant_evaluation_params)
+    @restaurant_evaluation.company_id = Restaurant.find_by_id(restaurant_evaluation_params[:restaurant_id]).company.id
+    @restaurant_evaluation.user_id = current_user.id
     respond_to do |format|
       if @restaurant_evaluation.save
         format.html { redirect_to @restaurant_evaluation, notice: 'Restaurant evaluation was successfully created.' }
