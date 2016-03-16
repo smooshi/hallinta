@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316094207) do
+ActiveRecord::Schema.define(version: 20160316095953) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20160316094207) do
     t.integer  "company_id"
     t.integer  "restaurant_evaluation_type_id"
     t.integer  "value"
-    t.integer  "evaluation_by_user"
+    t.integer  "user_id"
     t.datetime "evaluation_time"
     t.text     "evaluation_comment"
     t.datetime "created_at",                    null: false
