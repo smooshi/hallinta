@@ -1,0 +1,49 @@
+<%= form_for(@device) do |f| %>
+  <% if @device.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+      <% @device.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :device_type_id %><br>
+    <%= f.number_field :device_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_day %><br>
+    <%= f.datetime_select :purchase_day %>
+  </div>
+  <div class="field">
+    <%= f.label :is_leased %><br>
+    <%= f.check_box :is_leased %>
+  </div>
+  <div class="field">
+    <%= f.label :full_price %><br>
+    <%= f.number_field :full_price %>
+  </div>
+  <div class="field">
+    <%= f.label :leasing_price %><br>
+    <%= f.number_field :leasing_price %>
+  </div>
+  <div class="field">
+    <%= f.label :leasing_length %><br>
+    <%= f.number_field :leasing_length %>
+  </div>
+  <div class="field">
+    <%= f.label :identifier %><br>
+    <%= f.text_field :identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :rental_device %><br>
+    <%= f.check_box :rental_device %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

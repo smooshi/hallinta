@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device_type.name %>
+</p>
+
+<p>
+  <strong>Warranty length:</strong>
+  <%= @device_type.warranty_length %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @device_type.total_price %>
+</p>
+
+<p>
+  <strong>Leasing price per month:</strong>
+  <%= @device_type.leasing_price_per_month %>
+</p>
+
+<%= link_to 'Edit', edit_device_type_path(@device_type) %> |
+<%= link_to 'Back', device_types_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device type:</strong>
+  <%= @device.device_type_id %>
+</p>
+
+<p>
+  <strong>Purchase day:</strong>
+  <%= @device.purchase_day %>
+</p>
+
+<p>
+  <strong>Is leased:</strong>
+  <%= @device.is_leased %>
+</p>
+
+<p>
+  <strong>Full price:</strong>
+  <%= @device.full_price %>
+</p>
+
+<p>
+  <strong>Leasing price:</strong>
+  <%= @device.leasing_price %>
+</p>
+
+<p>
+  <strong>Leasing length:</strong>
+  <%= @device.leasing_length %>
+</p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @device.identifier %>
+</p>
+
+<p>
+  <strong>Rental device:</strong>
+  <%= @device.rental_device %>
+</p>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

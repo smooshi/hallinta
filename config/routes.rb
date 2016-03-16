@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :softwares
+  resources :devices
+  resources :device_types
+  resources :customers
   resources :restaurant_evaluations
   resources :restaurant_evaluation_types
   resources :contact_people

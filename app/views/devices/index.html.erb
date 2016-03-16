@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Devices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device type</th>
+      <th>Purchase day</th>
+      <th>Is leased</th>
+      <th>Full price</th>
+      <th>Leasing price</th>
+      <th>Leasing length</th>
+      <th>Identifier</th>
+      <th>Rental device</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.device_type_id %></td>
+        <td><%= device.purchase_day %></td>
+        <td><%= device.is_leased %></td>
+        <td><%= device.full_price %></td>
+        <td><%= device.leasing_price %></td>
+        <td><%= device.leasing_length %></td>
+        <td><%= device.identifier %></td>
+        <td><%= device.rental_device %></td>
+        <td><%= link_to 'Show', device %></td>
+        <td><%= link_to 'Edit', edit_device_path(device) %></td>
+        <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Device', new_device_path %>

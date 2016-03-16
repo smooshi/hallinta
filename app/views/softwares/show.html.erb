@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @software.name %>
+</p>
+
+<p>
+  <strong>Addon:</strong>
+  <%= @software.addon %>
+</p>
+
+<p>
+  <strong>Bel price:</strong>
+  <%= @software.BEL_price %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @software.price %>
+</p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @software.identifier %>
+</p>
+
+<%= link_to 'Edit', edit_software_path(@software) %> |
+<%= link_to 'Back', softwares_path %>
