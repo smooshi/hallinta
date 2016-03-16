@@ -1,3 +1,3 @@
 class Software < ActiveRecord::Base
-  belongs_to :agreement, through: :software_in_agreement
+  belongs_to :software_in_agreement
 end
