@@ -1,37 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.name') %></strong>
+  <strong><%= t('activerecord.attributes.general.name') %></strong>
   <%= @restaurant.name %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.company') %></strong>
+  <strong><%= t('activerecord.attributes.general.company') %></strong>
   <%= link_to @companies.find_by_id(@restaurant.company_id).name, @companies.find_by_id(@restaurant.company_id)%>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.street_address') %></strong>
+  <strong><%= t('activerecord.attributes.general.street_address') %></strong>
   <%= @restaurant.street_address %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.city') %></strong>
+  <strong><%= t('activerecord.attributes.general.city') %></strong>
   <%= @restaurant.city %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.country') %></strong>
+  <strong><%= t('activerecord.attributes.general.country') %></strong>
   <%= @restaurant.country %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.phone_number') %></strong>
+  <strong><%= t('activerecord.attributes.general.phone_number') %></strong>
   <%= @restaurant.phone_number %>
 </p>
 
 <p>
-  <strong><%= t('activerecord.attributes.restaurant.email') %></strong>
+  <strong><%= t('activerecord.attributes.general.email') %></strong>
   <%= @restaurant.email %>
 </p>
 

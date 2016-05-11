@@ -22,15 +22,21 @@
 fi:
   activerecord:
     attributes:
-      restaurant:
+      general:
         name: "Nimi"
         street_address: "Katuosoite"
         city: "Kaupunki"
         country: "Maa"
         phone_number: "Puhelinnumero"
         email: "Sähköposti"
-        restaurant_type: "Ravintolatyyppi"
         company: "Yhtiö"
+        restaurant: "Ravintola"
+      company:
+        company_type: "Yritystyyppi"
+        added_by_user: "Lisännyt henkilö"
+        edited_by_user: "Muokannut henkilö"
+      restaurant:
+        restaurant_type: "Ravintolatyyppi"
   forms:
     messages:
       success: "Onnistui!"
@@ -38,12 +44,19 @@ fi:
       edit: "Muokkaa"
       submit: "Lähetä"
   menu:
+    companies: "Yritykset"
     restaurants: "Ravintolat"
     new_restaurant: "Lisää ravintola"
     languages:
       lang: "Kieli"
       fi: "Suomi"
       en: "Englanti"
+  companies:
+    index:
+      title: "Lista yrityksistä"
+      new_link: "Luo uusi yritys"
+    show:
+      restaurants_in_company: "Yrityksen ravintolat"
   restaurants:
     index:
       title: "Lista ravintoloista"

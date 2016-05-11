@@ -1,65 +1,49 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @company.name %></h1>
+<br>
+<table class="smallTable">
+  <thead>
+  <tr>
+    <th> <strong><%= t('activerecord.attributes.company.company_type')%></strong></th>
+    <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.company.added_by_user')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.company.edited_by_user')%></strong></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= @company.company_type.name %></td>
+    <td> <%= @company.street_address %></td>
+    <td><%= @company.city %></td>
+    <td> <%= @company.country %></td>
+    <td><%= @company.phone_number %></td>
+    <td><%= @company.email %></td>
+    <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
+    <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
+  </tr>
+  </tbody>
+</table>
+<%= button_to 'Edit', edit_company_path(@company) %>
+<br>
 <p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Company type:</strong>
-  <%= @company.company_type_id %>
-</p>
-
-<p>
-  <strong>Street address:</strong>
-  <%= @company.street_address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @company.city %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @company.country %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @company.phone_number %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
-
-<p>
-  <strong>Added by user:</strong>
-  <%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %>
-</p>
-
-<p>
-  <strong>Edited by user:</strong>
-  <%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %>
-</p>
-
-<p>
-  <strong>Restaurants in this company:</strong>
+  <strong><h2><%= t('companies.show.restaurants_in_company')%></h2></strong>
 </p>
 <table>
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Street address</th>
-    <th>City</th>
-    <th>Country</th>
-    <th>Phone number</th>
-    <th>Email</th>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
     <th>Server ip</th>
-    <th>Restaurant type</th>
-    <th colspan="3"></th>
+    <th><%= t('activerecord.attributes.restaurant.restaurant_type') %></th>
   </tr>
   </thead>
 
@@ -79,4 +63,7 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_company_path(@company) %>
+
+<% if admin_user %>
+  <%= button_to 'Destroy', @company, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%end%>
