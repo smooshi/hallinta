@@ -22,23 +22,52 @@
 
 <p>
   <strong>Role:</strong>
-  <%= @user.role_id %>
+  <%= @roles.find_by_id(@user.role_id).name %>
 </p>
 
 <p>
-  <strong>Currently employed:</strong>
-  <%= @user.currently_employed %>
+  <strong>Companies added by this user:</strong>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Street address</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Phone number</th>
+    <th>Email</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+<p> </p>
+  <tbody>
+  <% @companies_by_user.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company %></td>
+        <td><%= company.street_address %></td>
+        <td><%= company.city %></td>
+        <td><%= company.country %></td>
+        <td><%= company.phone_number %></td>
+        <td><%= company.email %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
+<% if admin_user %>
+  <p>
+    <strong>Currently employed:</strong>
+    <%= @user.currently_employed %>
+  </p>
 
-<p>
-  <strong>Encrypted password:</strong>
-  <%= @user.encrypted_password %>
-</p>
+  <p>
+    <strong>Admin:</strong>
+    <%= @user.admin %>
+  </p>
+<%end%>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if admin_user or current_user == @user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>

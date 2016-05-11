@@ -13,3 +13,243 @@
  *= require_tree .
  *= require_self
  */
+@font-face {
+    font-family: 'roboto';
+    src: url("Roboto-Light-webfont.woff") format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'roboto';
+    src: url("Roboto-Regular-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'roboto';
+    src: url("Roboto-Medium-webfont.woff") format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'DejaVuSans';
+    src: url("DejaVuSans-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*:focus {
+    outline: none;
+}
+* {
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+    height: 100%;
+}
+a:link,
+a:active {
+    color: inherit;
+    touch-action: none;
+}
+body {
+    font-family: "roboto", "DejaVuSans", sans-serif;
+    line-height: 100%;
+    background-color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 27px;
+}
+select,
+input[type=text],
+input[type=number],
+input[type=password],
+textarea {
+    border: 1px solid #ccc;
+}
+input[type=text],
+input[type=number],
+input[type=password],
+textarea {
+    box-shadow: 0 2px 2px #ccc inset;
+}
+button:focus,
+select:focus,
+input:focus {
+    border-color: #9b9bec;
+}
+div.container {
+    background-color: white;
+    border: 1px solid #888;
+    border-bottom: 2px solid #666;
+    border-radius: 8px;
+    overflow: hidden;
+}
+div.container h1 {
+    color: #000;
+    font-weight: bold;
+}
+
+div.ui-title {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    height: 48px;
+    background: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
+    overflow: visible;
+    padding: 6px;
+    text-align: center;
+    font-weight: lighter;
+    line-height: 50px;
+}
+
+div.ui-title a:link,
+div.ui-title a:visited {
+    color: #fff;
+}
+div.ui-title a {
+    float: left;
+    height: 48px;
+    width: 196px;
+    background-color: #6a6a6a;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 120%;
+    margin-left: 12px;
+    text-decoration: none;
+    font-weight: lighter;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px #999;
+    text-shadow: 0 -1px 1px #222;
+    cursor: pointer;
+}
+
+div.ui-title a:active {
+    box-shadow: 0 0 0 0;
+}
+
+div.menu {
+    position: absolute;
+    top: 66px;
+    left: 2px;
+    bottom: 2px;
+    width: 226px;
+}
+
+div.menu h2 {
+    display: block;
+    margin-top: 8px;
+    margin-left: 14px;
+    font-size: 115%;
+}
+
+div.menu a {
+    display: block;
+    text-decoration: none;
+    margin-left: 22px;
+    margin-top: 6px;
+}
+div.menu a {
+    margin: 1em 0 0 1em;
+    display: block;
+    text-decoration: none;
+    margin-left: 22px;
+    margin-top: 6px;
+    color: inherit;
+}
+div.menu a:hover,
+div.menu a.active {
+    text-decoration: underline;
+}
+
+div.content {
+    position: absolute;
+    top: 64px;
+    left: 230px;
+    bottom: 0px;
+    right: 0px;
+    padding: 6px;
+    margin: 2px 2px 2px 2px;
+    overflow-y: scroll;
+}
+
+.content h1 {
+    font-size: 125%;
+    margin-top: 6px;
+    margin-left: 4px;
+
+}
+
+.content h2 {
+    font-size: 110%;
+    margin-top: 6px;
+    margin-left: 4px;
+}
+
+.content table {
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.content .smallTable {
+    width: auto;
+}
+
+.content th, td {
+    padding: 8px 10px;
+    word-wrap: break-word;
+}
+
+.content thead th {
+    background-color: #444;
+    border: 1px solid #555;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
+
+.content td {
+    border-top: 1px solid #ccc;
+}
+
+.content tbody tr:nth-child(odd) td {
+    background-color: #eee;
+}
+
+.content tfoot tr td {
+    background-color: #ccc;
+}
+
+.content button {
+    padding: 6px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: lighter;
+    text-shadow: 0 -1px 1px #222;
+    box-shadow: 0 2px 1px rgba(0,0,0,.75);
+    border: none;
+    min-width: 48px;
+    background: #1ed086;
+}
+
+.content .deleteButton {
+    background: #d21e1e;
+}
+
+.content button:active {
+    box-shadow: 0px 0px grey;
+}
+
+.content a:hover {
+    cursor: pointer;
+}

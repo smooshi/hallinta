@@ -14,11 +14,8 @@
   <tbody>
     <% @company_types.each do |company_type| %>
       <tr>
-        <td><%= company_type.name %></td>
+        <td><%= link_to company_type.name, company_type %></td>
         <td><%= company_type.description %></td>
-        <td><%= link_to 'Show', company_type %></td>
-        <td><%= link_to 'Edit', edit_company_type_path(company_type) %></td>
-        <td><%= link_to 'Destroy', company_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

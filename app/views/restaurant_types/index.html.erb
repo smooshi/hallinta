@@ -14,11 +14,8 @@
   <tbody>
     <% @restaurant_types.each do |restaurant_type| %>
       <tr>
-        <td><%= restaurant_type.name %></td>
+        <td><%= link_to restaurant_type.name, restaurant_type %></td>
         <td><%= restaurant_type.description %></td>
-        <td><%= link_to 'Show', restaurant_type %></td>
-        <td><%= link_to 'Edit', edit_restaurant_type_path(restaurant_type) %></td>
-        <td><%= link_to 'Destroy', restaurant_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

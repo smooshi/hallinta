@@ -5,11 +5,13 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+    @restaurants = Restaurant.all
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @restaurants = Restaurant.all
   end
 
   # GET /customers/new

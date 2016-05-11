@@ -1,16 +1,17 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-  before_action :set_companies_and_types, only: [:edit, :update, :new, :create]
+  before_action :set_companies_and_types, only: [:show, :edit, :update, :new, :create]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.includes(:company, :restaurant_type).all
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @restaurant_evals = RestaurantEvaluation.where(:restaurant_id => @restaurant.id)
   end
 
   # GET /restaurants/new

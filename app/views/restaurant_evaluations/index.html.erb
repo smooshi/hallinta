@@ -18,11 +18,11 @@
   <tbody>
     <% @restaurant_evaluations.each do |restaurant_evaluation| %>
       <tr>
-        <td><%= restaurant_evaluation.restaurant_id %></td>
-        <td><%= restaurant_evaluation.company_id %></td>
-        <td><%= restaurant_evaluation.restaurant_evaluation_type_id %></td>
+        <td><%= link_to restaurant_evaluation.restaurant.name, restaurant_evaluation.restaurant %></td>
+        <td><%= link_to restaurant_evaluation.company.name, restaurant_evaluation.company %></td>
+        <td><%= restaurant_evaluation.restaurant_evaluation_type.name %></td>
         <td><%= restaurant_evaluation.value %></td>
-        <td><%= restaurant_evaluation.user_id %></td>
+        <td><%= restaurant_evaluation.user.first_name %> <%= restaurant_evaluation.user.last_name %></td>
         <td><%= restaurant_evaluation.evaluation_comment %></td>
         <td><%= link_to 'Show', restaurant_evaluation %></td>
         <td><%= link_to 'Edit', edit_restaurant_evaluation_path(restaurant_evaluation) %></td>

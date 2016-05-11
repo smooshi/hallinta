@@ -21,18 +21,17 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
-        <td><%= company.company_type_id %></td>
+        <td><%= link_to company.name, company %></td>
+        <td><%= company.company_type.name %></td>
         <td><%= company.street_address %></td>
         <td><%= company.city %></td>
         <td><%= company.country %></td>
         <td><%= company.phone_number %></td>
         <td><%= company.email %></td>
-        <td><%= company.added_by_user %></td>
-        <td><%= company.edited_by_user %></td>
-        <td><%= link_to 'Show', company %></td>
+        <td><%= @users.find_by_id(company.added_by_user).first_name %> <%= @users.find_by_id(company.added_by_user).last_name %></td>
+        <td><%= @users.find_by_id(company.added_by_user).first_name %> <%= @users.find_by_id(company.added_by_user).last_name %></td>
+
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

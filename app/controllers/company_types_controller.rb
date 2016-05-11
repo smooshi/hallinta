@@ -10,6 +10,7 @@ class CompanyTypesController < ApplicationController
   # GET /company_types/1
   # GET /company_types/1.json
   def show
+    @companies = Company.where(:company_type_id => @company_type.id).all
   end
 
   # GET /company_types/new

@@ -15,6 +15,21 @@ class ContactPeopleController < ApplicationController
   # GET /contact_people/new
   def new
     @contact_person = ContactPerson.new
+    @restaurants = Restaurant.all
+    @companies = Company.all
+  end
+
+  def new_restaurant_person
+    @contact_person = ContactPerson.new
+    @restaurants = Restaurant.all
+    @companies = Company.all
+    @contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id))
+  end
+
+  def new_company_person
+    @contact_person = ContactPerson.new
+    @restaurants = Restaurant.all
+    @companies = Company.all
   end
 
   # GET /contact_people/1/edit

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @customer.restaurant_id %>
+  <%= link_to @restaurants.find_by_id(@customer.restaurant_id).name, @restaurants.find_by_id(@customer.restaurant_id) %>
 </p>
 
 <p>

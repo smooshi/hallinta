@@ -1,20 +1,22 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_company_types, only: [:show, :edit, :new, :update]
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = Company.includes(:company_type).all
+    @users = User.all
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @users = User.all
+    @restaurants_in_company = Restaurant.where(:company_id => @company.id).all
   end
 
   # GET /companies/new
   def new
-    @company_types = CompanyType.all
     @company = Company.new
   end
 
@@ -69,6 +71,10 @@ class CompaniesController < ApplicationController
     def set_company
       @company = Company.find(params[:id])
     end
+
+  def set_company_types
+    @company_types = CompanyType.all
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params

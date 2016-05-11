@@ -37,13 +37,46 @@
 
 <p>
   <strong>Added by user:</strong>
-  <%= @company.added_by_user %>
+  <%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %>
 </p>
 
 <p>
   <strong>Edited by user:</strong>
-  <%= @company.edited_by_user %>
+  <%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<p>
+  <strong>Restaurants in this company:</strong>
+</p>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Street address</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Phone number</th>
+    <th>Email</th>
+    <th>Server ip</th>
+    <th>Restaurant type</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @restaurants_in_company.each do |restaurant| %>
+      <tr>
+        <td><%= link_to restaurant.name, restaurant %></td>
+        <td><%= restaurant.street_address %></td>
+        <td><%= restaurant.city %></td>
+        <td><%= restaurant.country %></td>
+        <td><%= restaurant.phone_number %></td>
+        <td><%= restaurant.email %></td>
+        <td><%= restaurant.server_ip %></td>
+        <td><%= restaurant.restaurant_type.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_company_path(@company) %>

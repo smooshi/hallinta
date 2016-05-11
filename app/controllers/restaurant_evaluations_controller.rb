@@ -4,7 +4,7 @@ class RestaurantEvaluationsController < ApplicationController
   # GET /restaurant_evaluations
   # GET /restaurant_evaluations.json
   def index
-    @restaurant_evaluations = RestaurantEvaluation.all
+    @restaurant_evaluations = RestaurantEvaluation.includes(:restaurant, :company, :user, :restaurant_evaluation_type).all
   end
 
   # GET /restaurant_evaluations/1

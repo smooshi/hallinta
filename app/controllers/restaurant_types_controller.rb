@@ -10,6 +10,7 @@ class RestaurantTypesController < ApplicationController
   # GET /restaurant_types/1
   # GET /restaurant_types/1.json
   def show
+    @restaurants = Restaurant.where(:restaurant_type_id => @restaurant_type.id).all
   end
 
   # GET /restaurant_types/new
