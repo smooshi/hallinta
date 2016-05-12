@@ -84,6 +84,12 @@ en:
     customers: "Customers"
     agreements: "Agreements"
     devices: "Devices"
+    settings: "Settings"
+    user_details: "User details"
+    user_role: "User roles"
+    software: "Software"
+    software_in_agreement: "Software in agreement"
+    restaurant_eval_type: "Restaurant evaluation type"
     languages:
       lang: "Language"
       fi: "Finnish"

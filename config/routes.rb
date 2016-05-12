@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get "contact_person_restaurant" => "contact_people#new_restaurant_person"
   get "contact_person_company" => "contact_people#new_company_person"
 
+  #settings
+  get "settings" => "settings#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,39 +1,24 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 @font-face {
     font-family: 'roboto';
-    src: url("Roboto-Light-webfont.woff") format('woff');
+    src: url("font/Roboto-Light-webfont.woff") format('woff');
     font-weight: lighter;
     font-style: normal;
 }
 @font-face {
     font-family: 'roboto';
-    src: url("Roboto-Regular-webfont.woff") format('woff');
+    src: url("font/Roboto-Regular-webfont.woff") format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'roboto';
-    src: url("Roboto-Medium-webfont.woff") format('woff');
+    src: url("font/Roboto-Medium-webfont.woff") format('woff');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'DejaVuSans';
-    src: url("DejaVuSans-webfont.woff") format('woff');
+    src: url("font/DejaVuSans-webfont.woff") format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -63,8 +48,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 24px;
 }
 select,
 input[type=text],
@@ -101,13 +86,13 @@ div.ui-title {
     top: 2px;
     left: 2px;
     right: 2px;
-    height: 48px;
+    height: 28px;
     background: linear-gradient(rgb(255, 255, 255), rgb(230, 230, 230));
     overflow: visible;
     padding: 6px;
     text-align: center;
     font-weight: lighter;
-    line-height: 50px;
+    line-height: 28px;
 }
 
 div.ui-title a:link,
@@ -116,8 +101,8 @@ div.ui-title a:visited {
 }
 div.ui-title a {
     float: left;
-    height: 48px;
-    width: 196px;
+    height: 28px;
+    width: 128px;
     background-color: #6a6a6a;
     border-radius: 6px;
     color: #fff;
@@ -131,16 +116,21 @@ div.ui-title a {
     cursor: pointer;
 }
 
+div.ui-title a.rightButton {
+    float: right;
+}
+
 div.ui-title a:active {
     box-shadow: 0 0 0 0;
 }
 
 div.menu {
     position: absolute;
-    top: 66px;
-    left: 2px;
-    bottom: 2px;
+    top: 44px;
+    left: 0px;
+    bottom: 0px;
     width: 226px;
+    margin: 2px 2px 0px 2px;
 }
 
 div.menu h2 {
@@ -171,7 +161,7 @@ div.menu a.active {
 
 div.content {
     position: absolute;
-    top: 64px;
+    top: 44px;
     left: 230px;
     bottom: 0px;
     right: 0px;

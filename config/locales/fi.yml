@@ -97,6 +97,12 @@ fi:
     agreements: "Sopimukset"
     devices: "Laitteet"
     new_restaurant: "Lisää ravintola"
+    settings: "Asetukset"
+    user_details: "Käyttäjätiedot"
+    user_role: "Käyttäjäroolit"
+    software: "Ohjelmisto"
+    software_in_agreement: "Sopimusohjelmisto"
+    restaurant_eval_type: "Ravintola-arvio tyyppi"
     languages:
       lang: "Kieli"
       fi: "Suomi"
