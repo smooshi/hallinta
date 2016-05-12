@@ -42,6 +42,8 @@ en:
         edit: "Edit"
         destroy: "Destroy"
         device: "Device"
+        agreement: "Agreement"
+        monthly: "Monthly price"
       company:
         company_type: "Company Type"
         added_by_user: "Added By User"
@@ -153,6 +155,10 @@ en:
       title: "List of agreements"
     show:
       title: "Agreement details"
+      add_device: "Add device to this agreement"
+      add_software: "Add software to this agreement"
+      devices: "All devices in this agreement"
+      softwares: "All software in this agreement"
     new:
       title: "New agreement"
   settings:

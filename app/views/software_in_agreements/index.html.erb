@@ -6,9 +6,9 @@
 <table>
   <thead>
     <tr>
-      <th>Software</th>
-      <th>Agreement</th>
-      <th>Monthly price</th>
+      <th><%= t('menu.software')%></th>
+      <th><%= t('activerecord.attributes.general.agreement')%></th>
+      <th><%= t('activerecord.attributes.general.monthly')%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,7 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Software in agreement', new_software_in_agreement_path %>

@@ -20,6 +20,7 @@ class DevicesController < ApplicationController
 
   # GET /devices/1/edit
   def edit
+    @device_types = DeviceType.all
   end
 
   # POST /devices

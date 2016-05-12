@@ -15,6 +15,7 @@ class DeviceTypesController < ApplicationController
   # GET /device_types/new
   def new
     @device_type = DeviceType.new
+    @devices = Device.all
   end
 
   # GET /device_types/1/edit

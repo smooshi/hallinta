@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Agreement</th>
-      <th>Device</th>
-      <th>Price is leasing</th>
-      <th>Total price</th>
-      <th>Monthly price</th>
+      <th><%= t('activerecord.attributes.general.agreement')%></th>
+      <th><%= t('activerecord.attributes.general.device')%></th>
+      <th><%= t('activerecord.attributes.device.is_leased')%></th>
+      <th> <%= t('activerecord.attributes.software.price')%> </th>
+      <th> <%= t('activerecord.attributes.general.monthly')%> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,7 +29,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Device in agreement', new_device_in_agreement_path %>

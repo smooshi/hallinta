@@ -15,6 +15,8 @@ class DeviceInAgreementsController < ApplicationController
   # GET /device_in_agreements/new
   def new
     @device_in_agreement = DeviceInAgreement.new
+    @device_type = DeviceType.new
+    @devices = Device.all
   end
 
   # GET /device_in_agreements/1/edit
@@ -24,6 +26,7 @@ class DeviceInAgreementsController < ApplicationController
   # POST /device_in_agreements
   # POST /device_in_agreements.json
   def create
+    @devices = Device.all
     @device_in_agreement = DeviceInAgreement.new(device_in_agreement_params)
 
     respond_to do |format|

@@ -14,16 +14,19 @@ class SoftwareInAgreementsController < ApplicationController
 
   # GET /software_in_agreements/new
   def new
+    @software = Software.all
     @software_in_agreement = SoftwareInAgreement.new
   end
 
   # GET /software_in_agreements/1/edit
   def edit
+    @software = Software.all
   end
 
   # POST /software_in_agreements
   # POST /software_in_agreements.json
   def create
+    @software = Software.all
     @software_in_agreement = SoftwareInAgreement.new(software_in_agreement_params)
 
     respond_to do |format|

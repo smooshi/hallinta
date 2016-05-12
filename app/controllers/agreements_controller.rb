@@ -10,6 +10,16 @@ class AgreementsController < ApplicationController
   # GET /agreements/1
   # GET /agreements/1.json
   def show
+    @devices_in_this_agreement = DeviceInAgreement.where(:agreement_id => @agreement.id).all
+    @software_in_this_agreement = SoftwareInAgreement.where(:agreement_id =>  @agreement.id).all
+
+    @devices = Device.all
+    @device_in_agreement = DeviceInAgreement.new
+    @device_in_agreement.agreement_id = @agreement.id
+
+    @software = Software.all
+    @software_in_agreement = SoftwareInAgreement.new
+    @software_in_agreement.agreement_id = @agreement.id
   end
 
   # GET /agreements/new

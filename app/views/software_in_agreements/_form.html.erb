@@ -14,11 +14,10 @@
 
   <div class="field">
     <%= f.label :software_id %><br>
-    <%= f.number_field :software_id %>
+    <%= f.select :software_id, options_from_collection_for_select(@software, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :agreement_id %><br>
-    <%= f.number_field :agreement_id %>
+    <%= f.hidden_field :agreement_id %>
   </div>
   <div class="field">
     <%= f.label :monthly_price %><br>

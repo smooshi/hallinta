@@ -42,6 +42,8 @@ fi:
         device: "Laite"
         edit: "Muokkaa"
         destroy: "Poista"
+        agreement: "Sopimus"
+        monthly: "Kuukausihinta"
       company:
         company_type: "Yritystyyppi"
         added_by_user: "Lisännyt henkilö"
@@ -158,6 +160,10 @@ fi:
       title: "Lista sopimuksista"
     show:
       title: "Sopimustiedot"
+      add_device: "Lisää laite tähän sopimukseen"
+      add_software: "Lisää ohjelmisto tähän sopimukseen"
+      devices: "Kaikki sopimuslaitteet"
+      softwares: "Kaikki sopimusohjelmistot"
     new:
       title: "Uusi sopimus"
   settings:
