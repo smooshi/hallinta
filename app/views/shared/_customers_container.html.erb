@@ -1,0 +1,7 @@
+<%= content_for :container_menu do %>
+    <ul>
+      <li><h2><%= t('menu.customers')%></h2></li>
+      <li><%= link_to t('customers.index.title'), customers_path %></li>
+      <li><%= link_to t('customers.new.title'), new_customer_path %></li>
+    </ul>
+<%end%>

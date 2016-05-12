@@ -1,3 +1,4 @@
+<%= render 'shared/device_container' %>
 <p id="notice"><%= notice %></p>
 
 <h1><%= t('devices.index.title')%></h1>
@@ -28,15 +29,11 @@
         <td><%= device.leasing_length %></td>
         <td><%= device.identifier %></td>
         <td><%= device.rental_device %></td>
-        <td><%= link_to 'Show', device %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), device %></td>
         <% if admin_user %>
-          <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to t('activerecord.attributes.general.destroy'), device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Device', new_device_path %>

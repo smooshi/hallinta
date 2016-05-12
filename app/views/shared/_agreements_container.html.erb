@@ -1,0 +1,5 @@
+<%= content_for :container_menu do %>
+<h2><%= t('menu.agreements')%></h2>
+    <%= link_to t('agreements.index.title'), agreements_path %>
+    <%= link_to t('agreements.new.title'), new_agreement_path %>
+<%end%>

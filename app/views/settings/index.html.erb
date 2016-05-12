@@ -1,28 +1,5 @@
 <h1><%= t('menu.settings')%></h1>
 
-<%= content_for :container_menu do %>
-  <ul>
-    <li><b><%= t('menu.settings')%></b></li>
-    <li><%= link_to t('menu.software'), softwares_path %></li>
-    <li><%= link_to t('menu.software_in_agreement'), software_in_agreements_path%></li>
-    <li><%= link_to t('activerecord.attributes.company.company_type'), company_types_path%></li>
-    <li><%= link_to t('activerecord.attributes.device.device_type'), device_types_path%></li>
-    <br>
-    <li><b><%= t('menu.restaurants')%></b></li>
-    <li><%= link_to t('restaurants.show.restaurant_evals'), restaurant_evaluations_path%></li>
-    <li><%= link_to t('activerecord.attributes.restaurant.restaurant_type'), restaurant_types_path%></li>
-    <li><%= link_to t('menu.restaurant_eval_type'), restaurant_evaluation_types_path %></li>
-    <br>
-    <li><b><%= t('menu.users')%></b></li>
-    <li><%= link_to t('menu.user_details'), current_user%></li>
-    <%= link_to t('menu.users'), users_path%>
-    <li><%= link_to t('menu.user_role'), roles_path%></li>
-  </ul>
-
-  <br>
-  <ul>
-  <li><b><%= t('menu.languages.lang')%></b></li>
-  <li><%= link_to t('menu.languages.en'), change_locale_path(:en) %></li>
-  <li><%= link_to t('menu.languages.fi'), change_locale_path(:fi) %></li>
-  </ul>
-<%end%>
+<%= render 'shared/settings_container' %>
+<br>
+<-- settings

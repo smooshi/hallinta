@@ -24,7 +24,7 @@ en:
     attributes:
       general:
         name: "Name"
-        street_adress: "Street Adress"
+        street_address: "Street Address"
         city: "City"
         country: "Country"
         phone_number: "Phone number"
@@ -39,6 +39,8 @@ en:
         type: "Type"
         customer: "Customer"
         show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
         device: "Device"
       company:
         company_type: "Company Type"
@@ -100,12 +102,14 @@ en:
     show:
       title: "Contact person"
     new:
-      title: "New contact person"
+      title: "Add new contact person"
   customers:
     index:
       title: "List of customers"
     show:
       title: "Customer details"
+    new:
+      title: "Add new customer"
   users:
     index:
       title: "List of users"
@@ -121,6 +125,8 @@ en:
       new_link: "Create new company"
     show:
       restaurants_in_company: "Restaurants in this company:"
+    new:
+      title: "Create new company"
   restaurants:
     index:
       title: "List of restaurants"
@@ -149,3 +155,8 @@ en:
       title: "Agreement details"
     new:
       title: "New agreement"
+  settings:
+    device_settings: "Device settings"
+    restaurant_settings: "Restaurant settings"
+    company_settings: "Company settings"
+    agreement_settings: "Agreement settings"

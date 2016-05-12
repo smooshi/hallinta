@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'shared/agreements_container' %>
 <h1><%= t('agreements.show.title')%></h1>
 <br>
 <table>
@@ -33,11 +33,11 @@
         <td><%= @agreement.invoicing_payment_time %></td>
         <td><%= @agreement.invoicing_date %></td>
         <td><%= @agreement.signed_by_customer %></td>
-        <td><%= link_to 'Edit', edit_agreement_path(@agreement) %> |</td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_agreement_path(@agreement) %> |</td>
       </tr>
   </tbody>
 </table>
 <br>
 <% if admin_user %>
-    <%= link_to 'Destroy', @agreement, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to t('activerecord.attributes.general.destroy'), @agreement, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

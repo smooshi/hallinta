@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'shared/agreements_container' %>
 <h1><%= t('agreements.index.title')%></h1>
 <br>
 <table>
@@ -34,12 +34,8 @@
         <td><%= agreement.invoicing_payment_time %></td>
         <td><%= agreement.invoicing_date %></td>
         <td><%= agreement.signed_by_customer %></td>
-        <td><%= link_to 'Show', agreement %></td>
+        <td><%= link_to t('activerecord.attributes.general.show'), agreement %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Agreement', new_agreement_path %>

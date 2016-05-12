@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'shared/companies_container' %>
 <h1><%= t('companies.index.title')%></h1>
 <br>
 <table>
@@ -33,7 +33,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>

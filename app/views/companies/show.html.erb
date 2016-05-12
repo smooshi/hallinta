@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'shared/companies_container' %>
 <h1><%= @company.name %></h1>
-<br>
-<%= link_to 'Edit', edit_company_path(@company) %>
 <br>
 <table class="smallTable">
   <thead>
@@ -15,6 +13,7 @@
     <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
     <th><strong><%= t('activerecord.attributes.company.added_by_user')%></strong></th>
     <th><strong><%= t('activerecord.attributes.company.edited_by_user')%></strong></th>
+    <th colspan="1"></th>
   </tr>
   </thead>
   <tbody>
@@ -27,6 +26,7 @@
     <td><%= @company.email %></td>
     <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
     <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
+    <td><%= link_to 'Edit', edit_company_path(@company) %></td>
   </tr>
   </tbody>
 </table>

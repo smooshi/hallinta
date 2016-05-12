@@ -40,6 +40,8 @@ fi:
         customer: "Asiakas"
         show: "Näytä"
         device: "Laite"
+        edit: "Muokkaa"
+        destroy: "Poista"
       company:
         company_type: "Yritystyyppi"
         added_by_user: "Lisännyt henkilö"
@@ -119,12 +121,16 @@ fi:
       title: "Lista asiakkaista"
     show:
       title: "Asiakastiedot"
+    new:
+      title: "Lisää uusi asiakas"
   companies:
     index:
       title: "Lista yrityksistä"
       new_link: "Luo uusi yritys"
     show:
       restaurants_in_company: "Yrityksen ravintolat"
+    new:
+      title: "Luo uusi yritys"
   restaurants:
     index:
       title: "Lista ravintoloista"
@@ -154,3 +160,8 @@ fi:
       title: "Sopimustiedot"
     new:
       title: "Uusi sopimus"
+  settings:
+    device_settings: "Laiteasetukset"
+    restaurant_settings: "Ravintola-asetukset"
+    company_settings: "Yritysasetukset"
+    agreement_settings: "Sopimusasetukset"

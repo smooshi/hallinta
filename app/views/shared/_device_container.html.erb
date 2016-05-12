@@ -1,0 +1,7 @@
+<%= content_for :container_menu do %>
+    <h2><%= t('menu.devices')%></h2>
+    <%= link_to t('devices.index.title'), devices_path%>
+    <%= link_to t('devices.new.title'), new_device_path%>
+    <h2><%= t('settings.device_settings')%></h2>
+    <%= link_to t('activerecord.attributes.device.device_type'), device_types_path%>
+<%end%>

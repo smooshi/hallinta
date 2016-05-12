@@ -1,0 +1,10 @@
+<%= content_for :container_menu do %>
+<ul>
+  <li><h2><%= t('menu.companies')%></h2></li>
+  <li><%= link_to t('companies.index.title'), companies_path %></li>
+  <li><%= link_to t('companies.new.title'), new_company_path %></li>
+</ul>
+    <h2><%= t('settings.company_settings')%></h2>
+    <%= link_to t('activerecord.attributes.company.company_type'), company_types_path%>
+    <%= link_to t('contact_people.new.title'), contact_person_company_path %>
+<%end%>
