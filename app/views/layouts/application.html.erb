@@ -12,10 +12,10 @@
     <%= link_to t('menu.devices'), devices_path%>
     <%= link_to t('menu.settings'), settings_path%>
     <% if current_user %>
-        <%= link_to "Log out", log_out_path %>
+        <%= link_to "Log out", log_out_path, :class => "rightButton" %>
     <% else %>
         <%= link_to "Sign up", sign_up_path %> or
-        <%= link_to "Log in", log_in_path %>
+        <%= link_to "Log in", log_in_path, :class => "rightButton" %>
     <% end %>
   </div>
   <div class="container menu">
