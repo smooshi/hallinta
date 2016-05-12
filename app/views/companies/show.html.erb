@@ -29,12 +29,12 @@
     <td><%= link_to 'Edit', edit_company_path(@company) %></td>
   </tr>
   </tbody>
-</table>
+</table >
 <br>
 </p>
 <h2><%= t('contact_people.index.title')%></h2>
 <p>
-<table>
+<table class="smallTable">
   <thead>
   <tr>
     <th><%= t('activerecord.attributes.general.name')%></th>
@@ -60,35 +60,7 @@
 <p>
   <strong><h2><%= t('companies.show.restaurants_in_company')%></h2></strong>
 </p>
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.attributes.general.name')%></th>
-    <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
-    <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
-    <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
-    <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
-    <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
-    <th>Server ip</th>
-    <th><%= t('activerecord.attributes.restaurant.restaurant_type') %></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @restaurants_in_company.each do |restaurant| %>
-      <tr>
-        <td><%= link_to restaurant.name, restaurant %></td>
-        <td><%= restaurant.street_address %></td>
-        <td><%= restaurant.city %></td>
-        <td><%= restaurant.country %></td>
-        <td><%= restaurant.phone_number %></td>
-        <td><%= restaurant.email %></td>
-        <td><%= restaurant.server_ip %></td>
-        <td><%= restaurant.restaurant_type.name %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'restaurant_table', restaurants: @restaurants_in_company %>
 
 <br>
 <% if admin_user %>
