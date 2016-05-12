@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :device_type_id %><br>
-    <%= f.number_field :device_type_id %>
+    <%= f.select :device_type_id, options_from_collection_for_select(@device_types, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :purchase_day %><br>

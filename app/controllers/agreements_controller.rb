@@ -15,16 +15,21 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @agreement = Agreement.new
+    @restaurants = Restaurant.all
+    @users = User.all
   end
 
   # GET /agreements/1/edit
   def edit
+    @restaurants = Restaurant.all
+    @users = User.all
   end
 
   # POST /agreements
   # POST /agreements.json
   def create
     @agreement = Agreement.new(agreement_params)
+    @agreement.user_id = current_user.id
 
     respond_to do |format|
       if @agreement.save

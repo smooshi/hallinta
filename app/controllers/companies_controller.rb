@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   def show
     @users = User.all
     @restaurants_in_company = Restaurant.where(:company_id => @company.id).all
+    @company_contact_people = ContactPerson.where(:company_id => @company.id).all
   end
 
   # GET /companies/new

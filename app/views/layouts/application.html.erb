@@ -5,18 +5,28 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <div id="user_nav" class="ui-title container">
+    <%= link_to t('menu.users'), users_path%>
+    <%= link_to t('menu.companies'), companies_path %>
+    <%= link_to t('menu.restaurants'), restaurants_path %>
+    <%= link_to t('menu.customers'), customers_path%>
+    <%= link_to t('menu.agreements'), agreements_path %>
+    <%= link_to t('menu.devices'), devices_path%>
+    <% if current_user %>
+        <%= link_to "Log out", log_out_path %>
+    <% else %>
+        <%= link_to "Sign up", sign_up_path %> or
+        <%= link_to "Log in", log_in_path %>
+    <% end %>
+  </div>
   <div class="container menu">
   <ul>
-    <li><%= link_to "Users", users_path%></li>
-    <li><%= link_to "Companies", companies_path %></li>
-    <li><%= link_to "Restaurants", restaurants_path %></li>
-    <li><%= link_to "Customers", customers_path%></li>
     <li><%= link_to "Contact People", contact_people_path %></li>
-    <li><%= link_to "Devices", devices_path%></li>
     <li><%= link_to "Restaurant Evaluations", restaurant_evaluations_path%></li>
     <li><%= link_to "Software", softwares_path %></li>
     <li><%= link_to "Agreements", agreements_path %></li>
     <li><%= link_to "Device in agreements", device_in_agreements_path%></li>
+    <li><%= link_to "Software in agreements", software_in_agreements_path%></li>
     <li></li>
     <li><%= link_to "User Roles", roles_path%></li>
     <li><%= link_to "Company Type", company_types_path%></li>
@@ -24,18 +34,13 @@
     <li><%= link_to "Device Type", device_types_path%></li>
     <li><%= link_to "Restaurant Evaluation Types", restaurant_evaluation_types_path %></li>
   </ul>
+    <br>
+    <ul>
+      <li>Kieli:</li>
+     <li><%= link_to t('menu.languages.en'), change_locale_path(:en) %></li>
+     <li><%= link_to t('menu.languages.fi'), change_locale_path(:fi) %></li>
+    </ul>
     </div>
-  <div id="user_nav" class="ui-title container">
-    <% if current_user %>
-        Logged in as <%= current_user.email %>.
-        <%= link_to "Log out", log_out_path %>
-    <% else %>
-        <%= link_to "Sign up", sign_up_path %> or
-        <%= link_to "log in", log_in_path %>
-    <% end %>
-      <%= link_to t('menu.languages.en'), change_locale_path(:en) %>
-      <%= link_to t('menu.languages.fi'), change_locale_path(:fi) %>
-  </div>
 </head>
 <body>
 <div class="page-header">

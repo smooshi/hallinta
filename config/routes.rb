@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
 
   #Separate contact people
-
+  get "contact_person_restaurant" => "contact_people#new_restaurant_person"
+  get "contact_person_company" => "contact_people#new_company_person"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

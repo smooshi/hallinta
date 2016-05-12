@@ -31,12 +31,45 @@ en:
         email: "Email"
         company: "Company"
         restaurant: "Restaurant"
+        user: "User"
+        role: "Role"
+        description: "Description"
+        comment: "Comment"
+        value: "Value"
+        type: "Type"
+        customer: "Customer"
+        show: "Show"
+        device: "Device"
       company:
         company_type: "Company Type"
         added_by_user: "Added By User"
         edited_by_user: "Edited By User"
       restaurant:
         restaurant_type: "Restaurant Type"
+      user:
+        firstname: "First name"
+        lastname: "Last name"
+      customer:
+        start_date: "Start date"
+        end_date: "End date"
+      device:
+        device_type: "Device type"
+        purchase_day: "Purchase day"
+        is_leased: "Is leased"
+        full_price: "Full price"
+        leasing_price: "Leasing price"
+        leasing_length: "Leasing length"
+        indentifier: "Identifier"
+        rental_device: "Rental device"
+      agreement:
+        added_by: "Added by"
+        agreement_length: "Agreement length"
+        term_of_notice: "Term of notice in months"
+        responsible_user: "Responsible user"
+        invoice_period: "Invoice period length"
+        payment_time: "Invoicing payment time"
+        invoicing_date: "Invoicing date"
+        signed_by: "Signed by customer"
   forms:
     messages:
       success: "Operation succeeded!"
@@ -47,10 +80,35 @@ en:
     companies: "Companies"
     restaurants: "Restaurants"
     new_restaurant: "Add a restaurant"
+    users: "Users"
+    customers: "Customers"
+    agreements: "Agreements"
+    devices: "Devices"
     languages:
       lang: "Language"
       fi: "Finnish"
       en: "English"
+  contact_people:
+    index:
+      title: "List of contact people"
+    show:
+      title: "Contact person"
+    new:
+      title: "New contact person"
+  customers:
+    index:
+      title: "List of customers"
+    show:
+      title: "Customer details"
+  users:
+    index:
+      title: "List of users"
+    show:
+      title: "User information:"
+      companies_by_user: "Companies added by this user."
+      evals_by_user: "Evaluations added by this user."
+    edit:
+      title: "Edit user"
   companies:
     index:
       title: "List of companies"
@@ -67,3 +125,21 @@ en:
       title: "Edit restaurant"
     new:
       title: "New restaurant"
+    show:
+      restaurant_evals: "Restauraunt evaluations"
+      isCustomer: "Customer details"
+      restaurant_agr: "Restaurant agreements"
+  devices:
+    index:
+      title: "List of devices"
+    show:
+      title: "Device details"
+    new:
+      title: "New device"
+  agreements:
+    index:
+      title: "List of agreements"
+    show:
+      title: "Agreement details"
+    new:
+      title: "New agreement"

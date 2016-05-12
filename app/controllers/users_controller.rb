@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_roles, only: [:new, :show, :edit, :create, :update]
+  before_action :set_roles, only: [:new, :edit, :create, :update]
 
   # GET /users
   # GET /users.json
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @companies_by_user = Company.where(:added_by_user => @user.id).all
+    @evals_by_user = RestaurantEvaluation.where(:user => @user).all
   end
 
   # GET /users/new

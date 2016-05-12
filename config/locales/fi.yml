@@ -31,12 +31,58 @@ fi:
         email: "Sähköposti"
         company: "Yhtiö"
         restaurant: "Ravintola"
+        user: "Käyttäjä"
+        role: "Rooli"
+        description: "Kauvaus"
+        comment: "Kommentti"
+        value: "Arvo"
+        type: "Tyyppi"
+        customer: "Asiakas"
+        show: "Näytä"
+        device: "Laite"
       company:
         company_type: "Yritystyyppi"
         added_by_user: "Lisännyt henkilö"
         edited_by_user: "Muokannut henkilö"
       restaurant:
         restaurant_type: "Ravintolatyyppi"
+      user:
+        firstname: "Etunimi"
+        lastname: "Sukunimi"
+      customer:
+        start_date: "Alkamispäivä"
+        end_date: "Loppumispäivä"
+      device:
+        device_type: "Laitetyyppi"
+        purchase_day: "Ostopäivä"
+        is_leased: "Leasattu"
+        full_price: "Kokonaishinta"
+        leasing_price: "Leasaushinta"
+        leasing_length: "Leasing pituus"
+        identifier: "Tunnistin"
+        rental_device: "Vuokralaite"
+      software:
+        bel_price: "Bel price"
+        price: "Price"
+      agreement:
+        added_by: "Lisännyt"
+        agreement_length: "Sopimuskesto"
+        term_of_notice: "Irtisanomisaika kk"
+        responsible_user: "Vastuuhenkilö"
+        invoice_period: "Laskutusaika"
+        payment_time: "Maksuaika"
+        payment_time: "Maksuaika"
+        invoicing_date: "Laskutuspäivä"
+        signed_by: "Allekirjoitettu"
+  users:
+    index:
+      title: "Kaikki käyttäjät"
+    show:
+      title: "Käyttäjätiedot"
+      companies_by_user: "Käyttäjän lisäämät yritykset"
+      evals_by_user: "Käyttäjän lisäämät arviot"
+    edit:
+      title: "Muokkaa"
   forms:
     messages:
       success: "Onnistui!"
@@ -46,11 +92,27 @@ fi:
   menu:
     companies: "Yritykset"
     restaurants: "Ravintolat"
+    users: "Käyttäjät"
+    customers: "Asiakkaat"
+    agreements: "Sopimukset"
+    devices: "Laitteet"
     new_restaurant: "Lisää ravintola"
     languages:
       lang: "Kieli"
       fi: "Suomi"
       en: "Englanti"
+  contact_people:
+    index:
+      title: "Lista yhteyshenkilöistä"
+    show:
+      title: "Yhteyshenkilön tiedot"
+    new:
+      title: "Uusi yhteyshenkilö"
+  customers:
+    index:
+      title: "Lista asiakkaista"
+    show:
+      title: "Asiakastiedot"
   companies:
     index:
       title: "Lista yrityksistä"
@@ -68,3 +130,21 @@ fi:
       title: "Lisää ravintola"
     new:
       title: "Uusi ravintola"
+    show:
+      restaurant_evals: "Ravintola-arviot"
+      isCustomer: "Asiakkuustiedot"
+      restaurant_agr: "Ravintolan sopimukset"
+  devices:
+    index:
+      title: "Lista laitteista"
+    show:
+      title: "Laitetiedot"
+    new:
+      title: "Uusi laite"
+  agreements:
+    index:
+      title: "Lista sopimuksista"
+    show:
+      title: "Sopimustiedot"
+    new:
+      title: "Uusi sopimus"

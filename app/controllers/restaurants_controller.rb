@@ -11,7 +11,16 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    @restaurant_evals = RestaurantEvaluation.where(:restaurant_id => @restaurant.id)
+    @restaurant_evals = RestaurantEvaluation.where(:restaurant_id => @restaurant.id).all
+    @restaurant_contact_people = ContactPerson.where(:restaurant_id => @restaurant.id).all
+    @restaurant_agreements = Agreement.where(:restaurant_id => @restaurant.id).all
+
+    @customer = Customer.find_by_restaurant_id(@restaurant.id)
+    if (@customer == nil)
+      @isCustomer = false
+    else
+      @isCustomer = true
+    end
   end
 
   # GET /restaurants/new

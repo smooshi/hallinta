@@ -1,59 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @agreement.restaurant_id %>
-</p>
+<h1><%= t('agreements.show.title')%></h1>
+<br>
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.restaurant')%></th>
+    <th><%= t('activerecord.attributes.agreement.added_by')%></th>
+    <th><%= t('activerecord.attributes.customer.start_date')%></th>
+    <th><%= t('activerecord.attributes.customer.end_date')%></th>
+    <th><%= t('activerecord.attributes.agreement.agreement_length')%></th>
+    <th><%= t('activerecord.attributes.agreement.term_of_notice')%></th>
+    <th><%= t('activerecord.attributes.agreement.responsible_user')%></th>
+    <th><%= t('activerecord.attributes.agreement.invoice_period')%></th>
+    <th><%= t('activerecord.attributes.agreement.payment_time')%></th>
+    <th><%= t('activerecord.attributes.agreement.invoicing_date')%></th>
+    <th><%= t('activerecord.attributes.agreement.signed_by')%></th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
 
-<p>
-  <strong>User:</strong>
-  <%= @agreement.user_id %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @agreement.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @agreement.end_date %>
-</p>
-
-<p>
-  <strong>Agreement length:</strong>
-  <%= @agreement.agreement_length %>
-</p>
-
-<p>
-  <strong>Term of notice in months:</strong>
-  <%= @agreement.term_of_notice_in_months %>
-</p>
-
-<p>
-  <strong>Responsible user:</strong>
-  <%= @agreement.responsible_user_id %>
-</p>
-
-<p>
-  <strong>Invoicing period length:</strong>
-  <%= @agreement.invoicing_period_length %>
-</p>
-
-<p>
-  <strong>Invoicing payment time:</strong>
-  <%= @agreement.invoicing_payment_time %>
-</p>
-
-<p>
-  <strong>Invoicing date:</strong>
-  <%= @agreement.invoicing_date %>
-</p>
-
-<p>
-  <strong>Signed by customer:</strong>
-  <%= @agreement.signed_by_customer %>
-</p>
-
-<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
-<%= link_to 'Back', agreements_path %>
+  <tbody>
+      <tr>
+        <td><%= link_to @agreement.restaurant.name, @agreement.restaurant %></td>
+        <td><%= @agreement.user.first_name %> <%= @agreement.user.last_name %></td>
+        <td><%= @agreement.start_date %></td>
+        <td><%= @agreement.end_date %></td>
+        <td><%= @agreement.agreement_length %></td>
+        <td><%= @agreement.term_of_notice_in_months %></td>
+        <td><%= @agreement.responsible_user_id %></td>
+        <td><%= @agreement.invoicing_period_length %></td>
+        <td><%= @agreement.invoicing_payment_time %></td>
+        <td><%= @agreement.invoicing_date %></td>
+        <td><%= @agreement.signed_by_customer %></td>
+        <td><%= link_to 'Edit', edit_agreement_path(@agreement) %> |</td>
+      </tr>
+  </tbody>
+</table>
+<br>
+<% if admin_user %>
+    <%= link_to 'Destroy', @agreement, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

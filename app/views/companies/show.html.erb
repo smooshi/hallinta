@@ -2,6 +2,8 @@
 
 <h1><%= @company.name %></h1>
 <br>
+<%= link_to 'Edit', edit_company_path(@company) %>
+<br>
 <table class="smallTable">
   <thead>
   <tr>
@@ -28,7 +30,32 @@
   </tr>
   </tbody>
 </table>
-<%= button_to 'Edit', edit_company_path(@company) %>
+<br>
+</p>
+<h2><%= t('contact_people.index.title')%></h2>
+<p>
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th><%= t('activerecord.attributes.general.role')%></th>
+    <th><%= t('activerecord.attributes.general.phone_number')%></th>
+    <th><%= t('activerecord.attributes.general.email')%></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @company_contact_people.each do |contact_person| %>
+      <tr>
+        <td><%= link_to contact_person.name, contact_person %></td>
+        <td><%= contact_person.role %></td>
+        <td><%= contact_person.phone_number %></td>
+        <td><%= contact_person.email %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
 <br>
 <p>
   <strong><h2><%= t('companies.show.restaurants_in_company')%></h2></strong>
@@ -63,7 +90,9 @@
   </tbody>
 </table>
 
-
+<br>
 <% if admin_user %>
-  <%= button_to 'Destroy', @company, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+    Admin panel:
+  <%= link_to 'Destroy', @company, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%end%>

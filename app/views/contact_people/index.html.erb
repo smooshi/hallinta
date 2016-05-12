@@ -1,32 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contact People</h1>
+<h1><%= t('contact_people.index.title')%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Restaurant</th>
-      <th>Company</th>
-      <th>Name</th>
-      <th>Role</th>
-      <th>Phone number</th>
-      <th>Email</th>
-      <th colspan="3"></th>
+      <th><%= t('activerecord.attributes.general.restaurant')%></th>
+      <th><%= t('activerecord.attributes.general.company')%></th>
+      <th><%= t('activerecord.attributes.general.name')%></th>
+      <th><%= t('activerecord.attributes.general.role')%></th>
+      <th><%= t('activerecord.attributes.general.phone_number')%></th>
+      <th><%= t('activerecord.attributes.general.email')%></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contact_people.each do |contact_person| %>
       <tr>
-        <td><%= contact_person.restaurant_id %></td>
-        <td><%= contact_person.company_id %></td>
-        <td><%= contact_person.name %></td>
+        <td><% if contact_person.restaurant_id != nil %><%= link_to contact_person.restaurant.name, contact_person.restaurant %><%end%></td>
+        <td><%= link_to contact_person.company.name, contact_person.company %></td>
+        <td><%= link_to contact_person.name, contact_person %></td>
         <td><%= contact_person.role %></td>
         <td><%= contact_person.phone_number %></td>
         <td><%= contact_person.email %></td>
-        <td><%= link_to 'Show', contact_person %></td>
-        <td><%= link_to 'Edit', edit_contact_person_path(contact_person) %></td>
-        <td><%= link_to 'Destroy', contact_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Contact person', new_contact_person_path %>
+<%= link_to 'New Restaurant person', contact_person_restaurant_path %>
+<%= link_to 'New Company person', contact_person_company_path %>

@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1><%= t('users.index.title')%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Email</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Phone number</th>
-      <th>Role</th>
+      <th><%= t('activerecord.attributes.general.email')%></th>
+      <th><%= t('activerecord.attributes.user.firstname')%></th>
+      <th><%= t('activerecord.attributes.user.lastname')%></th>
+      <th><%= t('activerecord.attributes.general.phone_number')%></th>
+      <th><%= t('activerecord.attributes.general.role')%></th>
       <% if admin_user %>
         <th>Currently employed</th>
       <% end %>

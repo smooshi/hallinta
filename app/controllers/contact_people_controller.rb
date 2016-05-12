@@ -15,20 +15,16 @@ class ContactPeopleController < ApplicationController
   # GET /contact_people/new
   def new
     @contact_person = ContactPerson.new
-    @restaurants = Restaurant.all
-    @companies = Company.all
   end
 
   def new_restaurant_person
     @contact_person = ContactPerson.new
     @restaurants = Restaurant.all
-    @companies = Company.all
-    @contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id))
+    #@contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id))
   end
 
   def new_company_person
     @contact_person = ContactPerson.new
-    @restaurants = Restaurant.all
     @companies = Company.all
   end
 
@@ -40,6 +36,10 @@ class ContactPeopleController < ApplicationController
   # POST /contact_people.json
   def create
     @contact_person = ContactPerson.new(contact_person_params)
+
+    if @contact_person.company_id == nil and @contact_person.restaurant_id != nil
+      @contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id).company_id).id
+    end
 
     respond_to do |format|
       if @contact_person.save

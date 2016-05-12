@@ -1,30 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Agreements</h1>
-
+<h1><%= t('agreements.index.title')%></h1>
+<br>
 <table>
   <thead>
     <tr>
-      <th>Restaurant</th>
-      <th>User</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Agreement length</th>
-      <th>Term of notice in months</th>
-      <th>Responsible user</th>
-      <th>Invoicing period length</th>
-      <th>Invoicing payment time</th>
-      <th>Invoicing date</th>
-      <th>Signed by customer</th>
-      <th colspan="3"></th>
+      <th><%= t('activerecord.attributes.general.restaurant')%></th>
+      <th><%= t('activerecord.attributes.agreement.added_by')%></th>
+      <th><%= t('activerecord.attributes.customer.start_date')%></th>
+      <th><%= t('activerecord.attributes.customer.end_date')%></th>
+      <th><%= t('activerecord.attributes.agreement.agreement_length')%></th>
+      <th><%= t('activerecord.attributes.agreement.term_of_notice')%></th>
+      <th><%= t('activerecord.attributes.agreement.responsible_user')%></th>
+      <th><%= t('activerecord.attributes.agreement.invoice_period')%></th>
+      <th><%= t('activerecord.attributes.agreement.payment_time')%></th>
+      <th><%= t('activerecord.attributes.agreement.invoicing_date')%></th>
+      <th><%= t('activerecord.attributes.agreement.signed_by')%></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @agreements.each do |agreement| %>
       <tr>
-        <td><%= agreement.restaurant_id %></td>
-        <td><%= agreement.user_id %></td>
+        <td><%= link_to agreement.restaurant.name, agreement.restaurant %></td>
+        <td><%= agreement.user.first_name %> <%= agreement.user.last_name %></td>
         <td><%= agreement.start_date %></td>
         <td><%= agreement.end_date %></td>
         <td><%= agreement.agreement_length %></td>
@@ -35,8 +35,6 @@
         <td><%= agreement.invoicing_date %></td>
         <td><%= agreement.signed_by_customer %></td>
         <td><%= link_to 'Show', agreement %></td>
-        <td><%= link_to 'Edit', edit_agreement_path(agreement) %></td>
-        <td><%= link_to 'Destroy', agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

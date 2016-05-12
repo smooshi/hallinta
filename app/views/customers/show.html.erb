@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= t('customers.show.title')%>: </h1>
+<br>
 <p>
-  <strong>Restaurant:</strong>
-  <%= link_to @restaurants.find_by_id(@customer.restaurant_id).name, @restaurants.find_by_id(@customer.restaurant_id) %>
+  <h2><%= link_to @restaurants.find_by_id(@customer.restaurant_id).name, @restaurants.find_by_id(@customer.restaurant_id) %></h2>
 </p>
-
+<br>
 <p>
-  <strong>Start date:</strong>
+  <strong><%= t('activerecord.attributes.customer.start_date')%>: </strong>
   <%= @customer.start_date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
+  <strong><%= t('activerecord.attributes.customer.end_datec')%>: </strong>
   <%= @customer.end_date %>
 </p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<br>
+<%= button_to 'Edit', edit_customer_path(@customer) %>

@@ -13,11 +13,7 @@
 
   <div class="field">
     <%= f.label :restaurant_id %><br>
-    <%= f.number_field :restaurant_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.select :restaurant_id, options_from_collection_for_select(@restaurants, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :start_date %><br>
@@ -37,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :responsible_user_id %><br>
-    <%= f.number_field :responsible_user_id %>
+    <%= f.select :responsible_user_id, options_from_collection_for_select(@users, :id, :email) %>
   </div>
   <div class="field">
     <%= f.label :invoicing_period_length %><br>

@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 <% content_for(:page_header) {t('.title')} %>
-
+<h1><%= t('restaurants.index.title')%></h1>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Company</th>
-      <th>Street address</th>
-      <th>City</th>
-      <th>Country</th>
-      <th>Phone number</th>
-      <th>Email</th>
+      <th><%= t('activerecord.attributes.general.name')%></th>
+      <th><%= t('activerecord.attributes.general.company')%></th>
+      <th><%= t('activerecord.attributes.general.street_address')%></th>
+      <th><%= t('activerecord.attributes.general.city')%></th>
+      <th><%= t('activerecord.attributes.general.country')%></th>
+      <th><%= t('activerecord.attributes.general.phone_number')%></th>
+      <th><%= t('activerecord.attributes.general.email')%></th>
       <th>Server ip</th>
-      <th>Restaurant type</th>
+      <th><%= t('activerecord.attributes.restaurant.restaurant_type')%></th>
       <th colspan="3"></th>
     </tr>
   </thead>

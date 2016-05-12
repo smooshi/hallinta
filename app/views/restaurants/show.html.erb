@@ -1,59 +1,138 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @restaurant.name %></h1>
+<br>
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th><%= t('activerecord.attributes.general.company')%></th>
+    <th><%= t('activerecord.attributes.general.street_address')%></th>
+    <th><%= t('activerecord.attributes.general.city')%></th>
+    <th><%= t('activerecord.attributes.general.country')%></th>
+    <th><%= t('activerecord.attributes.general.phone_number')%></th>
+    <th><%= t('activerecord.attributes.general.email')%></th>
+    <th>Server ip</th>
+    <th><%= t('activerecord.attributes.restaurant.restaurant_type')%></th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
 
+  <tbody>
+      <tr>
+        <td><%= @restaurant.name %></td>
+        <td><%= link_to @restaurant.company.name, @restaurant.company %></td>
+        <td><%= @restaurant.street_address %></td>
+        <td><%= @restaurant.city %></td>
+        <td><%= @restaurant.country %></td>
+        <td><%= @restaurant.phone_number %></td>
+        <td><%= @restaurant.email %></td>
+        <td><%= @restaurant.server_ip %></td>
+        <td><%= @restaurant.restaurant_type.name %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></td>
+      </tr>
+  </tbody>
+</table>
+<br>
 <p>
-  <strong><%= t('activerecord.attributes.general.name') %></strong>
-  <%= @restaurant.name %>
+  <% if @isCustomer %>
+    <h2><%= t('restaurants.show.isCustomer')%></h2>
+    <table>
+      <thead>
+      <tr>
+        <th><%= t('activerecord.attributes.customer.start_date')%></th>
+        <th><%= t('activerecord.attributes.customer.end_date')%></th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td><%= @customer.start_date %></td>
+            <td><%= @customer.end_date %></td>
+            <td><%= link_to 'Show', @customer %></td>
+          </tr>
+      </tbody>
+    </table>
+  <% end %>
+</p>
+<br>
+<% if @restaurant_agreements.present? %>
+  <h2><%= t('restaurants.show.restaurant_agr')%></h2>
+  <table>
+    <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.agreement.added_by')%></th>
+      <th><%= t('activerecord.attributes.customer.start_date')%></th>
+      <th><%= t('activerecord.attributes.customer.end_date')%></th>
+      <th><%= t('activerecord.attributes.agreement.agreement_length')%></th>
+      <th><%= t('activerecord.attributes.agreement.term_of_notice')%></th>
+      <th><%= t('activerecord.attributes.agreement.responsible_user')%></th>
+      <th><%= t('activerecord.attributes.agreement.invoice_period')%></th>
+      <th><%= t('activerecord.attributes.agreement.payment_time')%></th>
+      <th><%= t('activerecord.attributes.agreement.invoicing_date')%></th>
+      <th><%= t('activerecord.attributes.agreement.signed_by')%></th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @restaurant_agreements.each do |agreement| %>
+        <tr>
+          <td><%= agreement.user.first_name %> <%= agreement.user.last_name %></td>
+          <td><%= agreement.start_date %></td>
+          <td><%= agreement.end_date %></td>
+          <td><%= agreement.agreement_length %></td>
+          <td><%= agreement.term_of_notice_in_months %></td>
+          <td><%= agreement.responsible_user_id %></td>
+          <td><%= agreement.invoicing_period_length %></td>
+          <td><%= agreement.invoicing_payment_time %></td>
+          <td><%= agreement.invoicing_date %></td>
+          <td><%= agreement.signed_by_customer %></td>
+          <td><%= link_to 'Show', agreement %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+<%end %>
+<br>
+<p>
 </p>
 
+<h2><%= t('contact_people.index.title')%></h2>
 <p>
-  <strong><%= t('activerecord.attributes.general.company') %></strong>
-  <%= link_to @companies.find_by_id(@restaurant.company_id).name, @companies.find_by_id(@restaurant.company_id)%>
-</p>
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th><%= t('activerecord.attributes.general.role')%></th>
+    <th><%= t('activerecord.attributes.general.phone_number')%></th>
+    <th><%= t('activerecord.attributes.general.email')%></th>
+  </tr>
+  </thead>
 
-<p>
-  <strong><%= t('activerecord.attributes.general.street_address') %></strong>
-  <%= @restaurant.street_address %>
+  <tbody>
+  <% @restaurant_contact_people.each do |contact_person| %>
+      <tr>
+        <td><%= link_to contact_person.name, contact_person %></td>
+        <td><%= contact_person.role %></td>
+        <td><%= contact_person.phone_number %></td>
+        <td><%= contact_person.email %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 </p>
-
+<br>
 <p>
-  <strong><%= t('activerecord.attributes.general.city') %></strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.general.country') %></strong>
-  <%= @restaurant.country %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.general.phone_number') %></strong>
-  <%= @restaurant.phone_number %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.general.email') %></strong>
-  <%= @restaurant.email %>
-</p>
-
-<p>
-  <strong>Server ip:</strong>
-  <%= @restaurant.server_ip %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.restaurant.restaurant_type') %></strong>
-  <%= @restaurant_types.find_by_id(@restaurant.restaurant_type_id).name %>
-</p>
-<p>
-  <strong>Restaurant Evaluations:</strong>
+  <h2><%= t('restaurants.show.restaurant_evals') %></h2>
 </p>
 <table>
   <thead>
   <tr>
-    <th>Restaurant evaluation type</th>
-    <th>Value</th>
-    <th>Evaluation by user</th>
-    <th>Evaluation comment</th>
+    <th><%= t('activerecord.attributes.general.type')%></th>
+    <th><%= t('activerecord.attributes.general.value')%></th>
+    <th><%= t('activerecord.attributes.general.user')%></th>
+    <th><%= t('activerecord.attributes.general.comment')%></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -70,5 +149,3 @@
   <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>

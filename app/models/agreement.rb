@@ -10,4 +10,12 @@ class Agreement < ActiveRecord::Base
   validates :start_date, presence: true
   validates :agreement_length, presence: true
   validates :responsible_user_id, presence: true
+
+  def agreement_state
+    if (agreement_length == 0)
+      return true
+    else
+      return false
+    end
+  end
 end
