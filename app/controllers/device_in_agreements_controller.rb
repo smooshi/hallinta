@@ -28,10 +28,10 @@ class DeviceInAgreementsController < ApplicationController
   def create
     @devices = Device.all
     @device_in_agreement = DeviceInAgreement.new(device_in_agreement_params)
-
+    @agreement = Agreement.find_by_id(@device_in_agreement.agreement_id)
     respond_to do |format|
       if @device_in_agreement.save
-        format.html { redirect_to @device_in_agreement, notice: 'Device in agreement was successfully created.' }
+        format.html { redirect_to @agreement, notice: 'Device in agreement was successfully created.' }
         format.json { render :show, status: :created, location: @device_in_agreement }
       else
         format.html { render :new }
@@ -43,9 +43,10 @@ class DeviceInAgreementsController < ApplicationController
   # PATCH/PUT /device_in_agreements/1
   # PATCH/PUT /device_in_agreements/1.json
   def update
+    @agreement = Agreement.find_by_id(@device_in_agreement.agreement_id)
     respond_to do |format|
       if @device_in_agreement.update(device_in_agreement_params)
-        format.html { redirect_to @device_in_agreement, notice: 'Device in agreement was successfully updated.' }
+        format.html { redirect_to @agreement, notice: 'Device in agreement was successfully updated.' }
         format.json { render :show, status: :ok, location: @device_in_agreement }
       else
         format.html { render :edit }

@@ -28,10 +28,10 @@ class SoftwareInAgreementsController < ApplicationController
   def create
     @software = Software.all
     @software_in_agreement = SoftwareInAgreement.new(software_in_agreement_params)
-
+    @agreement = Agreement.find_by_id(@software_in_agreement.agreement_id)
     respond_to do |format|
       if @software_in_agreement.save
-        format.html { redirect_to @software_in_agreement, notice: 'Software in agreement was successfully created.' }
+        format.html { redirect_to @agreement, notice: 'Software in agreement was successfully created.' }
         format.json { render :show, status: :created, location: @software_in_agreement }
       else
         format.html { render :new }
@@ -43,9 +43,10 @@ class SoftwareInAgreementsController < ApplicationController
   # PATCH/PUT /software_in_agreements/1
   # PATCH/PUT /software_in_agreements/1.json
   def update
+    @agreement = Agreement.find_by_id(@software_in_agreement.agreement_id)
     respond_to do |format|
       if @software_in_agreement.update(software_in_agreement_params)
-        format.html { redirect_to @software_in_agreement, notice: 'Software in agreement was successfully updated.' }
+        format.html { redirect_to @agreement, notice: 'Software in agreement was successfully updated.' }
         format.json { render :show, status: :ok, location: @software_in_agreement }
       else
         format.html { render :edit }
