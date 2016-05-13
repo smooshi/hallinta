@@ -181,3 +181,13 @@ en:
       devices_of_type: "Devices of this type"
     new:
       title: "Create new device type"
+  company_types:
+    index:
+      title: "List of company types"
+    new:
+      title: "Create new company type"
+  software:
+    index:
+      title: "List of software"
+    new:
+      title: "New software"

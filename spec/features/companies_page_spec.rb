@@ -7,25 +7,49 @@ describe "Company page" do
 end
 
 describe "the signin process", :type => :feature do
-  let(:user){ FactoryGirl.create(:user, :password => "testi1") }
+  let(:company){ FactoryGirl.create(:company)}
+  let(:restaurant_type){ FactoryGirl.create(:restaurant_type)}
+  let(:restaurant){ FactoryGirl.create(:restaurant)}
+  let(:contact_person){ FactoryGirl.create(:contact_person)}
 
-    it "is saved" do
-      expect(user).to be_valid
-      expect(User.count).to eq(1)
-    end
+  before :each do
+    visit companies_path
+    fill_in('email', with: "test@test.com")
+    fill_in('password', with: 'testi1')
+    click_on('Sign in')
+  end
 
-    it "has email" do
-      expect(user.email).to eq("test@test.com")
-    end
-
-
+  it "settings language change" do
+    visit settings_path
+    click_on('Englanti')
+    expect(page).to have_content 'List of companies'
+  end
 
   it "signs me in" do
     visit companies_path
-      fill_in('email', with: "test@test.com")
-      fill_in('password', with: 'testi1')
+    expect(page).to have_content 'Lista yrityksistä'
     save_and_open_page
-    click_on('Sign in')
-    expect(page).to have_content 'Logged'
+  end
+
+  it "company type" do
+    click_on('Yritystyyppi')
+    expect(page).to have_content 'Kaikki yritystyypit'
+  end
+
+  it "clicks new company" do
+    click_on('Yritystyyppi')
+    click_on('Luo uusi yritys')
+    expect(page).to have_content 'New Company'
+  end
+
+  it "restaurant" do
+    visit restaurants_path
+    expect(page).to have_content 'Lista ravintoloista'
+  end
+
+  it "restaurant" do
+    visit restaurants_path
+    click_on('Uusi ravintola')
+    expect(page).to have_content 'Name'
   end
 end

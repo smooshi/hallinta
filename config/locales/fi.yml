@@ -186,3 +186,13 @@ fi:
       devices_of_type: "Tämäntyyppiset laitteet"
     new:
       title: "Luo uusi laitetyyppi"
+  company_types:
+    index:
+      title: "Kaikki yritystyypit"
+    new:
+      title: "Uusi yritystyyppi"
+  software:
+    index:
+      title: "Kaikki ohjelmistot"
+    new:
+      title: "Uusi ohjelmisto"

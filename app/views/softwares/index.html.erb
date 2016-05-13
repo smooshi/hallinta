@@ -1,7 +1,7 @@
 <%= render 'shared/settings_container'%>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Softwares</h1>
+<h1><%= t('software.index.title')%></h1>
 
 <table>
   <thead>
@@ -11,21 +11,22 @@
       <th>Bel price</th>
       <th>Price</th>
       <th>Identifier</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @softwares.each do |software| %>
       <tr>
-        <td><%= software.name %></td>
+        <td><%= link_to software.name, software %></td>
         <td><%= software.addon %></td>
         <td><%= software.BEL_price %></td>
         <td><%= software.price %></td>
         <td><%= software.identifier %></td>
-        <td><%= link_to 'Show', software %></td>
-        <td><%= link_to 'Edit', edit_software_path(software) %></td>
-        <td><%= link_to 'Destroy', software, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_software_path(software) %></td>
+        <% if admin_user %>
+          <td><%= link_to t('activerecord.attributes.general.destroy'), software, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button"  %></td>
+            <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Software', new_software_path %>
+<%= link_to t('software.new.title'), new_software_path %>
