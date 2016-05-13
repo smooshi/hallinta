@@ -26,5 +26,7 @@ describe "Devices page" do
     click_on('Laitetyyppi')
     click_on('Uusi laite')
     expect(page).to have_content 'Uusi laite'
+    click_on('Luo Device')
+    expect(page).to have_content 'error'
   end
 end

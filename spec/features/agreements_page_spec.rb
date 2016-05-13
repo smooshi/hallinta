@@ -17,4 +17,41 @@ require 'rails_helper'
         expect(page).to have_content 'New Agreement'
       end
 
+      it 'new page' do
+        visit new_agreement_path
+        click_on('Luo Agreement')
+        expect(page).to have_content 'error'
+      end
+
+      it 'new page' do
+        visit new_agreement_path
+        fill_in('agreement_agreement_length', with: '0')
+        click_on('Luo Agreement')
+      end
+
+      it 'new page' do
+        visit new_agreement_path
+        click_on('Luo Agreement')
+        expect(page).to have_content 'error'
+      end
+
+      it 'show page' do
+        agreement = FactoryGirl.create(:agreement)
+        visit agreement_path(agreement)
+        expect(page).to have_content 'Sopimustiedot'
+      end
+
+      it 'luo device' do
+        agreement = FactoryGirl.create(:agreement)
+        visit agreement_path(agreement)
+        click_on('Luo Device in agreement')
+        expect(page).to have_content 'error'
+      end
+
+      it 'luo software' do
+        agreement = FactoryGirl.create(:agreement)
+        visit agreement_path(agreement)
+        click_on('Luo Software in agreement')
+        expect(page).to have_content 'error'
+      end
     end

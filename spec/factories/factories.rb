@@ -38,8 +38,12 @@ FactoryGirl.define do
   end
 
   factory :agreement do
-    restaurant_id "1"
+    restaurant_id "2"
+    user_id "1"
+    responsible_user_id "1"
     agreement_length "0"
+    start_date Date.today
+    end_date Date.today
   end
 
   factory :contact_person do

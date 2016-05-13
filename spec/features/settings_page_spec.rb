@@ -17,9 +17,32 @@ describe "Settings page" do
     expect(page).to have_content 'Kaikki ohjelmistot'
   end
 
+  it 'new software' do
+    click_on('Ohjelmisto')
+    click_on('Uusi ohjelmisto')
+    fill_in('software_name', with: "Company1")
+    fill_in('software_identifier', with: "e@e.com")
+    click_on('Luo Software')
+  end
+
+  it 'new software fail' do
+    click_on('Ohjelmisto')
+    click_on('Uusi ohjelmisto')
+    click_on('Luo Software')
+    expect(page).to have_content 'error'
+  end
+
   it 'company type' do
     click_on('Yritystyyppi')
     expect(page).to have_content 'Kaikki yritystyypit'
+  end
+
+  it 'new company type' do
+    click_on('Yritystyyppi')
+    click_on('Uusi yritystyyppi')
+    fill_in('company_type_name', with: "comp")
+    fill_in('company_type_description',with: "bleh" )
+    click_on('Luo Company type')
   end
 
   it 'device types' do
@@ -27,9 +50,48 @@ describe "Settings page" do
     expect(page).to have_content 'Kaikki laitetyypit'
   end
 
+  it 'new device types' do
+    click_on('Laitetyyppi')
+    click_on('Luo uusi laitetyyppi')
+    fill_in('device_type_name', with: "comp")
+    fill_in('device_type_total_price',with: "1" )
+    click_on('Luo Device type')
+  end
+
+  it 'restaurant types' do
+    click_on('Ravintolatyyppi')
+    expect(page).to have_content 'Listing Restaurant Types'
+  end
+
+  it 'restaurant types' do
+    click_on('Ravintolatyyppi')
+    click_on('New Restaurant type')
+    fill_in('restaurant_type_name', with: "comp")
+    fill_in('restaurant_type_description',with: "iik" )
+    click_on('Luo Restaurant type')
+  end
+
   it 'restaurant evals' do
     click_on('Ravintola-arviot')
     expect(page).to have_content 'Ravintola-arviot'
+  end
+
+  it 'new restaurant evals' do
+    visit new_restaurant_evaluation_path
+    expect(page).to have_content 'Ravintola-arviot'
+  end
+
+  it 'new restaurant evals' do
+    visit new_restaurant_evaluation_path
+    fill_in('restaurant_evaluation_value', with: "1")
+    fill_in('restaurant_evaluation_evaluation_comment', with: "beep")
+    click_on('Luo Restaurant evaluation')
+  end
+
+  it 'new restaurant evals fail' do
+    visit new_restaurant_evaluation_path
+    click_on('Luo Restaurant evaluation')
+    expect(page).to have_content 'error'
   end
 
   it 'restaurant eval types' do
@@ -37,7 +99,29 @@ describe "Settings page" do
     expect(page).to have_content 'Ravintola-arvio tyyppi'
   end
 
+  it 'new restaurant eval types' do
+    click_on('Ravintola-arvio tyyppi')
+    click_on('New Restaurant evaluation type')
+    fill_in('restaurant_evaluation_type_name', with: "eval")
+    fill_in('restaurant_evaluation_type_description',with: "Blil" )
+    click_on('Luo Restaurant evaluation type')
+  end
+
   it 'user details' do
     expect(page).to have_content 'Käyttäjätiedot'
   end
+
+  it 'role' do
+    click_on('Käyttäjäroolit')
+    expect(page).to have_content 'Listing Roles'
+  end
+
+  it 'new role' do
+    click_on('Käyttäjäroolit')
+    click_on('New Role')
+    fill_in('role_name', with: "eval")
+    fill_in('role_description',with: "Blil" )
+    click_on('Luo Role')
+  end
+
 end

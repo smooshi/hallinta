@@ -13,4 +13,14 @@ describe "the signin process", :type => :feature do
     click_on('Asiakkaat')
     expect(page).to have_content 'Lista asiakkaista'
   end
+
+  it "new customer" do
+    visit new_customer_path
+    expect(page).to have_content 'New Customer'
+  end
+
+  it "new customer" do
+    visit new_customer_path
+    click_on('Luo Customer')
+  end
 end

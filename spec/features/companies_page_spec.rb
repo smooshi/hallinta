@@ -28,7 +28,6 @@ describe "the signin process", :type => :feature do
   it "signs me in" do
     visit companies_path
     expect(page).to have_content 'Lista yrityksistä'
-    save_and_open_page
   end
 
   it "company type" do
@@ -42,14 +41,38 @@ describe "the signin process", :type => :feature do
     expect(page).to have_content 'New Company'
   end
 
+  it "new company fails" do
+    click_on('Yritystyyppi')
+    click_on('Luo uusi yritys')
+    expect(page).to have_content 'New Company'
+    fill_in('company_email', with: "e@e.com")
+    click_on('Luo Company')
+    expect(page).to have_content 'error'
+  end
+
   it "restaurant" do
     visit restaurants_path
     expect(page).to have_content 'Lista ravintoloista'
   end
 
-  it "restaurant" do
+  it "new restaurant" do
     visit restaurants_path
     click_on('Uusi ravintola')
-    expect(page).to have_content 'Name'
+    click_on('Submit')
+    expect(page).to have_content 'error'
   end
+
+  it "contact people" do
+    visit new_contact_person_path
+    expect(page).to have_content 'New Contact Person'
+  end
+
+  it "new contact people" do
+    visit new_contact_person_path
+    fill_in('contact_person_name', with: "Milla")
+    fill_in('contact_person_email', with: "a@a.com")
+    click_on('Luo Contact person')
+    expect(page).to have_content 'success'
+  end
+
 end
