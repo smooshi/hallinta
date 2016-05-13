@@ -2,8 +2,8 @@
 <p id="notice"><%= notice %></p>
 
 
-<h1><%= t('restaurants.show.restaurant_evals')%></h1>
-
+<h1><%= t('menu.restaurant_eval')%></h1>
+<br>
 <table>
   <thead>
   <tr>
@@ -27,10 +27,8 @@
         <td><%= @restaurant_evaluation.evaluation_comment %></td>
         <% if admin_user or current_user == @restaurant_evaluation.user %>
           <td><%= link_to 'Edit', edit_restaurant_evaluation_path(@restaurant_evaluation) %></td>
-          <td><%= link_to 'Destroy', @restaurant_evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', @restaurant_evaluation, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
          <%end%>
       </tr>
   </tbody>
 </table>
-
-<br>

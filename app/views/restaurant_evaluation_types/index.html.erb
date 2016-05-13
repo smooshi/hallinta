@@ -1,25 +1,21 @@
 <%= render 'shared/restaurants_container'%>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Restaurant Evaluation Types</h1>
+<h1><%= t('menu.restaurant_eval_type')%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th><%= t('activerecord.attributes.general.name')%></th>
+      <th><%= t('activerecord.attributes.general.description')%></th>
     </tr>
   </thead>
 
   <tbody>
     <% @restaurant_evaluation_types.each do |restaurant_evaluation_type| %>
       <tr>
-        <td><%= restaurant_evaluation_type.name %></td>
+        <td><%= link_to restaurant_evaluation_type.name, restaurant_evaluation_type %></td>
         <td><%= restaurant_evaluation_type.description %></td>
-        <td><%= link_to 'Show', restaurant_evaluation_type %></td>
-        <td><%= link_to 'Edit', edit_restaurant_evaluation_type_path(restaurant_evaluation_type) %></td>
-        <td><%= link_to 'Destroy', restaurant_evaluation_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

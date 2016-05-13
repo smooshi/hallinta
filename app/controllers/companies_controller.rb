@@ -5,7 +5,6 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.includes(:company_type).all
-    @restaurants = Restaurant.all
   end
 
   # GET /companies/1

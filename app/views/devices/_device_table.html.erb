@@ -1,8 +1,3 @@
-<%= render 'shared/device_container' %>
-<p id="notice"><%= notice %></p>
-
-<h1><%= t('devices.show.title')%></h1>
-
 <table>
   <thead>
   <tr>
@@ -19,18 +14,20 @@
   </thead>
 
   <tbody>
+  <% devices.each do |device| %>
       <tr>
-        <td><%= @device.device_type.name %></td>
-        <td><%= @device.purchase_day %></td>
-        <td><%= @device.is_leased %></td>
-        <td><%= @device.full_price %></td>
-        <td><%= @device.leasing_price %></td>
-        <td><%= @device.leasing_length %></td>
-        <td><%= @device.identifier %></td>
-        <td><%= @device.rental_device %></td>
-        <td><%= link_to t('activerecord.attributes.general.edit'), edit_device_path(@device) %></td>
+        <td><%= link_to device.device_type.name, device %></td>
+        <td><%= device.purchase_day %></td>
+        <td><%= device.is_leased %></td>
+        <td><%= device.full_price %></td>
+        <td><%= device.leasing_price %></td>
+        <td><%= device.leasing_length %></td>
+        <td><%= device.identifier %></td>
+        <td><%= device.rental_device %></td>
+        <% if admin_user %>
+            <td><%= link_to t('activerecord.attributes.general.destroy'), device, method: :delete, data: { confirm: 'Are you sure?' } , :class => "deleteButton button"%></td>
+        <% end %>
       </tr>
+  <% end %>
   </tbody>
 </table>
-<br>
-<%= render 'shared/admin_right', thing:@device%>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  has_many :restaurant_evaluations, :dependent => :destroy
+  has_many :restaurant_evaluations, :dependent => :restrict_with_exception
 
   attr_accessor :password
   EMAIL_REGEX = /@/

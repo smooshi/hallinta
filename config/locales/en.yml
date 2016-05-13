@@ -74,6 +74,10 @@ en:
         payment_time: "Invoicing payment time"
         invoicing_date: "Invoicing date"
         signed_by: "Signed by customer"
+      device_type:
+        warranty: "Warranty length"
+        tot_price: "Total price"
+        leas_price: "Leasing price/month"
   forms:
     messages:
       success: "Operation succeeded!"
@@ -94,6 +98,7 @@ en:
     software: "Software"
     software_in_agreement: "Software in agreement"
     restaurant_eval_type: "Restaurant evaluation type"
+    restaurant_eval: "Restaurant evaluation"
     languages:
       lang: "Language"
       fi: "Finnish"
@@ -168,3 +173,11 @@ en:
     agreement_settings: "Agreement settings"
   admin:
     panel: "Admin panel"
+  device_types:
+    index:
+      title: "List of device types"
+    show:
+      title: "Device type"
+      devices_of_type: "Devices of this type"
+    new:
+      title: "Create new device type"

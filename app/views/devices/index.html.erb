@@ -3,37 +3,6 @@
 
 <h1><%= t('devices.index.title')%></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('activerecord.attributes.device.device_type')%></th>
-      <th><%= t('activerecord.attributes.device.purchase_day')%></th>
-      <th><%= t('activerecord.attributes.device.is_leased')%></th>
-      <th><%= t('activerecord.attributes.device.full_price')%></th>
-      <th><%= t('activerecord.attributes.device.leasing_price')%></th>
-      <th><%= t('activerecord.attributes.device.leasing_length')%></th>
-      <th><%= t('activerecord.attributes.device.identifier')%></th>
-      <th><%= t('activerecord.attributes.device.rental_device')%></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @devices.each do |device| %>
-      <tr>
-        <td><%= device.device_type.name %></td>
-        <td><%= device.purchase_day %></td>
-        <td><%= device.is_leased %></td>
-        <td><%= device.full_price %></td>
-        <td><%= device.leasing_price %></td>
-        <td><%= device.leasing_length %></td>
-        <td><%= device.identifier %></td>
-        <td><%= device.rental_device %></td>
-        <td><%= link_to t('activerecord.attributes.general.edit'), device %></td>
-        <% if admin_user %>
-          <td><%= link_to t('activerecord.attributes.general.destroy'), device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'device_table', devices: @devices%>
+<br>
+<%= link_to t('devices.new.title'), new_device_path%>

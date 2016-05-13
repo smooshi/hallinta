@@ -78,6 +78,10 @@ fi:
         payment_time: "Maksuaika"
         invoicing_date: "Laskutuspäivä"
         signed_by: "Allekirjoitettu"
+      device_type:
+        warranty: "Takuuaika"
+        tot_price: "Kokonaishinta"
+        leas_price: "Leasing hinta/kk"
   users:
     index:
       title: "Kaikki käyttäjät"
@@ -107,6 +111,7 @@ fi:
     software: "Ohjelmisto"
     software_in_agreement: "Sopimusohjelmisto"
     restaurant_eval_type: "Ravintola-arvio tyyppi"
+    restaurant_eval: "Ravintola-arvio"
     languages:
       lang: "Kieli"
       fi: "Suomi"
@@ -173,3 +178,11 @@ fi:
     agreement_settings: "Sopimusasetukset"
   admin:
     panel: "Admin toiminnot"
+  device_types:
+    index:
+      title: "Kaikki laitetyypit"
+    show:
+      title: "Laitetyypin tiedot"
+      devices_of_type: "Tämäntyyppiset laitteet"
+    new:
+      title: "Luo uusi laitetyyppi"

@@ -1,0 +1,31 @@
+<table>
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th><%= t('activerecord.attributes.general.company')%></th>
+    <th><%= t('activerecord.attributes.general.street_address')%></th>
+    <th><%= t('activerecord.attributes.general.city')%></th>
+    <th><%= t('activerecord.attributes.general.country')%></th>
+    <th><%= t('activerecord.attributes.general.phone_number')%></th>
+    <th><%= t('activerecord.attributes.general.email')%></th>
+    <th>Server ip</th>
+    <th><%= t('activerecord.attributes.restaurant.restaurant_type')%></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to restaurant.name, restaurant %></td>
+        <td><%= link_to restaurant.company.name, restaurant.company %></td>
+        <td><%= restaurant.street_address %></td>
+        <td><%= restaurant.city %></td>
+        <td><%= restaurant.country %></td>
+        <td><%= restaurant.phone_number %></td>
+        <td><%= restaurant.email %></td>
+        <td><%= restaurant.server_ip %></td>
+        <td><%= restaurant.restaurant_type.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

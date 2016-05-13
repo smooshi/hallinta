@@ -26,6 +26,7 @@ class RestaurantEvaluationsController < ApplicationController
   # POST /restaurant_evaluations
   # POST /restaurant_evaluations.json
   def create
+    @restaurant_evaluation_types = RestaurantEvaluationType.all
     @restaurant_evaluation = RestaurantEvaluation.new(restaurant_evaluation_params)
     @restaurant_evaluation.company_id = Restaurant.find_by_id(restaurant_evaluation_params[:restaurant_id]).company.id
     @restaurant_evaluation.user_id = current_user.id

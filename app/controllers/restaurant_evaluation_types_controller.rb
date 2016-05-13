@@ -10,6 +10,7 @@ class RestaurantEvaluationTypesController < ApplicationController
   # GET /restaurant_evaluation_types/1
   # GET /restaurant_evaluation_types/1.json
   def show
+    @restaurant_evaluations = RestaurantEvaluation.where(:restaurant_evaluation_type_id => @restaurant_evaluation_type.id).all
   end
 
   # GET /restaurant_evaluation_types/new

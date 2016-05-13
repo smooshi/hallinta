@@ -1,6 +1,5 @@
 class ContactPeopleController < ApplicationController
   before_action :set_contact_person, only: [:show, :edit, :update, :destroy]
-
   # GET /contact_people
   # GET /contact_people.json
   def index

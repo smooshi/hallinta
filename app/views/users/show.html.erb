@@ -93,6 +93,4 @@
 </table>
 
 <br>
-<% if admin_user %>
-  Only admins see this place!
-<%end%>
+<%= render 'shared/admin_right', thing:@user %>

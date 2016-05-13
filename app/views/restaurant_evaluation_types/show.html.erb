@@ -1,15 +1,16 @@
 <%= render 'shared/restaurants_container'%>
 <p id="notice"><%= notice %></p>
 
+<h1><%= t('activerecord.attributes.restaurant.restaurant_type')%> <%= @restaurant_evaluation_type.name %></h1>
+<br>
 <p>
-  <strong>Name:</strong>
-  <%= @restaurant_evaluation_type.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+  <strong><%= t('activerecord.attributes.general.description')%>:</strong>
   <%= @restaurant_evaluation_type.description %>
 </p>
-
-<%= link_to 'Edit', edit_restaurant_evaluation_type_path(@restaurant_evaluation_type) %> |
-<%= link_to 'Back', restaurant_evaluation_types_path %>
+<br>
+<%= link_to t('activerecord.attributes.general.edit'), edit_restaurant_evaluation_type_path(@restaurant_evaluation_type) %>
+<br>
+<br>
+<br>
+<h2>Restaurant evaluations of type</h2>
+<%= render 'restaurant_evaluations/rest_eval_table', restaurant_evaluations: @restaurant_evaluations %>

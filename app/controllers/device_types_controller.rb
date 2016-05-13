@@ -10,6 +10,7 @@ class DeviceTypesController < ApplicationController
   # GET /device_types/1
   # GET /device_types/1.json
   def show
+    @devices_of_this_type = Device.where(:device_type_id => @device_type.id).all
   end
 
   # GET /device_types/new

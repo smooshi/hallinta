@@ -3,6 +3,7 @@
 <h1><%= t('companies.index.title')%></h1>
 <br>
 <table>
+  <% @companies.each do |company| %>
   <thead>
     <tr>
       <th><%= t('activerecord.attributes.general.name')%></th>
@@ -16,7 +17,6 @@
   </thead>
 
   <tbody>
-    <% @companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company %></td>
         <td><%= company.company_type.name %></td>
@@ -26,8 +26,12 @@
         <td><%= company.phone_number %></td>
         <td><%= company.email %></td>
       </tr>
-    <% end %>
+      <tr>
+        <td colspan="7"><%= render 'restaurant_table', restaurants: Restaurant.where(:company_id => company.id).all %></td>
+      </tr>
   </tbody>
+  <% end %>
 </table>
+
 <br>
 <%= link_to t('companies.new.title'), new_company_path %>

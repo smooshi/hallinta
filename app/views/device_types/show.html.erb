@@ -1,25 +1,26 @@
 <%= render 'shared/device_container' %>
 <p id="notice"><%= notice %></p>
-
+<h1><%= t('device_types.show.title')%> <%= @device_type.name %></h1>
+<br>
 <p>
-  <strong>Name:</strong>
-  <%= @device_type.name %>
-</p>
-
-<p>
-  <strong>Warranty length:</strong>
+  <strong><%= t('activerecord.attributes.device_type.warranty')%></strong>
   <%= @device_type.warranty_length %>
 </p>
 
 <p>
-  <strong>Total price:</strong>
+  <strong><%= t('activerecord.attributes.device_type.tot_price')%></strong>
   <%= @device_type.total_price %>
 </p>
 
 <p>
-  <strong>Leasing price per month:</strong>
+  <strong><%= t('activerecord.attributes.device_type.leas_price')%></strong>
   <%= @device_type.leasing_price_per_month %>
 </p>
-
-<%= link_to 'Edit', edit_device_type_path(@device_type) %> |
-<%= link_to 'Back', device_types_path %>
+<br>
+<%= link_to t('activerecord.attributes.general.edit'), edit_device_type_path(@device_type) %>
+<br>
+<br>
+<h2><%= t('device_types.show.devices_of_type')%></h2>
+<%= render 'devices/device_table', devices: @devices_of_this_type%>
+<br>
+<%= render 'shared/admin_right', thing: @device_type %>
