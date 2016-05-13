@@ -52,13 +52,6 @@ RSpec.describe AgreementsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new agreement as @agreement" do
-      get :new, {}, valid_session
-      expect(assigns(:agreement)).to be_a_new(Agreement)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested agreement as @agreement" do
       agreement = Agreement.create! valid_attributes

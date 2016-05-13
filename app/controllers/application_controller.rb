@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :admin_user
+  helper_method :current_user, :admin_user, :ensure_that_admin
 
   before_filter :ensure_that_signed_in
   before_action :set_locale

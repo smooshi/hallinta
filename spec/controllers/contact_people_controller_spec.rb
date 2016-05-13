@@ -52,13 +52,6 @@ RSpec.describe ContactPeopleController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new contact_person as @contact_person" do
-      get :new, {}, valid_session
-      expect(assigns(:contact_person)).to be_a_new(ContactPerson)
-    end
-  end
-
   describe "GET #edit" do
     it "assigns the requested contact_person as @contact_person" do
       contact_person = ContactPerson.create! valid_attributes

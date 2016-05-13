@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_roles, only: [:new, :edit, :create, :update]
+  before_action :ensure_that_admin, only: [:new, :create, :destroy]
 
   # GET /users
   # GET /users.json
@@ -28,8 +29,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.admin = false
-    @user.currently_employed = true
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

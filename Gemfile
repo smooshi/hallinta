@@ -7,7 +7,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'capybara'
   gem 'launchy'
 end
@@ -17,9 +17,8 @@ gem 'simplecov', require: false
 #Encryption
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
-#Internationalization??
+#Internationalization
 gem 'rails-i18n', '~> 4.0.0'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'

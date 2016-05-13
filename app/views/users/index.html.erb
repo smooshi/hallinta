@@ -14,7 +14,6 @@
       <% if admin_user %>
         <th>Currently employed</th>
       <% end %>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -35,5 +34,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<% if admin_user %>
+  <%= link_to 'New User', new_user_path %>
+<%end%>
