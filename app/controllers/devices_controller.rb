@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_device_types, only: [:new, :edit, :create]
   # GET /devices
   # GET /devices.json
   def index
@@ -15,12 +15,10 @@ class DevicesController < ApplicationController
   # GET /devices/new
   def new
     @device = Device.new
-    @device_types = DeviceType.all
   end
 
   # GET /devices/1/edit
   def edit
-    @device_types = DeviceType.all
   end
 
   # POST /devices
@@ -73,4 +71,8 @@ class DevicesController < ApplicationController
     def device_params
       params.require(:device).permit(:device_type_id, :purchase_day, :is_leased, :full_price, :leasing_price, :leasing_length, :identifier, :rental_device)
     end
+
+  def set_device_types
+    @device_types = DeviceType.all
+  end
 end

@@ -7,10 +7,6 @@ describe "Company page" do
 end
 
 describe "the signin process", :type => :feature do
-  let(:company){ FactoryGirl.create(:company)}
-  let(:restaurant_type){ FactoryGirl.create(:restaurant_type)}
-  let(:restaurant){ FactoryGirl.create(:restaurant)}
-  let(:contact_person){ FactoryGirl.create(:contact_person)}
 
   before :each do
     visit companies_path
@@ -33,6 +29,12 @@ describe "the signin process", :type => :feature do
   it "company type" do
     click_on('Yritystyyppi')
     expect(page).to have_content 'Kaikki yritystyypit'
+  end
+
+  it "edit company type" do
+    company_type = FactoryGirl.create(:company_type)
+    visit edit_company_type_path(company_type)
+    click_on('Päivitä Company')
   end
 
   it "clicks new company" do
@@ -76,13 +78,30 @@ describe "the signin process", :type => :feature do
   end
 
   it "show company" do
+    company_type = FactoryGirl.create(:company_type)
     company = FactoryGirl.create(:company)
     visit contact_person_path(company)
   end
 
+  it "edit company" do
+    company = FactoryGirl.create(:company)
+    visit edit_company_path(company)
+    click_on('Päivitä Company')
+  end
+
   it "show restaurant" do
+    company_type = FactoryGirl.create(:company_type)
+    company = FactoryGirl.create(:company)
     restaurant = FactoryGirl.create(:restaurant)
+    contact_person = FactoryGirl.create(:contact_person)
     visit restaurant_path(restaurant)
   end
+
+  it "edit restaurant" do
+    restaurant = FactoryGirl.create(:restaurant)
+    visit edit_restaurant_path(restaurant)
+    click_on('Submit')
+  end
+
 
 end

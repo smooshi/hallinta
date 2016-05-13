@@ -62,4 +62,31 @@ require 'rails_helper'
         fill_in('agreement_invoicing_period_length', with: "2")
         click_on('Päivitä Agreement')
       end
+
+      it "edit software in agreement" do
+        sia = FactoryGirl.create(:software_in_agreement)
+        visit edit_software_in_agreement_path(sia)
+        click_on('Päivitä Software in agreement')
+      end
+
+      it "edit device in agreement" do
+        dia = FactoryGirl.create(:device_in_agreement)
+        visit edit_device_in_agreement_path(dia)
+        click_on('Päivitä Device in agreement')
+      end
+
+      it "new device in agreement fail" do
+        visit new_device_in_agreement_path
+        click_on('Luo Device in agreement')
+        expect(page).to have_content 'error'
+      end
+
+      it "new software in agreement fail" do
+        visit new_software_in_agreement_path
+        click_on('Luo Software in agreement')
+        expect(page).to have_content 'error'
+      end
+
+
+
     end

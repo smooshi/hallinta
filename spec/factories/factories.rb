@@ -38,7 +38,7 @@ FactoryGirl.define do
   end
 
   factory :agreement do
-    restaurant_id "2"
+    restaurant_id "4"
     user_id "1"
     responsible_user_id "1"
     agreement_length "0"
@@ -74,5 +74,40 @@ FactoryGirl.define do
   factory :software do
     name "Kassa"
     identifier "1"
+  end
+
+  factory :device_type do
+    name "Go"
+  end
+
+  factory :device do
+    device_type_id "1"
+    identifier "Boo"
+    purchase_day Date.today
+    is_leased true
+    leasing_price "1"
+    leasing_length "1"
+  end
+
+  factory :software_in_agreement do
+    agreement_id "1"
+    software_id "1"
+    monthly_price "2"
+  end
+
+  factory :device_in_agreement do
+    agreement_id "1"
+    device_id "1"
+    monthly_price "2"
+    total_price "2"
+  end
+
+  factory :current_user do
+    email "test@test.com"
+    first_name "Pekka"
+    last_name "Pouta"
+    admin false
+    role_id "1"
+    id "1"
   end
 end

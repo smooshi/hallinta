@@ -1,6 +1,6 @@
 class SoftwareInAgreementsController < ApplicationController
   before_action :set_software_in_agreement, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_softwares, only:[:new, :edit, :create, :update]
   # GET /software_in_agreements
   # GET /software_in_agreements.json
   def index
@@ -14,19 +14,16 @@ class SoftwareInAgreementsController < ApplicationController
 
   # GET /software_in_agreements/new
   def new
-    @software = Software.all
     @software_in_agreement = SoftwareInAgreement.new
   end
 
   # GET /software_in_agreements/1/edit
   def edit
-    @software = Software.all
   end
 
   # POST /software_in_agreements
   # POST /software_in_agreements.json
   def create
-    @software = Software.all
     @software_in_agreement = SoftwareInAgreement.new(software_in_agreement_params)
     @agreement = Agreement.find_by_id(@software_in_agreement.agreement_id)
     respond_to do |format|
@@ -76,5 +73,9 @@ class SoftwareInAgreementsController < ApplicationController
     def software_in_agreement_params
       params.require(:software_in_agreement).permit(:software_id, :agreement_id, :monthly_price)
     end
+
+  def set_softwares
+    @software = Software.all
+  end
 
 end

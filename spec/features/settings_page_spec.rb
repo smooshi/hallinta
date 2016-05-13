@@ -17,6 +17,12 @@ describe "Settings page" do
     expect(page).to have_content 'Kaikki ohjelmistot'
   end
 
+  it 'software edit' do
+    software = FactoryGirl.create(:software)
+    visit edit_software_path(software)
+    click_on('Päivitä Software')
+  end
+
   it 'new software' do
     click_on('Ohjelmisto')
     click_on('Uusi ohjelmisto')
@@ -71,6 +77,12 @@ describe "Settings page" do
     click_on('Luo Restaurant type')
   end
 
+  it "edit restaurant type" do
+    rt = FactoryGirl.create(:restaurant_type)
+    visit edit_restaurant_type_path(rt)
+    click_on('Päivitä Restaurant type')
+  end
+
   it 'restaurant evals' do
     click_on('Ravintola-arviot')
     expect(page).to have_content 'Ravintola-arviot'
@@ -79,6 +91,12 @@ describe "Settings page" do
   it 'new restaurant evals' do
     visit new_restaurant_evaluation_path
     expect(page).to have_content 'Ravintola-arviot'
+  end
+
+  it 'edit rest eval' do
+    re = FactoryGirl.create(:restaurant_evaluation)
+    visit edit_restaurant_evaluation_path(re)
+    click_on('Päivitä Restaurant evaluation')
   end
 
   it 'new restaurant evals' do
@@ -105,6 +123,13 @@ describe "Settings page" do
     fill_in('restaurant_evaluation_type_name', with: "eval")
     fill_in('restaurant_evaluation_type_description',with: "Blil" )
     click_on('Luo Restaurant evaluation type')
+  end
+
+  it "edit rest eval types" do
+    ret = FactoryGirl.create(:restaurant_evaluation_type)
+    visit edit_restaurant_evaluation_type_path(ret)
+    click_on("Päivitä Restaurant evaluation type")
+    expect(page).to have_content 'Ravintolatyyppi'
   end
 
   it 'user details' do

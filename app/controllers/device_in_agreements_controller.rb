@@ -1,6 +1,6 @@
 class DeviceInAgreementsController < ApplicationController
   before_action :set_device_in_agreement, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_devices, only: [:new, :create, :update, :edit]
   # GET /device_in_agreements
   # GET /device_in_agreements.json
   def index
@@ -15,19 +15,15 @@ class DeviceInAgreementsController < ApplicationController
   # GET /device_in_agreements/new
   def new
     @device_in_agreement = DeviceInAgreement.new
-    @device_type = DeviceType.new
-    @devices = Device.all
   end
 
   # GET /device_in_agreements/1/edit
   def edit
-    @devices = Device.all
   end
 
   # POST /device_in_agreements
   # POST /device_in_agreements.json
   def create
-    @devices = Device.all
     @device_in_agreement = DeviceInAgreement.new(device_in_agreement_params)
     @agreement = Agreement.find_by_id(@device_in_agreement.agreement_id)
     respond_to do |format|
@@ -76,5 +72,9 @@ class DeviceInAgreementsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_in_agreement_params
       params.require(:device_in_agreement).permit(:agreement_id, :device_id, :price_is_leasing, :total_price, :monthly_price)
+    end
+
+    def set_devices
+      @devices = Device.all
     end
 end

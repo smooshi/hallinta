@@ -17,9 +17,21 @@ describe "Devices page" do
     expect(page).to have_content 'Kaikki laitetyypit'
   end
 
+  it 'edit device' do
+    device = FactoryGirl.create(:device)
+    visit edit_device_path(device)
+    click_on('Päivitä Device')
+  end
+
   it 'new device type' do
     click_on('Laitetyyppi')
     expect(page).to have_content 'Kaikki laitetyypit'
+  end
+
+  it 'edit device type' do
+    device_type = FactoryGirl.create(:device_type)
+    visit edit_device_type_path(device_type)
+    click_on('Päivitä Device type')
   end
 
   it 'new device' do

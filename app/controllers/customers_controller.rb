@@ -1,17 +1,15 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_restaurants, only:[:index, :show, :create]
   # GET /customers
   # GET /customers.json
   def index
     @customers = Customer.all
-    @restaurants = Restaurant.all
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @restaurants = Restaurant.all
   end
 
   # GET /customers/new
@@ -29,7 +27,6 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
-    @restaurants = Restaurant.all
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
@@ -77,4 +74,8 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:restaurant_id, :start_date, :end_date)
     end
+
+  def set_restaurants
+    @restaurants = Restaurant.all
+  end
 end

@@ -1,6 +1,6 @@
 class RestaurantEvaluationsController < ApplicationController
   before_action :set_restaurant_evaluation, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_restaurant_evaluation_types, only: [:new, :edit, :create]
   # GET /restaurant_evaluations
   # GET /restaurant_evaluations.json
   def index
@@ -14,7 +14,6 @@ class RestaurantEvaluationsController < ApplicationController
 
   # GET /restaurant_evaluations/new
   def new
-    @restaurant_evaluation_types = RestaurantEvaluationType.all
     @restaurant_evaluation = RestaurantEvaluation.new
     @restaurant_evaluation.restaurant_id = params[:restaurant_id]
   end
@@ -26,7 +25,6 @@ class RestaurantEvaluationsController < ApplicationController
   # POST /restaurant_evaluations
   # POST /restaurant_evaluations.json
   def create
-    @restaurant_evaluation_types = RestaurantEvaluationType.all
     @restaurant_evaluation = RestaurantEvaluation.new(restaurant_evaluation_params)
     @restaurant_evaluation.company_id = Restaurant.find_by_id(restaurant_evaluation_params[:restaurant_id]).company.id
     @restaurant_evaluation.user_id = current_user.id
@@ -75,4 +73,8 @@ class RestaurantEvaluationsController < ApplicationController
     def restaurant_evaluation_params
       params.require(:restaurant_evaluation).permit(:restaurant_id, :company_id, :restaurant_evaluation_type_id, :value, :evaluation_by_user, :evaluation_time, :evaluation_comment)
     end
+
+  def set_restaurant_evaluation_types
+    @restaurant_evaluation_types = RestaurantEvaluationType.all
+  end
 end

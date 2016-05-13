@@ -1,5 +1,6 @@
 class AgreementsController < ApplicationController
   before_action :set_agreement, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurants_and_users, only: [:new, :edit, :create]
 
   # GET /agreements
   # GET /agreements.json
@@ -25,21 +26,15 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @agreement = Agreement.new
-    @restaurants = Restaurant.all
-    @users = User.all
   end
 
   # GET /agreements/1/edit
   def edit
-    @restaurants = Restaurant.all
-    @users = User.all
   end
 
   # POST /agreements
   # POST /agreements.json
   def create
-    @restaurants = Restaurant.all
-    @users = User.all
     @agreement = Agreement.new(agreement_params)
     @agreement.user_id = current_user.id
 
@@ -88,4 +83,9 @@ class AgreementsController < ApplicationController
     def agreement_params
       params.require(:agreement).permit(:restaurant_id, :user_id, :start_date, :end_date, :agreement_length, :term_of_notice_in_months, :responsible_user_id, :invoicing_period_length, :invoicing_payment_time, :invoicing_date, :signed_by_customer)
     end
+
+  def set_restaurants_and_users
+    @restaurants = Restaurant.all
+    @users = User.all
+  end
 end
