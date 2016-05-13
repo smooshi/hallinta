@@ -75,4 +75,14 @@ describe "the signin process", :type => :feature do
     expect(page).to have_content 'success'
   end
 
+  it "show company" do
+    company = FactoryGirl.create(:company)
+    visit contact_person_path(company)
+  end
+
+  it "show restaurant" do
+    restaurant = FactoryGirl.create(:restaurant)
+    visit restaurant_path(restaurant)
+  end
+
 end

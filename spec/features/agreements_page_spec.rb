@@ -54,4 +54,12 @@ require 'rails_helper'
         click_on('Luo Software in agreement')
         expect(page).to have_content 'error'
       end
+
+      it 'edit agreement' do
+        agreement = FactoryGirl.create(:agreement)
+        visit edit_agreement_path(agreement)
+        expect(page).to have_content 'Editing'
+        fill_in('agreement_invoicing_period_length', with: "2")
+        click_on('Päivitä Agreement')
+      end
     end
