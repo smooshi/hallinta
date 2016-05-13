@@ -23,4 +23,10 @@ describe "the signin process", :type => :feature do
     visit new_customer_path
     click_on('Luo Customer')
   end
+
+  it "edit customer" do
+    customer = FactoryGirl.create(:customer)
+    visit edit_customer_path(customer)
+    click_on('Päivitä Customer')
+  end
 end

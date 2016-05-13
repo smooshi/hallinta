@@ -1,5 +1,6 @@
 require 'rails_helper'
     describe "Agreements page" do
+      agreement = FactoryGirl.create(:agreement)
       before :each do
         visit companies_path
         fill_in('email', with: "test@test.com")
@@ -36,27 +37,23 @@ require 'rails_helper'
       end
 
       it 'show page' do
-        agreement = FactoryGirl.create(:agreement)
         visit agreement_path(agreement)
         expect(page).to have_content 'Sopimustiedot'
       end
 
       it 'luo device' do
-        agreement = FactoryGirl.create(:agreement)
         visit agreement_path(agreement)
         click_on('Luo Device in agreement')
         expect(page).to have_content 'error'
       end
 
       it 'luo software' do
-        agreement = FactoryGirl.create(:agreement)
         visit agreement_path(agreement)
         click_on('Luo Software in agreement')
         expect(page).to have_content 'error'
       end
 
       it 'edit agreement' do
-        agreement = FactoryGirl.create(:agreement)
         visit edit_agreement_path(agreement)
         expect(page).to have_content 'Editing'
         fill_in('agreement_invoicing_period_length', with: "2")

@@ -21,7 +21,9 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
-    @customer.restaurant_id = params[:restaurant_id]
+    if params[:restaurant_id] != nil
+      @customer.restaurant_id = params[:restaurant_id]
+    end
   end
 
   # POST /customers

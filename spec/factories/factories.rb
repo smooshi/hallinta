@@ -3,7 +3,7 @@ FactoryGirl.define do
     email "test@test.com"
     first_name "Pekka"
     last_name "Pouta"
-    admin false
+    admin true
     role_id "1"
   end
 
@@ -102,12 +102,9 @@ FactoryGirl.define do
     total_price "2"
   end
 
-  factory :current_user do
-    email "test@test.com"
-    first_name "Pekka"
-    last_name "Pouta"
-    admin false
-    role_id "1"
-    id "1"
+  factory :customer do
+    restaurant_id "1"
+    start_date Date.today
+    end_date Date.today
   end
 end

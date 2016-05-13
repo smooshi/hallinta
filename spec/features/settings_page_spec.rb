@@ -133,6 +133,7 @@ describe "Settings page" do
   end
 
   it 'user details' do
+    click_on('Käyttäjätiedot')
     expect(page).to have_content 'Käyttäjätiedot'
   end
 
@@ -147,6 +148,12 @@ describe "Settings page" do
     fill_in('role_name', with: "eval")
     fill_in('role_description',with: "Blil" )
     click_on('Luo Role')
+  end
+
+  it 'edit role' do
+    role = FactoryGirl.create(:role)
+    visit edit_role_path(role)
+    click_on('Päivitä Role')
   end
 
 end

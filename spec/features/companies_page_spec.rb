@@ -7,7 +7,7 @@ describe "Company page" do
 end
 
 describe "the signin process", :type => :feature do
-
+  #FactoryGirl.create(:user, :password => "testi1")
   before :each do
     visit companies_path
     fill_in('email', with: "test@test.com")
@@ -78,7 +78,6 @@ describe "the signin process", :type => :feature do
   end
 
   it "show company" do
-    company_type = FactoryGirl.create(:company_type)
     company = FactoryGirl.create(:company)
     visit contact_person_path(company)
   end
@@ -90,10 +89,7 @@ describe "the signin process", :type => :feature do
   end
 
   it "show restaurant" do
-    company_type = FactoryGirl.create(:company_type)
-    company = FactoryGirl.create(:company)
     restaurant = FactoryGirl.create(:restaurant)
-    contact_person = FactoryGirl.create(:contact_person)
     visit restaurant_path(restaurant)
   end
 
@@ -103,5 +99,13 @@ describe "the signin process", :type => :feature do
     click_on('Submit')
   end
 
+  it "contact people index" do
+    visit contact_people_path
+  end
 
+  it "edit contact person" do
+    cp = FactoryGirl.create(:contact_person)
+    visit edit_contact_person_path(cp)
+    click_on('Päivitä Contact person')
+  end
 end

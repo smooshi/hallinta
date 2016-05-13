@@ -20,8 +20,8 @@ RSpec.describe User, type: :model do
       expect(user.full_name).to eq("Pekka Pouta")
     end
 
-    it "is not admin" do
-      expect(user.admin).to eq(false)
+    it "is admin" do
+      expect(user.admin).to eq(true)
     end
 
     it "has email" do
