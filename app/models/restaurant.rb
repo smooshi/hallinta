@@ -1,8 +1,8 @@
 class Restaurant < ActiveRecord::Base
   belongs_to :company
   belongs_to :restaurant_type
-  has_many :contact_persons
-  has_many :restaurant_evaluations
+  has_many :contact_persons, :dependent =>  :destroy
+  has_many :restaurant_evaluations, :dependent => :destroy
   belongs_to :customer
 
   validates :name, presence: true

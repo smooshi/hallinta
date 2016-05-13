@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   belongs_to :company_type
-  has_many :contact_persons
-  has_many :restaurants
+  has_many :contact_persons, :dependent => :destroy
+  has_many :restaurants, :dependent => :destroy
 
   EMAIL_REGEX = /@/
   validates :email, :format => EMAIL_REGEX
