@@ -29,7 +29,7 @@
         <td><%= @restaurant.email %></td>
         <td><%= @restaurant.server_ip %></td>
         <td><%= @restaurant.restaurant_type.name %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_restaurant_path(@restaurant) %></td>
       </tr>
   </tbody>
 </table>
@@ -50,7 +50,7 @@
           <tr>
             <td><%= @customer.start_date %></td>
             <td><%= @customer.end_date %></td>
-            <td><%= link_to 'Show', @customer %></td>
+            <td><%= link_to t('activerecord.attributes.general.show'), @customer %></td>
           </tr>
       </tbody>
     </table>
@@ -89,7 +89,7 @@
           <td><%= agreement.invoicing_payment_time %></td>
           <td><%= agreement.invoicing_date %></td>
           <td><%= agreement.signed_by_customer %></td>
-          <td><%= link_to 'Show', agreement %></td>
+          <td><%= link_to t('activerecord.attributes.general.show'), agreement %></td>
         </tr>
     <% end %>
     </tbody>
@@ -98,30 +98,9 @@
 <br>
 <p>
 </p>
-
-<h2><%= t('contact_people.index.title')%></h2>
-<p>
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.attributes.general.name')%></th>
-    <th><%= t('activerecord.attributes.general.role')%></th>
-    <th><%= t('activerecord.attributes.general.phone_number')%></th>
-    <th><%= t('activerecord.attributes.general.email')%></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @restaurant_contact_people.each do |contact_person| %>
-      <tr>
-        <td><%= link_to contact_person.name, contact_person %></td>
-        <td><%= contact_person.role %></td>
-        <td><%= contact_person.phone_number %></td>
-        <td><%= contact_person.email %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'contact_people/contactPeople_table', contact_people: @restaurant_contact_people %>
+<br>
+<%= link_to t('contact_people.new.title'), new_contact_person_path(:restaurant_id => @restaurant.id, :company_id => @restaurant.company.id) %>
 </p>
 <br>
 <p>
@@ -145,8 +124,12 @@
         <td><%= restaurant_evaluation.value %></td>
         <td><%= restaurant_evaluation.user.first_name %> <%= restaurant_evaluation.user.last_name %></td>
         <td><%= restaurant_evaluation.evaluation_comment %></td>
-        <td><%= link_to 'Show', restaurant_evaluation %></td>
+        <td><%= link_to t('activerecord.attributes.general.show'), restaurant_evaluation %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'New Restaurant evaluation', new_restaurant_evaluation_path(:restaurant_id => @restaurant.id) %>
+<br>
+<%= render 'shared/admin_right', thing:@restaurant %>

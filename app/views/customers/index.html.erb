@@ -18,8 +18,10 @@
         <td><%= link_to @restaurants.find_by_id(customer.restaurant_id).name, @restaurants.find_by_id(customer.restaurant_id) %></td>
         <td><%= customer.start_date %></td>
         <td><%= customer.end_date %></td>
-        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to t('activerecord.attributes.general.show'), customer %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to t('customers.new.title'), new_customer_path %>

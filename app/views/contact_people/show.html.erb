@@ -30,5 +30,4 @@
   <%= @contact_person.email %>
 </p>
 
-<%= link_to 'Edit', edit_contact_person_path(@contact_person) %> |
-<%= link_to 'Back', contact_people_path %>
+<%= link_to t('activerecord.attributes.general.edit'), edit_contact_person_path(@contact_person) %>

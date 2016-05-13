@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 #UNIT TESTING:
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'better_errors'
 end
 
 group :test do

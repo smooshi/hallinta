@@ -22,9 +22,9 @@
         <td><%= device_in_agreement.price_is_leasing %></td>
         <td><%= device_in_agreement.total_price %></td>
         <td><%= device_in_agreement.monthly_price %></td>
-        <td><%= link_to 'Show', device_in_agreement %></td>
-        <td><%= link_to 'Edit', edit_device_in_agreement_path(device_in_agreement) %></td>
-        <td><%= link_to 'Destroy', device_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('activerecord.attributes.general.show'), device_in_agreement %></td>
+        <td> <%= link_to t('activerecord.attributes.general.edit'), edit_device_in_agreement_path(@device_in_agreement) %></td>
+        <td><%= link_to t('activerecord.attributes.general.destroy'), device_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

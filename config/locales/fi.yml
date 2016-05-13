@@ -171,3 +171,5 @@ fi:
     restaurant_settings: "Ravintola-asetukset"
     company_settings: "Yritysasetukset"
     agreement_settings: "Sopimusasetukset"
+  admin:
+    panel: "Admin toiminnot"

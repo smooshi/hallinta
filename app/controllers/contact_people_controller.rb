@@ -15,17 +15,8 @@ class ContactPeopleController < ApplicationController
   # GET /contact_people/new
   def new
     @contact_person = ContactPerson.new
-  end
-
-  def new_restaurant_person
-    @contact_person = ContactPerson.new
-    @restaurants = Restaurant.all
-    #@contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id))
-  end
-
-  def new_company_person
-    @contact_person = ContactPerson.new
-    @companies = Company.all
+    @contact_person.restaurant_id= params[:restaurant_id]
+    @contact_person.company_id = params[:company_id]
   end
 
   # GET /contact_people/1/edit
@@ -37,13 +28,13 @@ class ContactPeopleController < ApplicationController
   def create
     @contact_person = ContactPerson.new(contact_person_params)
 
-    if @contact_person.company_id == nil and @contact_person.restaurant_id != nil
-      @contact_person.company_id = Company.find_by_id(Restaurant.find_by_id(@contact_person.restaurant_id).company_id).id
-    end
-
     respond_to do |format|
       if @contact_person.save
-        format.html { redirect_to @contact_person, notice: 'Contact person was successfully created.' }
+        if (@contact_person.restaurant_id != nil)
+          format.html { redirect_to Restaurant.find_by_id(@contact_person.restaurant_id), notice: 'Contact person was successfully created.' }
+        else
+          format.html { redirect_to Company.find_by_id(@contact_person.company_id), notice: 'Contact person was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @contact_person }
       else
         format.html { render :new }

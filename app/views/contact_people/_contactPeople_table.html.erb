@@ -1,0 +1,32 @@
+<br>
+</p>
+<h2><%= t('contact_people.index.title')%></h2>
+<p>
+<table class="smallTable">
+  <thead>
+  <tr>
+    <th><%= t('activerecord.attributes.general.name')%></th>
+    <th><%= t('activerecord.attributes.general.role')%></th>
+    <th><%= t('activerecord.attributes.general.phone_number')%></th>
+    <th><%= t('activerecord.attributes.general.email')%></th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% contact_people.each do |contact_person| %>
+      <tr>
+        <td><%= link_to contact_person.name, contact_person %></td>
+        <td><%= contact_person.role %></td>
+        <td><%= contact_person.phone_number %></td>
+        <td><%= contact_person.email %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_contact_person_path(contact_person) %> </td>
+        <%if admin_user %>
+        <td><%= link_to t('activerecord.attributes.general.destroy'), contact_person, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</p>
+<br>

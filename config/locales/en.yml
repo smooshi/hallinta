@@ -166,3 +166,5 @@ en:
     restaurant_settings: "Restaurant settings"
     company_settings: "Company settings"
     agreement_settings: "Agreement settings"
+  admin:
+    panel: "Admin panel"

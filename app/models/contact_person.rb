@@ -3,4 +3,6 @@ class ContactPerson < ActiveRecord::Base
   belongs_to :company
 
   validates :name, presence: true
+  EMAIL_REGEX = /@/
+  validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
 end

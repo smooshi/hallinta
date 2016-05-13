@@ -26,6 +26,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+    @restaurant.company_id = params[:company_id]
   end
 
   # GET /restaurants/1/edit

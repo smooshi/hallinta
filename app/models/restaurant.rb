@@ -5,5 +5,8 @@ class Restaurant < ActiveRecord::Base
   has_many :restaurant_evaluations
   belongs_to :customer
 
+  validates :name, presence: true
   validates :company_id, presence: true
+  EMAIL_REGEX = /@/
+  validates :email, :format => EMAIL_REGEX
 end

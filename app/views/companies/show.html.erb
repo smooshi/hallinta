@@ -5,8 +5,8 @@
 <table class="smallTable">
   <thead>
   <tr>
-    <th> <strong><%= t('activerecord.attributes.company.company_type')%></strong></th>
-    <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.company.company_type')%></strong></th>
+    <th><strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
     <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
     <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
     <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
@@ -30,41 +30,15 @@
   </tr>
   </tbody>
 </table >
+<%= render 'contact_people/contactPeople_table', contact_people: @company_contact_people %>
+<%= link_to t('contact_people.new.title'), new_contact_person_path(:company_id => @company.id) %>
 <br>
-</p>
-<h2><%= t('contact_people.index.title')%></h2>
-<p>
-<table class="smallTable">
-  <thead>
-  <tr>
-    <th><%= t('activerecord.attributes.general.name')%></th>
-    <th><%= t('activerecord.attributes.general.role')%></th>
-    <th><%= t('activerecord.attributes.general.phone_number')%></th>
-    <th><%= t('activerecord.attributes.general.email')%></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @company_contact_people.each do |contact_person| %>
-      <tr>
-        <td><%= link_to contact_person.name, contact_person %></td>
-        <td><%= contact_person.role %></td>
-        <td><%= contact_person.phone_number %></td>
-        <td><%= contact_person.email %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-</p>
 <br>
 <p>
   <strong><h2><%= t('companies.show.restaurants_in_company')%></h2></strong>
 </p>
 <%= render 'restaurant_table', restaurants: @restaurants_in_company %>
-
 <br>
-<% if admin_user %>
-    <br>
-    Admin panel:
-  <%= link_to 'Destroy', @company, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%end%>
+<%= link_to t('restaurants.new.title'), new_restaurant_path(:company_id => @company.id) %>
+<br>
+<%= render 'shared/admin_right', thing:@company %>

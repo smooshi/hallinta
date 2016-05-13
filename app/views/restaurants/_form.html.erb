@@ -17,8 +17,7 @@
     <%= f.text_field :name %>
   </div>
     <div class="field">
-      <%= f.label :company %><br>
-      <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name) %>
+      <%= f.hidden_field :company_id %>
     </div>
   <div class="field">
     <%= f.label :street_address %><br>
@@ -48,6 +47,7 @@
       <%= f.label :restaurant_type %><br>
       <%= f.select :restaurant_type_id, options_from_collection_for_select(@restaurant_types, :id, :name) %>
     </div>
+    <br>
   <div class="actions">
     <%= f.submit 'Submit' %>
   </div>

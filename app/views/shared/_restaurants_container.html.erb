@@ -1,10 +1,8 @@
 <%= content_for :container_menu do %>
   <h2><%= t('menu.restaurants')%></h2>
     <%= link_to t('restaurants.index.title'), restaurants_path%>
-    <%= link_to t('restaurants.new.title'), new_restaurant_path %>
     <h2><%= t('settings.restaurant_settings')%></h2>
     <%= link_to t('restaurants.show.restaurant_evals'), restaurant_evaluations_path%>
     <%= link_to t('activerecord.attributes.restaurant.restaurant_type'), restaurant_types_path%>
     <%= link_to t('menu.restaurant_eval_type'), restaurant_evaluation_types_path %>
-    <%= link_to t('contact_people.new.title'), contact_person_restaurant_path %>
 <% end %>

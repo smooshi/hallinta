@@ -220,7 +220,7 @@ div.content {
     background-color: #ccc;
 }
 
-.content button {
+.content button, .content input[type=submit], .content .button {
     padding: 6px;
     border-radius: 8px;
     color: #fff;
@@ -230,13 +230,14 @@ div.content {
     border: none;
     min-width: 48px;
     background: #1ed086;
+    text-decoration: none;
 }
 
 .content .deleteButton {
     background: #d21e1e;
 }
 
-.content button:active {
+.content button:active, .content input[type=submit]:active {
     box-shadow: 0px 0px grey;
 }
 

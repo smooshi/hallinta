@@ -1,0 +1,6 @@
+<% if admin_user %>
+    <br>
+    <h2><%= t('admin.panel')%></h2>
+    <br>
+    <%= link_to t('activerecord.attributes.general.destroy'), thing, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %>
+<%end%>
