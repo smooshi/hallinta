@@ -24,8 +24,8 @@
     <td> <%= @company.country %></td>
     <td><%= @company.phone_number %></td>
     <td><%= @company.email %></td>
-    <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
-    <td><%= @users.find_by_id(@company.added_by_user).first_name %> <%= @users.find_by_id(@company.added_by_user).last_name %></td>
+    <td><%= @users.find_by_id(@company.added_by_user).full_name %></td>
+    <td><%= @users.find_by_id(@company.added_by_user).full_name %></td>
     <td><%= link_to 'Edit', edit_company_path(@company) %></td>
   </tr>
   </tbody>

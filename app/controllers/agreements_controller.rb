@@ -38,6 +38,8 @@ class AgreementsController < ApplicationController
   # POST /agreements
   # POST /agreements.json
   def create
+    @restaurants = Restaurant.all
+    @users = User.all
     @agreement = Agreement.new(agreement_params)
     @agreement.user_id = current_user.id
 

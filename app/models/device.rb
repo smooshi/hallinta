@@ -5,4 +5,5 @@ class Device < ActiveRecord::Base
   validates :device_type_id, presence: true
   validates :purchase_day, presence: true
   validates :is_leased, presence: true
+  validates :identifier, presence: true
 end

@@ -21,6 +21,7 @@ class DeviceInAgreementsController < ApplicationController
 
   # GET /device_in_agreements/1/edit
   def edit
+    @devices = Device.all
   end
 
   # POST /device_in_agreements
@@ -58,9 +59,10 @@ class DeviceInAgreementsController < ApplicationController
   # DELETE /device_in_agreements/1
   # DELETE /device_in_agreements/1.json
   def destroy
+    @agreement = Agreement.find_by_id(@device_in_agreement.agreement_id)
     @device_in_agreement.destroy
     respond_to do |format|
-      format.html { redirect_to device_in_agreements_url, notice: 'Device in agreement was successfully destroyed.' }
+      format.html { redirect_to @agreement, notice: 'Device in agreement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

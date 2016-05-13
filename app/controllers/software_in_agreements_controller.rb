@@ -59,8 +59,9 @@ class SoftwareInAgreementsController < ApplicationController
   # DELETE /software_in_agreements/1.json
   def destroy
     @software_in_agreement.destroy
+    @agreement = Agreement.find_by_id(@software_in_agreement.agreement_id)
     respond_to do |format|
-      format.html { redirect_to software_in_agreements_url, notice: 'Software in agreement was successfully destroyed.' }
+      format.html { redirect_to @agreement, notice: 'Software in agreement was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,4 +76,5 @@ class SoftwareInAgreementsController < ApplicationController
     def software_in_agreement_params
       params.require(:software_in_agreement).permit(:software_id, :agreement_id, :monthly_price)
     end
+
 end

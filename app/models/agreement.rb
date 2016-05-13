@@ -2,8 +2,10 @@ class Agreement < ActiveRecord::Base
   belongs_to :restaurant
   belongs_to :user
 
-  has_many :devices, :through => :device_in_agreements, :dependent => :restrict_with_exception
-  has_many :software, :through => :software_in_agreements, :dependent => :restrict_with_exception
+  has_many :device_in_agreements, :dependent => :restrict_with_exception
+  has_many :software_in_agreements, :dependent => :restrict_with_exception
+  has_many :devices, through: :device_in_agreements
+  has_many :software, through: :software_in_agreements
 
   validates :restaurant_id, presence: true
   validates :user_id, presence: true

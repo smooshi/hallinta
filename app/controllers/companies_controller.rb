@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-  before_action :set_company_types, only: [:show, :edit, :new, :update]
+  before_action :set_company_types, only: [:show, :edit, :new, :create, :update]
   # GET /companies
   # GET /companies.json
   def index

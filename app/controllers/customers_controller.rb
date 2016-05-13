@@ -16,17 +16,20 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @restaurants = Restaurant.all
+    @customers = Customer.all
+    @restaurants = Restaurant.where.not(id: @customers.map(&:restaurant_id))
     @customer = Customer.new
   end
 
   # GET /customers/1/edit
   def edit
+    @customer.restaurant_id = params[:restaurant_id]
   end
 
   # POST /customers
   # POST /customers.json
   def create
+    @restaurants = Restaurant.all
     @customer = Customer.new(customer_params)
 
     respond_to do |format|

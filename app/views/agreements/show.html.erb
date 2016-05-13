@@ -44,7 +44,7 @@
   <tr>
     <th><%= t('menu.software')%></th>
     <th><%= t('activerecord.attributes.general.monthly')%></th>
-    <th colspan="3"></th>
+    <th colspan="2"></th>
   </tr>
   </thead>
 
@@ -53,10 +53,10 @@
       <tr>
         <td><%= software_in_agreement.software.name %></td>
         <td><%= software_in_agreement.monthly_price %></td>
-        <td><%= link_to 'Edit', edit_software_in_agreement_path(software_in_agreement) %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_software_in_agreement_path(software_in_agreement) %></td>
         <% if admin_user %>
-          <td><%= link_to 'Destroy', software_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <%end%>
+          <td><%= link_to t('activerecord.attributes.general.destroy'), software_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } , :class => "deleteButton button" %></td>
+        <%end%>
       </tr>
   <% end %>
   </tbody>
@@ -70,7 +70,7 @@
     <th><%= t('activerecord.attributes.device.is_leased')%></th>
     <th> <%= t('activerecord.attributes.software.price')%> </th>
     <th> <%= t('activerecord.attributes.general.monthly')%> </th>
-    <th colspan="3"></th>
+    <th colspan="2"></th>
   </tr>
   </thead>
 
@@ -81,9 +81,9 @@
         <td><%= device_in_agreement.price_is_leasing %></td>
         <td><%= device_in_agreement.total_price %></td>
         <td><%= device_in_agreement.monthly_price %></td>
-        <td><%= link_to 'Edit', edit_device_in_agreement_path(device_in_agreement) %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_device_in_agreement_path(device_in_agreement) %></td>
         <% if admin_user %>
-        <td><%= link_to 'Destroy', device_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('activerecord.attributes.general.destroy'), device_in_agreement, method: :delete, data: { confirm: 'Are you sure?' } , :class => "deleteButton button" %></td>
             <%end%>
       </tr>
   <% end %>
@@ -99,6 +99,5 @@
   <h2><%= t('agreements.show.add_software')%></h2>
 <%= render 'software_in_agreements/form'%>
 </p>
-<% if admin_user %>
-    <%= link_to t('activerecord.attributes.general.destroy'), @agreement, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<br>
+<%= render 'shared/admin_right', thing: @agreement%>

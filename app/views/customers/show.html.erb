@@ -3,7 +3,7 @@
 <h1><%= t('customers.show.title')%>: </h1>
 <br>
 <p>
-  <h2><%= link_to @restaurants.find_by_id(@customer.restaurant_id).name, @restaurants.find_by_id(@customer.restaurant_id) %></h2>
+  <h2><%= link_to @customer.restaurant.name, @customer.restaurant %></h2>
 </p>
 <br>
 <p>
@@ -16,4 +16,6 @@
   <%= @customer.end_date %>
 </p>
 <br>
-<%= link_to 'Edit', edit_customer_path(@customer) %>
+<%= link_to t('activerecord.attributes.general.edit'), edit_customer_path(@customer, :restaurant_id => @customer.restaurant_id) %>
+<br>
+<%= render 'shared/admin_right', thing: @customer%>
