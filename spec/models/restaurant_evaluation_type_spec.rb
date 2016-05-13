@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe RestaurantEvaluationType, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:restaurant_evaluation_type){ FactoryGirl.create(:restaurant_evaluation_type)}
+
+  describe " is created" do
+
+    it "is saved" do
+      expect(restaurant_evaluation_type).to be_valid
+      expect(RestaurantEvaluationType.count).to eq(1)
+    end
+  end
 end
