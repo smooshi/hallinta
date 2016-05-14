@@ -23,12 +23,27 @@ RSpec.describe RestaurantEvaluationsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # RestaurantEvaluation. As you add validations to RestaurantEvaluation, be sure to
   # adjust the attributes here as well.
+
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+        "restaurant_id" => 1,
+    "company_id" => 1,
+    "user_id" => 1,
+    "restaurant_evaluation_type_id" => 1,
+    "value" => 1
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+        "restaurant_id" => 1,
+        "restaurant_evaluation_type_id" => 1,
+        "value" => 1
+    }
   }
 
   # This should return the minimal set of values that should be in the session

@@ -1,6 +1,5 @@
 require 'rails_helper'
     describe "Agreements page" do
-      agreement = FactoryGirl.create(:agreement)
       before :each do
         visit companies_path
         fill_in('email', with: "test@test.com")
@@ -18,46 +17,16 @@ require 'rails_helper'
         expect(page).to have_content 'New Agreement'
       end
 
-      it 'new page' do
+      it 'new page fails' do
         visit new_agreement_path
         click_on('Luo Agreement')
         expect(page).to have_content 'error'
       end
 
-      it 'new page' do
+      it 'new page works' do
         visit new_agreement_path
         fill_in('agreement_agreement_length', with: '0')
         click_on('Luo Agreement')
-      end
-
-      it 'new page' do
-        visit new_agreement_path
-        click_on('Luo Agreement')
-        expect(page).to have_content 'error'
-      end
-
-      it 'show page' do
-        visit agreement_path(agreement)
-        expect(page).to have_content 'Sopimustiedot'
-      end
-
-      it 'luo device' do
-        visit agreement_path(agreement)
-        click_on('Luo Device in agreement')
-        expect(page).to have_content 'error'
-      end
-
-      it 'luo software' do
-        visit agreement_path(agreement)
-        click_on('Luo Software in agreement')
-        expect(page).to have_content 'error'
-      end
-
-      it 'edit agreement' do
-        visit edit_agreement_path(agreement)
-        expect(page).to have_content 'Editing'
-        fill_in('agreement_invoicing_period_length', with: "2")
-        click_on('Päivitä Agreement')
       end
 
       it "edit software in agreement" do
@@ -85,5 +54,33 @@ require 'rails_helper'
       end
 
 
+     describe "Agreements show page" do
+
+       it 'show page' do
+         visit agreement_path(Agreement.first)
+         expect(page).to have_content 'Sopimustiedot'
+       end
+
+       it 'luo device' do
+         visit agreement_path(Agreement.first)
+         click_on('Luo Device in agreement')
+         expect(page).to have_content 'error'
+       end
+
+       it 'luo software' do
+         visit agreement_path(Agreement.first)
+         click_on('Luo Software in agreement')
+         expect(page).to have_content 'error'
+       end
+
+       it 'edit agreement' do
+         visit edit_agreement_path(Agreement.first)
+         expect(page).to have_content 'Editing'
+         fill_in('agreement_invoicing_period_length', with: "2")
+         click_on('Päivitä Agreement')
+       end
+
+
+     end
 
     end

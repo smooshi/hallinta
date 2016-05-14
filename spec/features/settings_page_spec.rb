@@ -156,4 +156,10 @@ describe "Settings page" do
     click_on('Päivitä Role')
   end
 
+  it "settings language change" do
+    visit settings_path
+    click_on('Englanti')
+    expect(page).to have_content 'List of companies'
+  end
+
 end

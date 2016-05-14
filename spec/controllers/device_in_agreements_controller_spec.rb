@@ -23,12 +23,22 @@ RSpec.describe DeviceInAgreementsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # DeviceInAgreement. As you add validations to DeviceInAgreement, be sure to
   # adjust the attributes here as well.
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
+
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+    {    "agreement_id" => 1,
+    "device_id" => 1,
+    "monthly_price" => 2,
+    "total_price" =>2}
+      }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {    "agreement_id" => 1,
+         "device_id" => 1
+  }
   }
 
   # This should return the minimal set of values that should be in the session

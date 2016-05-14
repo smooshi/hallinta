@@ -23,12 +23,17 @@ RSpec.describe CompanyTypesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # CompanyType. As you add validations to CompanyType, be sure to
   # adjust the attributes here as well.
+
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {name: "Hissy"}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {}
   }
 
   # This should return the minimal set of values that should be in the session

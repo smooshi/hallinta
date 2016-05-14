@@ -23,12 +23,22 @@ RSpec.describe CustomersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Customer. As you add validations to Customer, be sure to
   # adjust the attributes here as well.
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+        "restaurant_id" => 1,
+    "start_date" => Date.today,
+    "end_date" => Date.today
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+        "end_date" => Date.today
+    }
   }
 
   # This should return the minimal set of values that should be in the session

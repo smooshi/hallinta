@@ -23,9 +23,14 @@ describe "Users page" do
     click_on('Luo User')
   end
 
-  it "edit user" do
-    user = FactoryGirl.create(:admin, :password => "testi1")
-    visit edit_user_path(user)
+  it "edit user visit" do
+    visit edit_user_path(User.first)
     expect(page).to have_content 'Käyttäjätiedot'
+  end
+
+  it "edit user" do
+    visit edit_user_path(User.first)
+    click_on('Päivitä User')
+    expect(page).to have_content 'success'
   end
 end

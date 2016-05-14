@@ -4,5 +4,5 @@ class ContactPerson < ActiveRecord::Base
 
   validates :name, presence: true
   EMAIL_REGEX = /@/
-  validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
+  validates :email, :presence => true, :format => EMAIL_REGEX
 end

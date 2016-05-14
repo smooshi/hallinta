@@ -1,24 +1,17 @@
 require 'rails_helper'
-describe "Company page" do
+describe "sign in" do
   it "not logged in" do
     visit companies_path
     expect(page).to have_content 'Log in Email Password'
   end
 end
 
-describe "the signin process", :type => :feature do
-  #FactoryGirl.create(:user, :password => "testi1")
+describe "company page", :type => :feature do
   before :each do
     visit companies_path
     fill_in('email', with: "test@test.com")
     fill_in('password', with: 'testi1')
     click_on('Sign in')
-  end
-
-  it "settings language change" do
-    visit settings_path
-    click_on('Englanti')
-    expect(page).to have_content 'List of companies'
   end
 
   it "signs me in" do
@@ -32,9 +25,9 @@ describe "the signin process", :type => :feature do
   end
 
   it "edit company type" do
-    company_type = FactoryGirl.create(:company_type)
-    visit edit_company_type_path(company_type)
+    visit edit_company_type_path(CompanyType.first)
     click_on('Päivitä Company')
+    expect(page).to have_content 'success'
   end
 
   it "clicks new company" do
@@ -69,7 +62,7 @@ describe "the signin process", :type => :feature do
     expect(page).to have_content 'New Contact Person'
   end
 
-  it "new contact people" do
+  it "visit new contact people" do
     visit new_contact_person_path
     fill_in('contact_person_name', with: "Milla")
     fill_in('contact_person_email', with: "a@a.com")
@@ -78,29 +71,27 @@ describe "the signin process", :type => :feature do
   end
 
   it "show company" do
-    company = FactoryGirl.create(:company)
-    visit contact_person_path(company)
+    visit contact_person_path(Company.first)
   end
 
   it "edit company" do
-    company = FactoryGirl.create(:company)
-    visit edit_company_path(company)
+    visit edit_company_path(Company.first)
     click_on('Päivitä Company')
   end
 
   it "show restaurant" do
-    restaurant = FactoryGirl.create(:restaurant)
-    visit restaurant_path(restaurant)
+    visit restaurant_path(Restaurant.first)
   end
 
   it "edit restaurant" do
-    restaurant = FactoryGirl.create(:restaurant)
-    visit edit_restaurant_path(restaurant)
+    visit edit_restaurant_path(Restaurant.first)
     click_on('Submit')
+    expect(page).to have_content 'success'
   end
 
   it "contact people index" do
     visit contact_people_path
+    expect(page).to have_content 'Lista yhteyshenkilöistä'
   end
 
   it "edit contact person" do
@@ -108,4 +99,5 @@ describe "the signin process", :type => :feature do
     visit edit_contact_person_path(cp)
     click_on('Päivitä Contact person')
   end
+
 end

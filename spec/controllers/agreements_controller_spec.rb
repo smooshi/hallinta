@@ -23,12 +23,25 @@ RSpec.describe AgreementsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Agreement. As you add validations to Agreement, be sure to
   # adjust the attributes here as well.
+
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {    "restaurant_id" => 1,
+    "user_id" => 1,
+    "responsible_user_id" => 1,
+    "agreement_length" => 0,
+    "start_date" => Date.today,
+    "end_date" => Date.today}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {    "restaurant_id" => 1,
+         "user_id" => 1,
+         "responsible_user_id" => 1,
+         "agreement_length" => 0}
   }
 
   # This should return the minimal set of values that should be in the session

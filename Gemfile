@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'better_errors'
+  gem 'coveralls', require: false
 end
 
 group :test do

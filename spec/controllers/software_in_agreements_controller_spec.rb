@@ -19,16 +19,21 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe SoftwareInAgreementsController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # SoftwareInAgreement. As you add validations to SoftwareInAgreement, be sure to
   # adjust the attributes here as well.
+  before :each do
+    request.session[:user_id] = User.first.id
+  end
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {    "agreement_id"=> 1,
+    "software_id" => 1,
+    "monthly_price" => 2}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {    "agreement_id"=> 1,
+         "software_id" => 1}
   }
 
   # This should return the minimal set of values that should be in the session

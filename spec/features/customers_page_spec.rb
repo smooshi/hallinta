@@ -28,5 +28,6 @@ describe "the signin process", :type => :feature do
     customer = FactoryGirl.create(:customer)
     visit edit_customer_path(customer)
     click_on('Päivitä Customer')
+    expect(page).to have_content 'success'
   end
 end
