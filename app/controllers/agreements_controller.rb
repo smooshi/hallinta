@@ -8,6 +8,10 @@ class AgreementsController < ApplicationController
     @agreements = Agreement.all
   end
 
+  def finances
+
+  end
+
   # GET /agreements/1
   # GET /agreements/1.json
   def show
