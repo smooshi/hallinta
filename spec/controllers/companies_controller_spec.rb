@@ -50,7 +50,7 @@ RSpec.describe CompaniesController, type: :controller do
     it "assigns all companies as @companies" do
       company = Company.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:companies)).to eq([company])
+      expect(assigns(:companies)).to eq(Company.all)
     end
   end
 

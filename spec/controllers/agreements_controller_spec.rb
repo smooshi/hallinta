@@ -142,7 +142,7 @@ RSpec.describe AgreementsController, type: :controller do
       it "re-renders the 'edit' template" do
         agreement = Agreement.create! valid_attributes
         put :update, {:id => agreement.to_param, :agreement => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to redirect_to(agreement)
       end
     end
   end
