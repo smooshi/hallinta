@@ -12,8 +12,8 @@ deploy:
     test: hallinta-test
   on:
     repo: smooshi/hallinta
-script:
-- bundle exec rake db:migrate --trace
-- RAILS_ENV=test bundle exec rake db:migrate --trace
-- bundle exec rake db:test:prepare
-- bundle exec rspec -fd spec/
+  run:
+    - bundle exec rake db:migrate --trace
+    - RAILS_ENV=test bundle exec rake db:migrate --trace
+    - bundle exec rake db:test:prepare
+    - bundle exec rspec -fd spec/
