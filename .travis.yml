@@ -13,4 +13,5 @@ deploy:
   on:
     repo: smooshi/hallinta
 script:
+- bundle install
 - bundle exec rspec -fd spec/
