@@ -2,6 +2,8 @@ language: ruby
 rvm:
 - 2.0.0
 gemfile: TravisGemfile
+install:
+  - bundle install
 deploy:
   provider: heroku
   api_key:
