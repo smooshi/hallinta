@@ -12,7 +12,3 @@ deploy:
     test: hallinta-test
   on:
     repo: smooshi/hallinta
-script:
-- bundle exec gem install rspec
-- bundle exec bundle install
-- bundle exec rspec -fd spec/
