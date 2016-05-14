@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :admin_user, :ensure_that_admin
 
-  #before_filter :ensure_that_signed_in
+  before_filter :ensure_that_signed_in
   before_action :set_locale
 
   def set_locale
