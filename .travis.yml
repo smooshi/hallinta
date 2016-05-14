@@ -7,3 +7,10 @@ script:
 - bundle exec rake db:test:prepare
 - bundle exec rspec -fd spec/
 gemfile: TravisGemfile
+deploy:
+  provider: heroku
+  api_key:
+    secure: gKTbjALFZc2YHefsgPT+i6tArvaJajW4/DUZZ7djqBaE5MdCz3pDuuOcS4+A6DV6/er2JTQHZs75zb0roHcgAVXtY764hC7BnqK8e1dmfk0M/d4aXGR5Z49/vb7j+QsWVsiMxzjLB1L49UFo0yrvSgkzdIDYaCC+y9FgxusEDnlnI1fjivEosfjgQ91WNwEiddjDTXF/7tlAX3JJkBiZ4VMbsjy4AvafZK5AVufuzlcfZ3g17lglQ604VseQ2KxgcYmewA7667yVGlF25Em6VJxaTWXYBROZOrQN9NybtBtLb79fk3k4blv5kqeLl4huiw5eydv9Hb8ViNNFbjLuL/AIIiQdQFxUkgjJ/Vmu5EV/v4l11vukjl/tFeMn4CpZfArWN0QGggwGN74ysgV5tgI6Sjv217rR/hPp+QVm4CWu5LC6+dZ8GKxDIDPrD2uC7mVfR5y0I2FJOIA4JjSeatflKXFzqyFR1fW4D0BApmfirxKiZNlCxI6I/pAbhKwajY49o2LjGvIhiRWw6qvH5KYhCy647CWAe5eApnjIz/GUzpIk19Ka2mv3f0aS8hcvq2Eex8V6RnkEYj8XDM+fziFCeC9xruC9OIQ32WTOaSp4V0dJ6tzl956gHcCsrtzooXyPKbWiPT4XJlUPv1LA9bfqfTjVNB8xwf70nyj8y/w=
+  app: hallinta
+  on:
+    repo: smooshi/hallinta
