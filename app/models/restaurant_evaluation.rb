@@ -1,6 +1,5 @@
 class RestaurantEvaluation < ActiveRecord::Base
   belongs_to :restaurant
-  belongs_to :company
   belongs_to :restaurant_evaluation_type
   belongs_to :user
 

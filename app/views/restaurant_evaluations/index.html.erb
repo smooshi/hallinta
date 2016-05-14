@@ -2,5 +2,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= t('restaurants.show.restaurant_evals')%></h1>
-
+<br>
 <%= render 'rest_eval_table', restaurant_evaluations: @restaurant_evaluations %>
+<br>
+<h2><%= t('restaurant_evaluations.index.not_yet')%></h2>
+
+<%= render 'restaurants/restaurant_form', restaurants: @restaurants_not_evald %>

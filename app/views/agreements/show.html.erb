@@ -51,7 +51,7 @@
   <tbody>
   <% @software_in_this_agreement.each do |software_in_agreement| %>
       <tr>
-        <td><%= software_in_agreement.software.name %></td>
+        <td><%= link_to software_in_agreement.software.name, software_in_agreement.software %></td>
         <td><%= software_in_agreement.monthly_price %></td>
         <td><%= link_to t('activerecord.attributes.general.edit'), edit_software_in_agreement_path(software_in_agreement) %></td>
         <% if admin_user %>
@@ -77,7 +77,7 @@
   <tbody>
   <% @devices_in_this_agreement.each do |device_in_agreement| %>
       <tr>
-        <td><%= device_in_agreement.device.identifier %></td>
+        <td><%= link_to device_in_agreement.device.identifier, device_in_agreement.device %></td>
         <td><%= device_in_agreement.price_is_leasing %></td>
         <td><%= device_in_agreement.total_price %></td>
         <td><%= device_in_agreement.monthly_price %></td>

@@ -4,6 +4,6 @@ class DeviceInAgreement < ActiveRecord::Base
 
   validates :agreement_id, presence: true
   validates :device_id, presence: true
-  validates_presence_of :monthly_price, :price_is_leasing => true
-  validates_presence_of :total_price, :price_is_leasing => false
+  validates_presence_of :monthly_price, :if => :price_is_leasing
+  validates_presence_of :total_price, :unless => :price_is_leasing
 end

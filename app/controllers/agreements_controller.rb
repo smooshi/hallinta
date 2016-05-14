@@ -9,6 +9,26 @@ class AgreementsController < ApplicationController
   end
 
   def finances
+    @active_agreements = Agreement.where("agreement_length = ? OR end_date > ?", 0, Date.today) #saakohan toistaiseksi voimassaolevia laskea näin...
+    @software_monthly = SoftwareInAgreement.where(agreement_id: @active_agreements.map(&:id)).sum(:monthly_price)
+    @device_monthly = DeviceInAgreement.where(agreement_id: @active_agreements.map(&:id)).sum(:monthly_price)
+
+    @software_total = 0
+    @device_total = 0
+    @software_monthly_cost = 0
+    @active_agreements.each do |agr|
+      months = ((agr.end_date.year * 12 + agr.end_date.month) - (Date.today.year * 12 + Date.today.month))
+      @software_total += months * SoftwareInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
+      @device_total += months * DeviceInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
+      @software_monthly_cost += months * SoftwareInAgreement.where(agreement_id: agr.id).map(&:software_id).uniq.map { |sia| Software.where(id: sia).map(&:BEL_price)}.sum.sum
+    end
+
+    @device_flat = DeviceInAgreement.where(:price_is_leasing => false).sum(:total_price)
+    @device_flat_cost = Device.all.sum(:full_price)
+    @device_monthly_cost = Device.all.sum("leasing_price * leasing_length")
+
+    @total_flat = @device_flat - @device_flat_cost
+    @total_monthly = @software_total + @device_total - @software_monthly_cost - @device_monthly_cost
 
   end
 

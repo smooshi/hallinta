@@ -4,7 +4,8 @@ class RestaurantEvaluationsController < ApplicationController
   # GET /restaurant_evaluations
   # GET /restaurant_evaluations.json
   def index
-    @restaurant_evaluations = RestaurantEvaluation.includes(:restaurant, :company, :user, :restaurant_evaluation_type).all
+    @restaurant_evaluations = RestaurantEvaluation.all
+    @restaurants_not_evald = Restaurant.where.not(id: @restaurant_evaluations.map(&:restaurant_id))
   end
 
   # GET /restaurant_evaluations/1
@@ -26,7 +27,6 @@ class RestaurantEvaluationsController < ApplicationController
   # POST /restaurant_evaluations.json
   def create
     @restaurant_evaluation = RestaurantEvaluation.new(restaurant_evaluation_params)
-    @restaurant_evaluation.company_id = Restaurant.find_by_id(restaurant_evaluation_params[:restaurant_id]).company.id
     @restaurant_evaluation.user_id = current_user.id
     respond_to do |format|
       if @restaurant_evaluation.save
@@ -71,7 +71,7 @@ class RestaurantEvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_evaluation_params
-      params.require(:restaurant_evaluation).permit(:restaurant_id, :company_id, :restaurant_evaluation_type_id, :value, :evaluation_by_user, :evaluation_time, :evaluation_comment)
+      params.require(:restaurant_evaluation).permit(:restaurant_id, :restaurant_evaluation_type_id, :value, :evaluation_by_user, :evaluation_time, :evaluation_comment)
     end
 
   def set_restaurant_evaluation_types

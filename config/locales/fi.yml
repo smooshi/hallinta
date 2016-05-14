@@ -196,3 +196,24 @@ fi:
       title: "Kaikki ohjelmistot"
     new:
       title: "Uusi ohjelmisto"
+  finances:
+    index:
+      title: "Raha-asiat"
+      monthly: "Kuukausittainen tuotto"
+      totals: "Kokonaistuotto"
+      software_monthly: "Ohjelmistotuotot kuukausittain"
+      device_monthly: "Laitteistotuotto kuukausittain"
+      software_total: "Odotettavissa oleva ohjelmistotuotto kokonaisuudessaan"
+      device_total: "Odotettavissa oleva laitteistotuotto kokonaisuudessaan"
+      flat_device: "Laitteistoista saatu kiinteä tuotto"
+      software_cost: "Kokonaisohjelmistomenot (BEL)"
+      device_cost: "Laitteistomenot"
+      device_cost_monthly: "Laitteistomenot kuukausittain"
+      estimate_for_all: "Arvio yhteistuloista /-menoista"
+      cost: "Menot"
+  restaurant_evaluations:
+    index:
+      title: "Kaikki ravintola-arvostelut"
+      not_yet: "Ravintolat, joita ei ole vielä arvosteltu"
+    new:
+      title: "Uusi ravintola-arvostelu"

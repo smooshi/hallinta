@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316161223) do
+ActiveRecord::Schema.define(version: 20160514173155) do
 
   create_table "agreements", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 20160316161223) do
 
   create_table "restaurant_evaluations", force: :cascade do |t|
     t.integer  "restaurant_id"
-    t.integer  "company_id"
     t.integer  "restaurant_evaluation_type_id"
     t.integer  "value"
     t.integer  "user_id"

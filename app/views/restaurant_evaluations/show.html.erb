@@ -8,7 +8,6 @@
   <thead>
   <tr>
     <th><%= t('activerecord.attributes.general.restaurant')%></th>
-    <th><%= t('activerecord.attributes.general.company')%></th>
     <th><%= t('activerecord.attributes.general.type')%></th>
     <th><%= t('activerecord.attributes.general.value')%></th>
     <th><%= t('activerecord.attributes.general.user')%></th>
@@ -20,7 +19,6 @@
   <tbody>
       <tr>
         <td><%= link_to @restaurant_evaluation.restaurant.name, @restaurant_evaluation.restaurant %></td>
-        <td><%= link_to @restaurant_evaluation.company.name, @restaurant_evaluation.company %></td>
         <td><%= @restaurant_evaluation.restaurant_evaluation_type.name %></td>
         <td><%= @restaurant_evaluation.value %></td>
         <td><%= @restaurant_evaluation.user.first_name %> <%= @restaurant_evaluation.user.last_name %></td>

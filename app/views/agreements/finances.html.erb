@@ -1,0 +1,29 @@
+<%= render 'shared/agreements_container' %>
+<h1><%= t('finances.index.title')%></h1>
+<br>
+  <h2><%=t('finances.index.monthly')%></h2>
+<br>
+<b><%= t('finances.index.software_monthly')%></b>: <%= @software_monthly %>
+  <br>
+  <b><%= t('finances.index.device_monthly')%></b>: <%= @device_monthly %>
+  <br>
+<br>
+<h2><%= t('finances.index.totals')%></h2>
+<br>
+  <b><%= t('finances.index.software_total')%></b>: <%= @software_total%>
+  <br>
+  <b><%= t('finances.index.device_total')%></b>: <%= @device_total%>
+  <br>
+  <b><%= t('finances.index.flat_device')%></b>: <%= @device_flat%>
+<br>
+<br>
+<h2><%= t('finances.index.cost')%></h2>
+<br>
+<b><%= t('finances.index.software_cost')%></b>: <%= @software_monthly_cost%>
+<br>
+<b><%= t('finances.index.device_cost')%></b>: <%= @device_flat_cost%>
+<br>
+<b><%= t('finances.index.device_cost_monthly')%></b>: <%= @device_monthly_cost%>
+<br>
+<br>
+<h2><%= t('finances.index.totals') %>:</h2> <%= @total_flat + @total_monthly%>

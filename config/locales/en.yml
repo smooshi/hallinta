@@ -191,3 +191,24 @@ en:
       title: "List of software"
     new:
       title: "New software"
+  finances:
+    index:
+      title: "Finances"
+      monthly: "Monthly income"
+      totals: "Total income"
+      software_monthly: "Software monthly income"
+      device_monthly: "Device monthly income"
+      software_total: "Expected software income total"
+      device_total: "Expected device income total"
+      flat_device: "Device flat income"
+      software_cost: "Total cost of software (BEL)"
+      device_cost: "Cost of devices"
+      device_cost_monthly: "Cost of devices monthly"
+      estimate_for_all: "Estimate for all contracts"
+      cost: "Expenses"
+  restaurant_evaluations:
+    index:
+      title: "List of restaurant evaluations"
+      not_yet: "Restaurants not yet evaluated"
+    new:
+      title: "New restaurant evaluation"
