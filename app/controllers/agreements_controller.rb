@@ -8,6 +8,13 @@ class AgreementsController < ApplicationController
     @agreements = Agreement.all
   end
 
+  def download
+    agreement = Agreement.find(params[:id])
+    send_data agreement.as_file,
+      :filename => "agreement_#{agreement.restaurant.name}.txt",
+      :type => "text/plain"
+  end
+
   def finances
     @active_agreements = Agreement.where("agreement_length = ? OR end_date > ?", 0, Date.today) #saakohan toistaiseksi voimassaolevia laskea näin...
     @software_monthly = SoftwareInAgreement.where(agreement_id: @active_agreements.map(&:id)).sum(:monthly_price)
@@ -20,7 +27,7 @@ class AgreementsController < ApplicationController
       months = ((agr.end_date.year * 12 + agr.end_date.month) - (Date.today.year * 12 + Date.today.month))
       @software_total += months * SoftwareInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
       @device_total += months * DeviceInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
-      @software_monthly_cost += months * SoftwareInAgreement.where(agreement_id: agr.id).map(&:software_id).uniq.map { |sia| Software.where(id: sia).map(&:BEL_price)}.sum.sum
+      @software_monthly_cost += months * SoftwareInAgreement.where(agreement_id: agr.id).map(&:software_id).map { |sia| Software.where(id: sia).map(&:BEL_price)}.sum.sum
     end
 
     @device_flat = DeviceInAgreement.where(:price_is_leasing => false).sum(:total_price)
@@ -35,14 +42,11 @@ class AgreementsController < ApplicationController
   # GET /agreements/1
   # GET /agreements/1.json
   def show
-    @devices_in_this_agreement = DeviceInAgreement.where(:agreement_id => @agreement.id).all
-    @software_in_this_agreement = SoftwareInAgreement.where(:agreement_id =>  @agreement.id).all
-
-    @devices = Device.all
+    @devices = Device.where.not(id: DeviceInAgreement.all.map(&:device_id))
     @device_in_agreement = DeviceInAgreement.new
     @device_in_agreement.agreement_id = @agreement.id
 
-    @software = Software.all
+    @software = Software.where.not(id: SoftwareInAgreement.all.map(&:software_id))
     @software_in_agreement = SoftwareInAgreement.new
     @software_in_agreement.agreement_id = @agreement.id
   end

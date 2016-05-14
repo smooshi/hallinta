@@ -75,7 +75,6 @@ fi:
         responsible_user: "Vastuuhenkilö"
         invoice_period: "Laskutusaika"
         payment_time: "Maksuaika"
-        payment_time: "Maksuaika"
         invoicing_date: "Laskutuspäivä"
         signed_by: "Allekirjoitettu"
       device_type:

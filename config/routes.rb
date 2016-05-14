@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :other_billing_in_agreements
   resources :software_in_agreements
   resources :device_in_agreements
-  resources :agreements
+  resources :agreements do
+    member {get "download"}
+  end
   resources :softwares
   resources :devices
   resources :device_types
@@ -35,6 +37,8 @@ Rails.application.routes.draw do
 
   #finances
   get 'finances' => "agreements#finances"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

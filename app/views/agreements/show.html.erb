@@ -2,6 +2,8 @@
 <%= render 'shared/agreements_container' %>
 <h1><%= t('agreements.show.title')%></h1>
 <br>
+<%= link_to 'Download', download_agreement_path(@agreement) %>
+<br>
 <table>
   <thead>
   <tr>
@@ -49,7 +51,7 @@
   </thead>
 
   <tbody>
-  <% @software_in_this_agreement.each do |software_in_agreement| %>
+  <% @agreement.software_in_agreements.each do |software_in_agreement| %>
       <tr>
         <td><%= link_to software_in_agreement.software.name, software_in_agreement.software %></td>
         <td><%= software_in_agreement.monthly_price %></td>
@@ -75,7 +77,7 @@
   </thead>
 
   <tbody>
-  <% @devices_in_this_agreement.each do |device_in_agreement| %>
+  <% @agreement.device_in_agreements.each do |device_in_agreement| %>
       <tr>
         <td><%= link_to device_in_agreement.device.identifier, device_in_agreement.device %></td>
         <td><%= device_in_agreement.price_is_leasing %></td>

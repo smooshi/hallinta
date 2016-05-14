@@ -14,8 +14,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @customers = Customer.all
-    @restaurants = Restaurant.where.not(id: @customers.map(&:restaurant_id))
+    @restaurants = Restaurant.where.not(id: Customers.all.map(&:restaurant_id))
     @customer = Customer.new
   end
 
