@@ -9,6 +9,7 @@ Hallintajärjestelmä kaverille, tarkoituksena on korvata paisunutta Excel taulu
 
 <h2>Käyttöohje: </h2>
 
+<b>Heroku:</b> http://hallinta1.herokuapp.com/
 <b>HEROKU LOGIN: admin@admin.com / admin1</b>
 
 Kaiken pitäisi olla blokattu ellei ole logannut sisään, vain adminit voi luoda uusia käyttäjiä ja vain adminit voivat poistaa asioita (enimmäkseen, tietty käyttäjä voi poistaa omia arvioitaan ym). Käyttäjäluokka on tehty luentojen sessiontyylillä yhdistettynä bcrypt gemin salasanojen hashaamiseen.
