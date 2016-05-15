@@ -4,7 +4,7 @@ class Company < ActiveRecord::Base
   has_many :restaurants, :dependent => :destroy
   EMAIL_REGEX = /@/
   validates :email, :format => EMAIL_REGEX, :allow_blank => true
-  validates :name, :presence => true, :message => "Names are mandatory."
+  validates :name, :presence => true
   validates :phone_number, :allow_blank => true,
             :numericality => true,
             :length => { :minimum => 10, :maximum => 15 , :message => "You made a bad number. Shame on you."}

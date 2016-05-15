@@ -2,7 +2,7 @@ class ContactPerson < ActiveRecord::Base
   belongs_to :restaurant
   belongs_to :company
 
-  validates :name, :presence => true, :message => "Names are mandatory."
+  validates :name, :presence => true
   EMAIL_REGEX = /@/
   validates :email, :presence => true, :format => EMAIL_REGEX
   validates :phone_number,:presence => true,
