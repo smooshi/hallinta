@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
   validates :password, :confirmation => true #password_confirmation attr
   validates_length_of :password, :in => 6..20, :on => :create
-
+  validates :first_name, :presence => true, :message => "Names are mandatory."
+  validates :last_name, :presence => true, :message => "Names are mandatory."
+  
   before_save :encrypt_password
   after_save :clear_password
 

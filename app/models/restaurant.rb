@@ -6,8 +6,11 @@ class Restaurant < ActiveRecord::Base
   has_many :restaurant_evaluations, :dependent => :destroy
   has_one :customer, :dependent =>  :destroy
 
-  validates :name, presence: true
+  validates :name, :presence => true, :message => "Names are mandatory."
   validates :company_id, presence: true
   EMAIL_REGEX = /@/
-  validates :email, :format => EMAIL_REGEX
+  validates :email, :format => EMAIL_REGEX, :allow_blank => true
+  validates :phone_number, :allow_blank => true,
+            :numericality => true,
+            :length => { :minimum => 10, :maximum => 15 , :message => "You made a bad number. Shame on you."}
 end

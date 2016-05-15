@@ -29,7 +29,7 @@ class RestaurantTypesController < ApplicationController
 
     respond_to do |format|
       if @restaurant_type.save
-        format.html { redirect_to @restaurant_type, notice: 'Restaurant type was successfully created.' }
+        format.html { redirect_to restaurant_types_path, notice: 'Restaurant type was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RestaurantTypesController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant_type.update(restaurant_type_params)
-        format.html { redirect_to @restaurant_type, notice: 'Restaurant type was successfully updated.' }
+        format.html { redirect_to restaurant_types_path, notice: 'Restaurant type was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant_type }
       else
         format.html { render :edit }

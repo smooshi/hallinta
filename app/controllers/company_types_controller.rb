@@ -29,7 +29,7 @@ class CompanyTypesController < ApplicationController
 
     respond_to do |format|
       if @company_type.save
-        format.html { redirect_to @company_type, notice: 'Company type was successfully created.' }
+        format.html { redirect_to company_types_path, notice: 'Company type was successfully created.' }
         format.json { render :show, status: :created, location: @company_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompanyTypesController < ApplicationController
   def update
     respond_to do |format|
       if @company_type.update(company_type_params)
-        format.html { redirect_to @company_type, notice: 'Company type was successfully updated.' }
+        format.html { redirect_to company_types_path, notice: 'Company type was successfully updated.' }
         format.json { render :show, status: :ok, location: @company_type }
       else
         format.html { render :edit }

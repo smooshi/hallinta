@@ -29,7 +29,7 @@ class RestaurantEvaluationTypesController < ApplicationController
 
     respond_to do |format|
       if @restaurant_evaluation_type.save
-        format.html { redirect_to @restaurant_evaluation_type, notice: 'Restaurant evaluation type was successfully created.' }
+        format.html { redirect_to restaurant_evaluation_types_path, notice: 'Restaurant evaluation type was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant_evaluation_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RestaurantEvaluationTypesController < ApplicationController
   def update
     respond_to do |format|
       if @restaurant_evaluation_type.update(restaurant_evaluation_type_params)
-        format.html { redirect_to @restaurant_evaluation_type, notice: 'Restaurant evaluation type was successfully updated.' }
+        format.html { redirect_to restaurant_evaluation_types_path, notice: 'Restaurant evaluation type was successfully updated.' }
         format.json { render :show, status: :ok, location: @restaurant_evaluation_type }
       else
         format.html { render :edit }
