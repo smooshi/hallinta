@@ -8,14 +8,16 @@
     <tr>
       <th><%= t('activerecord.attributes.general.name')%></th>
       <th><%= t('activerecord.attributes.general.description')%></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @restaurant_types.each do |restaurant_type| %>
-      <tr>
-        <td><%= link_to restaurant_type.name, restaurant_type %></td>
+      <tr class="navigationTable" data-id="<%= restaurant_type.id%>" data-target="restaurant_types" data-type="edit">
+        <td><%= restaurant_type.name %></td>
         <td><%= restaurant_type.description %></td>
+        <td><%= link_to t('activerecord.attributes.general.destroy'), restaurant_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
       </tr>
     <% end %>
   </tbody>

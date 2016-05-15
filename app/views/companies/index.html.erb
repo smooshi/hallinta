@@ -2,36 +2,37 @@
 <%= render 'shared/companies_container' %>
 <h1><%= t('companies.index.title')%></h1>
 <br>
-<table>
-  <% @companies.each do |company| %>
-  <thead>
-    <tr>
-      <th><%= t('activerecord.attributes.general.name')%></th>
-      <th> <strong><%= t('activerecord.attributes.company.company_type')%></strong></th>
-      <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
-      <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
-      <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
-      <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
-      <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
-    </tr>
-  </thead>
 
-  <tbody>
+  <table>
+    <% @companies.each do |company| %>
+    <thead>
       <tr>
-        <td><%= link_to company.name, company %></td>
-        <td><%= company.company_type.name %></td>
-        <td><%= company.street_address %></td>
-        <td><%= company.city %></td>
-        <td><%= company.country %></td>
-        <td><%= company.phone_number %></td>
-        <td><%= company.email %></td>
+        <th><%= t('activerecord.attributes.general.name')%></th>
+        <th> <strong><%= t('activerecord.attributes.company.company_type')%></strong></th>
+        <th> <strong><%= t('activerecord.attributes.general.street_address')%></strong></th>
+        <th><strong><%= t('activerecord.attributes.general.city')%></strong></th>
+        <th><strong><%= t('activerecord.attributes.general.country')%></strong></th>
+        <th><strong><%= t('activerecord.attributes.general.phone_number')%></strong></th>
+        <th><strong><%= t('activerecord.attributes.general.email')%></strong></th>
       </tr>
-      <tr>
-        <td colspan="7"><%= render 'restaurant_table', restaurants: Restaurant.where(:company_id => company.id).all %></td>
-      </tr>
-  </tbody>
-  <% end %>
-</table>
+    </thead>
+
+    <tbody>
+        <tr data-id="<%= company.id%>" data-target="companies" class="navigationTable">
+          <td><%= link_to company.name, company %></td>
+          <td><%= company.company_type.name %></td>
+          <td><%= company.street_address %></td>
+          <td><%= company.city %></td>
+          <td><%= company.country %></td>
+          <td><%= company.phone_number %></td>
+          <td><%= company.email %></td>
+        </tr>
+        <tr>
+          <td colspan="7"><%= render 'restaurant_table', restaurants: Restaurant.where(:company_id => company.id).all %></td>
+        </tr>
+    </tbody>
+    <% end %>
+  </table>
 
 <br>
 <%= link_to t('companies.new.title'), new_company_path %>

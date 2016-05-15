@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= render 'shared/companies_container' %>
 <h1><%= t('company_types.index.title')%></h1>
-
+<% cache 'companies_table', skip_digest: true do%>
 <table>
   <thead>
     <tr>
@@ -13,7 +13,7 @@
 
   <tbody>
     <% @company_types.each do |company_type| %>
-      <tr>
+      <tr class="navigationTable" data-target="company_types" data-id="<%= company_type.id%>">
         <td><%= link_to company_type.name, company_type %></td>
         <td><%= company_type.description %></td>
         <td><%= link_to t('activerecord.attributes.general.edit'), edit_company_type_path(company_type) %></td>
@@ -22,7 +22,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%end%>
 <br>
 
 <%= link_to t('company_types.new.title'), new_company_type_path %>

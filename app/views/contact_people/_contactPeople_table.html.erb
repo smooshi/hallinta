@@ -9,18 +9,17 @@
     <th><%= t('activerecord.attributes.general.role')%></th>
     <th><%= t('activerecord.attributes.general.phone_number')%></th>
     <th><%= t('activerecord.attributes.general.email')%></th>
-    <th colspan="2"></th>
+    <th colspan="1"></th>
   </tr>
   </thead>
 
   <tbody>
   <% contact_people.each do |contact_person| %>
-      <tr>
-        <td><%= link_to contact_person.name, contact_person %></td>
+      <tr class="navigationTable" data-type="edit" data-target="contact_people" data-id="<%=contact_person.id%>">
+        <td><%= contact_person.name%></td>
         <td><%= contact_person.role %></td>
         <td><%= contact_person.phone_number %></td>
         <td><%= contact_person.email %></td>
-        <td><%= link_to t('activerecord.attributes.general.edit'), edit_contact_person_path(contact_person) %> </td>
         <%if admin_user %>
         <td><%= link_to t('activerecord.attributes.general.destroy'), contact_person, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
         <% end %>

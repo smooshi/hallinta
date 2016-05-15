@@ -212,7 +212,7 @@ div.content {
     border-top: 1px solid #ccc;
 }
 
-.content tbody tr:nth-child(odd) td {
+.content tr:nth-child(odd) {
     background-color: #eee;
 }
 
@@ -243,4 +243,8 @@ div.content {
 
 .content a:hover {
     cursor: pointer;
+}
+
+.navigationTable:hover td, .navigationTable.active td  {
+    background-color: #bbf;
 }

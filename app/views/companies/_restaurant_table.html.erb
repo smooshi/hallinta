@@ -15,7 +15,7 @@
 
     <tbody>
     <% restaurants.each do |restaurant| %>
-        <tr>
+        <tr class="navigationTable" data-target="restaurants" data-id="<%= restaurant.id%>">
           <td><%= link_to restaurant.name, restaurant %></td>
           <td><%= restaurant.street_address %></td>
           <td><%= restaurant.city %></td>

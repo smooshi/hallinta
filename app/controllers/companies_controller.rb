@@ -1,10 +1,14 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :set_company_types, only: [:show, :edit, :new, :create, :update]
+  before_action :expire_companies_table, only: [:create, :update, :destroy, :index]
+
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.includes(:company_type).all
+    unless fragment_exist?('company_table')
+      @companies = Company.includes(:company_type, :restaurants).all
+    end
   end
 
   # GET /companies/1
@@ -80,4 +84,8 @@ class CompaniesController < ApplicationController
     def company_params
       params.require(:company).permit(:name, :company_type_id, :street_address, :city, :country, :phone_number, :email, :added_by_user, :edited_by_user)
     end
+
+  def expire_companies_table
+    expire_fragment('companies_table')
+  end
 end

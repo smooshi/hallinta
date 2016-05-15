@@ -2,6 +2,7 @@
 <%= render 'shared/agreements_container' %>
 <h1><%= t('agreements.index.title')%></h1>
 <br>
+<% cache 'agreements_table', skip_digest: true do %>
 <table>
   <thead>
     <tr>
@@ -22,7 +23,7 @@
 
   <tbody>
     <% @agreements.each do |agreement| %>
-      <tr>
+      <tr data-id="<%= agreement.id%>" data-target="agreements" class="navigationTable">
         <% if @agreements.present? %>
           <td><%= link_to agreement.restaurant.name, agreement.restaurant %></td>
           <td><%= agreement.user.first_name %> <%= agreement.user.last_name %></td>
@@ -41,5 +42,6 @@
     <% end %>
   </tbody>
 </table>
+<%end%>
 <br>
 <%= link_to t('agreements.new.title'), new_agreement_path %>

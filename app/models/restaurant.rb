@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  belongs_to :company
+  belongs_to :company, touch: true
   belongs_to :restaurant_type
   has_one :agreement, :dependent =>  :restrict_with_exception
   has_many :contact_persons, :dependent =>  :destroy

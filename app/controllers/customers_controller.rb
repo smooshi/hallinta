@@ -1,10 +1,13 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurants, only:[:index, :show, :create]
+  before_action :expire_customers_table, only:[:create, :update, :destroy]
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    unless fragment_exist?('customer_table')
+      @customers = Customer.includes(:restaurant).all
+    end
   end
 
   # GET /customers/1
@@ -79,5 +82,9 @@ class CustomersController < ApplicationController
 
   def set_restaurants
     @restaurants = Restaurant.all
+  end
+
+  def expire_customers_table
+    expire_fragment('customers_table')
   end
 end

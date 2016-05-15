@@ -10,16 +10,20 @@
       <th><%= t('activerecord.attributes.device_type.warranty')%></th>
       <th><%= t('activerecord.attributes.device_type.tot_price')%></th>
       <th><%= t('activerecord.attributes.device_type.leas_price')%></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @device_types.each do |device_type| %>
-      <tr>
-        <td><%= link_to device_type.name, device_type %></td>
+      <tr class="navigationTable" data-type="edit" data-id="<%= device_type.id%>" data-target="device_types">
+        <td><%= device_type.name %></td>
         <td><%= device_type.warranty_length %></td>
         <td><%= device_type.total_price %></td>
         <td><%= device_type.leasing_price_per_month %></td>
+        <% if admin_user%>
+        <td><%= link_to t('activerecord.attributes.general.destroy'), device_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

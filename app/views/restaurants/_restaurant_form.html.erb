@@ -1,3 +1,4 @@
+<% cache 'restaurants_table', skip_digest: true do %>
 <table>
   <thead>
   <tr>
@@ -15,9 +16,9 @@
 
   <tbody>
   <% restaurants.each do |restaurant| %>
-      <tr>
-        <td><%= link_to restaurant.name, restaurant %></td>
-        <td><%= link_to restaurant.company.name, restaurant.company %></td>
+      <tr data-id="<%= restaurant.id %>" data-target="restaurants" class="navigationTable">
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.company.name %></td>
         <td><%= restaurant.street_address %></td>
         <td><%= restaurant.city %></td>
         <td><%= restaurant.country %></td>
@@ -29,3 +30,4 @@
   <% end %>
   </tbody>
 </table>
+<%end%>

@@ -1,11 +1,13 @@
 class AgreementsController < ApplicationController
   before_action :set_agreement, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurants_and_users, only: [:new, :edit, :create]
-
+  before_action :expire_agreements_table, only:[:update, :create, :destroy]
   # GET /agreements
   # GET /agreements.json
   def index
-    @agreements = Agreement.all
+    unless fragment_exist?('agreements_table')
+      @agreements = Agreement.all
+    end
   end
 
   def download
@@ -27,7 +29,9 @@ class AgreementsController < ApplicationController
       months = ((agr.end_date.year * 12 + agr.end_date.month) - (Date.today.year * 12 + Date.today.month))
       @software_total += months * SoftwareInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
       @device_total += months * DeviceInAgreement.where(agreement_id: agr.id).sum(:monthly_price)
-      @software_monthly_cost += months * SoftwareInAgreement.where(agreement_id: agr.id).map(&:software_id).map { |sia| Software.where(id: sia).map(&:BEL_price)}.sum.sum
+      if (SoftwareInAgreement.where(agreement_id: agr.id).present?)
+        @software_monthly_cost += months * SoftwareInAgreement.where(agreement_id: agr.id).map(&:software_id).uniq.map { |sia| Software.where(id: sia).map(&:BEL_price)}.sum.sum
+      end
     end
 
     @device_flat = DeviceInAgreement.where(:price_is_leasing => false).sum(:total_price)
@@ -115,5 +119,9 @@ class AgreementsController < ApplicationController
   def set_restaurants_and_users
     @restaurants = Restaurant.all
     @users = User.all
+  end
+
+  def expire_agreements_table
+    expire_fragment('agreements_table')
   end
 end

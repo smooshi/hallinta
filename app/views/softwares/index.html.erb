@@ -11,19 +11,18 @@
       <th>Bel price</th>
       <th>Price</th>
       <th>Identifier</th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @softwares.each do |software| %>
-      <tr>
+      <tr class="navigationTable" data-type="edit" data-target="softwares" data-id="<%=software.id%>">
         <td><%= link_to software.name, software %></td>
         <td><%= software.addon %></td>
         <td><%= software.BEL_price %></td>
         <td><%= software.price %></td>
         <td><%= software.identifier %></td>
-        <td><%= link_to t('activerecord.attributes.general.edit'), edit_software_path(software) %></td>
         <% if admin_user %>
           <td><%= link_to t('activerecord.attributes.general.destroy'), software, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button"  %></td>
             <% end %>

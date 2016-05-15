@@ -12,7 +12,7 @@
 
   <tbody>
   <% restaurant_evaluations.each do |restaurant_evaluation| %>
-      <tr>
+      <tr class="navigationTable" data-id="<%= restaurant_evaluation.id%>" data-target="restaurant_evaluations">
         <td><%= link_to restaurant_evaluation.restaurant.name, restaurant_evaluation.restaurant %></td>
         <td><%= restaurant_evaluation.restaurant_evaluation_type.name %></td>
         <td><%= restaurant_evaluation.value %></td>

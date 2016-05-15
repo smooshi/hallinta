@@ -1,11 +1,14 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :set_companies_and_types, only: [:show, :edit, :update, :new, :create]
+  before_action :expire_restaurants_table, only: [:create, :update, :destroy]
 
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.includes(:company, :restaurant_type).all
+    unless fragment_exist?('restaurant_table')
+      @restaurants = Restaurant.includes(:company, :restaurant_type).all
+    end
   end
 
   # GET /restaurants/1
@@ -88,4 +91,8 @@ class RestaurantsController < ApplicationController
     def restaurant_params
       params.require(:restaurant).permit(:name, :company_id, :street_address, :city, :country, :phone_number, :email, :server_ip, :restaurant_type_id)
     end
+
+  def expire_restaurants_table
+    expire_fragment('restaurants_table')
+  end
 end

@@ -2,26 +2,27 @@
 <%= render 'shared/customers_container' %>
 <h1><%= t('customers.index.title')%></h1>
 <br>
+<% cache 'customers_table', skip_digest: true do%>
 <table>
   <thead>
     <tr>
       <th><%= t('activerecord.attributes.general.restaurant')%></th>
       <th><%= t('activerecord.attributes.customer.start_date')%></th>
       <th><%= t('activerecord.attributes.customer.end_date')%></th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
   <tbody>
     <% @customers.each do |customer| %>
-      <tr>
+      <tr class="navigationTable" data-type="edit" data-target="customers" data-id="<%=customer.id%>">
         <td><%= link_to customer.restaurant.name, customer.restaurant %></td>
         <td><%= customer.start_date %></td>
         <td><%= customer.end_date %></td>
-        <td><%= link_to t('activerecord.attributes.general.edit'), edit_customer_path(customer, :restaurant_id => customer.restaurant_id) %></td>
         <td><%= link_to t('activerecord.attributes.general.destroy'), customer, method: :delete, data: { confirm: 'Are you sure?' }, :class => "deleteButton button" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+    <%end%>
 <br>
 <%= link_to t('customers.new.title'), new_customer_path %>
