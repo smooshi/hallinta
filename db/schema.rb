@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514173155) do
+ActiveRecord::Schema.define(version: 20160515165202) do
 
   create_table "agreements", force: :cascade do |t|
     t.integer  "restaurant_id"
@@ -73,41 +73,41 @@ ActiveRecord::Schema.define(version: 20160514173155) do
     t.integer  "agreement_id"
     t.integer  "device_id"
     t.boolean  "price_is_leasing"
-    t.integer  "total_price"
-    t.integer  "monthly_price"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.decimal  "total_price",      precision: 15, scale: 3
+    t.decimal  "monthly_price",    precision: 15, scale: 3
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "device_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "warranty_length"
-    t.integer  "total_price"
-    t.integer  "leasing_price_per_month"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.decimal  "total_price",             precision: 15, scale: 3
+    t.decimal  "leasing_price_per_month", precision: 15, scale: 3
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
   create_table "devices", force: :cascade do |t|
     t.integer  "device_type_id"
     t.datetime "purchase_day"
     t.boolean  "is_leased"
-    t.integer  "full_price"
-    t.integer  "leasing_price"
+    t.decimal  "full_price",     precision: 15, scale: 3
+    t.decimal  "leasing_price",  precision: 15, scale: 3
     t.integer  "leasing_length"
     t.string   "identifier"
     t.boolean  "rental_device"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "other_billing_in_agreements", force: :cascade do |t|
     t.integer  "agreement_id"
     t.text     "description"
-    t.integer  "total_price"
-    t.integer  "monthly_price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.decimal  "total_price",   precision: 15, scale: 3
+    t.decimal  "monthly_price", precision: 15, scale: 3
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "restaurant_evaluation_types", force: :cascade do |t|
@@ -158,19 +158,19 @@ ActiveRecord::Schema.define(version: 20160514173155) do
   create_table "software_in_agreements", force: :cascade do |t|
     t.integer  "software_id"
     t.integer  "agreement_id"
-    t.integer  "monthly_price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.decimal  "monthly_price", precision: 15, scale: 3
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "softwares", force: :cascade do |t|
     t.string   "name"
     t.boolean  "addon"
-    t.integer  "BEL_price"
-    t.integer  "price"
+    t.decimal  "BEL_price",  precision: 15, scale: 3
+    t.decimal  "price",      precision: 15, scale: 3
     t.string   "identifier"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|

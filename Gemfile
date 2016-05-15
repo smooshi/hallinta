@@ -14,6 +14,7 @@ group :test do
   gem 'nokogiri'
 end
 
+gem "bower-rails", "~> 0.10.0"
 gem "rails-erd"
 gem 'simplecov', require: false
 gem 'simplecov-badge', :require => false

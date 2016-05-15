@@ -23,11 +23,11 @@
   </div>
   <div class="field">
     <%= f.label :total_price %><br>
-    <%= f.number_field :total_price %>
+    <%= f.number_field :total_price, :step => 0.01 %>
   </div>
   <div class="field">
     <%= f.label :monthly_price %><br>
-    <%= f.number_field :monthly_price %>
+    <%= f.number_field :monthly_price, :step => 0.01 %>
   </div>
   <div class="actions">
     <%= f.submit%>

@@ -26,11 +26,11 @@
   </div>
   <div class="field">
     <%= f.label :full_price %><br>
-    <%= f.number_field :full_price %>
+    <%= f.number_field :full_price, :step => 0.01 %>
   </div>
   <div class="field">
     <%= f.label :leasing_price %><br>
-    <%= f.number_field :leasing_price %>
+    <%= f.number_field :leasing_price, :step => 0.01 %>
   </div>
   <div class="field">
     <%= f.label :leasing_length %><br>
