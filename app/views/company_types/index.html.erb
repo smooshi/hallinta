@@ -7,6 +7,7 @@
     <tr>
       <th><%= t('activerecord.attributes.general.name')%></th>
       <th><%= t('activerecord.attributes.general.description')%></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -15,6 +16,7 @@
       <tr>
         <td><%= link_to company_type.name, company_type %></td>
         <td><%= company_type.description %></td>
+        <td><%= link_to t('activerecord.attributes.general.edit'), edit_company_type_path(company_type) %></td>
       </tr>
     <% end %>
   </tbody>
